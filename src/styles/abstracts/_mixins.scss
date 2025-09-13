@@ -1,0 +1,15 @@
+@use 'variables' as *;
+
+@mixin font-face($name, $src, $weight) {
+    @font-face {
+        font-family: $name;
+        src: url('#{$src}.eot');
+        src:
+            url('#{$src}.eot') format('embedded-opentype'),
+            url('#{$src}.woff2') format('woff2'),
+            url('#{$src}.woff') format('woff');
+        font-weight: $weight;
+        font-style: normal;
+        font-display: swap;
+    }
+}

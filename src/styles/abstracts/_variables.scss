@@ -1,0 +1,37 @@
+// Colors
+$deep-orange: #ff5722;
+$violet-blue: #5d50c6;
+$hot-pink: #f85c9f;
+$golden-yellow: #facd49;
+$charcoal-blue: #191825;
+$white: #ffffff;
+$black: #000000;
+
+//Paths
+$fonts: 'public/assets/fonts';
+$images: 'public/assets/images';
+
+// Fonts
+$primary-font: 'circular-std';
+$secondary-font: 'inter';
+$fallback-font: 'roboto';
+
+$font-weights: (
+    regular: 400,
+    semibold: 500,
+    bold: 700,
+);
+
+$font-variants: (
+    ($primary-font, '/#{$fonts}/#{$primary-font}', semibold),
+    ($primary-font, '/#{$fonts}/#{$primary-font}', bold),
+    ($secondary-font, '/#{$fonts}/#{$secondary-font}', regular),
+    ($fallback-font, '/#{$fonts}/#{$fallback-font}', regular),
+    ($fallback-font, '/#{$fonts}/#{$primary-font}', bold)
+);
+
+//Breakpoints
+$breakpoints: (
+    tab: 102.4rem,
+    desktop: 144rem,
+);

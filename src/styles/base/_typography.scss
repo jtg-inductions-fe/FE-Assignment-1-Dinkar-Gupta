@@ -1,0 +1,38 @@
+@use '../abstracts' as *;
+@use 'sass:list';
+@use 'sass:map';
+
+//creating font variants
+@each $font in $font-variants {
+    $name: list.nth($font, 1);
+    $weight: list.nth($font, 3);
+    $src: list.nth($font, 2) + '/#{$weight}';
+    @include font-face($name, $src, map.get($font-weights, $weight));
+}
+
+//base font style
+body {
+    font-family: $primary-font;
+    font-weight: 700;
+}
+
+//setting up common typography styles
+.content {
+    &__heading {
+        color: $hot-pink;
+        letter-spacing: 1rem;
+        font-size: 5rem;
+        text-transform: uppercase;
+    }
+
+    &__subheading {
+        color: $charcoal-blue;
+    }
+
+    &__description {
+        font-family: $secondary-font;
+        font-weight: 400;
+        color: $charcoal-blue;
+        line-height: 1.12;
+    }
+}
