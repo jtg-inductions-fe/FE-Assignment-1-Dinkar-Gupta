@@ -6,7 +6,6 @@
 
 //creating font variants
 @each $font in abstracts.$font-variants {
-@each $font in abstracts.$font-variants {
     $name: list.nth($font, 1);
     $weight: list.nth($font, 3);
     $src: '#{list.nth($font, 2)}/#{$weight}';
