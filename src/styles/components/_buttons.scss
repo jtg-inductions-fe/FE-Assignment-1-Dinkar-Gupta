@@ -8,20 +8,17 @@
     color: abstracts.$dark-charcoal;
 
     &--primary {
-        @extend .btn;
         background-color: abstracts.$violet-blue;
         color: abstracts.$white;
     }
     &--secondary {
-        @extend .btn;
-        border: 0.1rem solid abstracts.$light-grey;
+        border: abstracts.px-to-rem(16px) solid abstracts.$light-grey;
     }
 
     &--secondary-with-icon {
-        @extend .btn--secondary;
         @include abstracts.flex-container(1, row, center, space-between);
         i {
-            font-size: 1.2rem;
+            font-size: abstracts.px-to-rem(12px);
         }
     }
 }
