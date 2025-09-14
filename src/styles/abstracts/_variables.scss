@@ -10,8 +10,8 @@ $white: #ffffff;
 $black: #000000;
 
 //Paths
-$fonts: 'public/assets/fonts';
-$images: 'public/assets/images';
+$fonts: '/public/assets/fonts';
+$images: '/public/assets/images';
 
 // Fonts
 $primary-font: 'circular-std';
@@ -23,14 +23,14 @@ $font-weights: (
     semibold: 500,
     bold: 700,
 );
-$default-font-size: 1.4rem;
+$default-font-size: 14px;
 
 $font-variants: (
-    ($primary-font, '/#{$fonts}/#{$primary-font}', semibold),
-    ($primary-font, '/#{$fonts}/#{$primary-font}', bold),
-    ($secondary-font, '/#{$fonts}/#{$secondary-font}', regular),
-    ($fallback-font, '/#{$fonts}/#{$fallback-font}', regular),
-    ($fallback-font, '/#{$fonts}/#{$primary-font}', bold)
+    ($primary-font, '#{$fonts}/#{$primary-font}', semibold),
+    ($primary-font, '#{$fonts}/#{$primary-font}', bold),
+    ($secondary-font, '#{$fonts}/#{$secondary-font}', regular),
+    ($fallback-font, '#{$fonts}/#{$fallback-font}', regular),
+    ($fallback-font, '#{$fonts}/#{$primary-font}', bold)
 );
 
 //Breakpoints
@@ -61,7 +61,7 @@ $icons-list: (
 );
 
 //Spacings
-$btn-padding: 16 32;
+$btn-padding: 16px 32px;
 
 //Genenral
 $bd-radius: 30px;

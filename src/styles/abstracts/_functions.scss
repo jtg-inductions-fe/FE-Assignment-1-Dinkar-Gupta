@@ -1,4 +1,6 @@
+@use 'sass:math';
+
 //function to divide px by 10 (for 1rem = 10px) and convert px to rem
-@function px-to-rem($size) {
-    @return $size / 10 + rem;
+@function px-to-rem($px, $base: 16px) {
+    @return math.div($px, $base) * 1rem;
 }

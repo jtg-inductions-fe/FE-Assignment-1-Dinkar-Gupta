@@ -1,15 +1,10 @@
-@use '../abstracts' as *;
+@use '../abstracts' as abstracts;
 
 // Custom CSS-Resets
 *,
 *::before,
 *::after {
     box-sizing: border-box;
-}
-
-//setting 1rem = 10px
-html {
-    font-size: 62.5%;
 }
 
 a {
@@ -63,17 +58,17 @@ fieldset {
 
 //centering and setting all icons white
 i {
-    color: $white;
-    @include flex-container(-1, row, center, center);
+    color: abstracts.$white;
+    @include abstracts.flex-container(-1, row, center, center);
 }
 
 //Generating classes to add background colors removing the need to repeat styles for only changing the background color (like in icons), just add this class to the HTML element
 @each $color,
     $value
         in (
-            hot-pink: $hot-pink,
-            golden-yellow: $golden-yellow,
-            deep-orange: $deep-orange
+            hot-pink: abstracts.$hot-pink,
+            golden-yellow: abstracts.$golden-yellow,
+            deep-orange: abstracts.$deep-orange
         )
 {
     .#{$color} {
@@ -82,18 +77,15 @@ i {
 }
 
 //Containerization
-body {
-    @include flex-container(-1, row, center, center);
-}
-
 .container {
     width: 92.6%;
+    margin: 0 auto;
 
-    @include responsive(tab) {
+    @include abstracts.responsive(tab) {
         width: 87.5%;
     }
 
-    @include responsive(desktop) {
+    @include abstracts.responsive(desktop) {
         width: 82.823%;
     }
 }

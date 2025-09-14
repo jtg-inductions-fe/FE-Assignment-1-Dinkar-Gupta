@@ -1,18 +1,9 @@
-@use '../abstracts' as *;
+@use '../abstracts' as abstracts;
 @use 'sass:list';
 
-@font-face {
-    font-family: 'icomoon';
-    src: url('/#{$fonts}/icomoon/icomoon.eot');
-    src:
-        url('/#{$fonts}/icomoon/icomoon.eot') format('embedded-opentype'),
-        url('/#{$fonts}/icomoon/icomoon.ttf') format('truetype'),
-        url('/#{$fonts}/icomoon/icomoon.woff') format('woff'),
-        url('/#{$fonts}/icomoon/icomoon.svg') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
+$path: #{abstracts.$fonts}/ icomoon/icomoon;
+
+@include abstracts.font-face('icomoon', $path, normal, ('ttf', 'woff', 'svg'));
 
 [class^='icon-'],
 [class*=' icon-'] {
@@ -31,8 +22,8 @@
 }
 
 //Adding icons
-@each $icon in $icons-list {
+@each $icon in abstracts.$icons-list {
     $name: list.nth($icon, 1);
     $content: list.nth($icon, 2);
-    @include icons($name, $content);
+    @include abstracts.icons($name, $content);
 }

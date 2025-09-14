@@ -1,25 +1,25 @@
-@use '../abstracts' as *;
+@use '../abstracts' as abstracts;
 @use 'sass:list';
 
 .btn {
-    border-radius: $bd-radius;
-    padding: px-to-rem(list.nth($btn-padding, 1))
-        px-to-rem(list.nth($btn-padding, 2));
-    color: $dark-charcoal;
+    border-radius: abstracts.$bd-radius;
+    padding: abstracts.px-to-rem(list.nth(abstracts.$btn-padding, 1))
+        abstracts.px-to-rem(list.nth(abstracts.$btn-padding, 2));
+    color: abstracts.$dark-charcoal;
 
     &--primary {
         @extend .btn;
-        background-color: $violet-blue;
-        color: $white;
+        background-color: abstracts.$violet-blue;
+        color: abstracts.$white;
     }
     &--secondary {
         @extend .btn;
-        border: 0.1rem solid $light-grey;
+        border: 0.1rem solid abstracts.$light-grey;
     }
 
     &--secondary-with-icon {
         @extend .btn--secondary;
-        @include flex-container(1, row, center, space-between);
+        @include abstracts.flex-container(1, row, center, space-between);
         i {
             font-size: 1.2rem;
         }

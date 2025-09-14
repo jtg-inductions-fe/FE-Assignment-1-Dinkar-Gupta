@@ -1,48 +1,52 @@
-@use '../abstracts' as *;
+@use '../abstracts' as abstracts;
 @use 'sass:list';
 @use 'sass:map';
 
 //creating font variants
-@each $font in $font-variants {
+@each $font in abstracts.$font-variants {
     $name: list.nth($font, 1);
     $weight: list.nth($font, 3);
     $src: list.nth($font, 2) + '/#{$weight}';
-    @include font-face($name, $src, map.get($font-weights, $weight));
+    @include abstracts.font-face(
+        $name,
+        $src,
+        map.get(abstracts.$font-weights, $weight),
+        ('woff', 'woff2')
+    );
 }
 
 //base font style
 body {
-    font-family: $primary-font, $fallback-font;
+    font-family: abstracts.$primary-font, abstracts.$fallback-font;
     font-weight: 700;
-    font-size: $default-font-size;
+    font-size: abstracts.$default-font-size;
 }
 
 //setting up common typography styles
 .section {
     &__heading {
-        color: $hot-pink;
-        letter-spacing: 0.46rem;
-        font-size: 2.3em;
+        color: abstracts.$hot-pink;
+        letter-spacing: abstracts.px-to-rem(4.6px);
+        font-size: abstracts.px-to-rem(23px);
         text-transform: uppercase;
-        padding-bottom: 0.5rem;
+        padding-bottom: abstracts.px-to-rem(5px);
     }
 
     &__subheading {
-        color: $charcoal-blue;
-        font-size: 4.4rem;
-        padding-bottom: 0.5rem;
+        color: abstracts.$charcoal-blue;
+        font-size: abstracts.px-to-rem(44px);
+        padding-bottom: abstracts.px-to-rem(5px);
 
         &--highlight {
-            @extend .section__subheading;
-            color: $hot-pink;
+            color: abstracts.$hot-pink;
         }
     }
 
     &__description {
-        font-family: $secondary-font;
+        font-family: abstracts.$secondary-font;
         font-weight: 400;
-        font-size: 1.8rem;
-        color: $charcoal-blue;
+        font-size: px-to-rem(18px);
+        color: abstracts.$charcoal-blue;
         line-height: 1.6;
     }
 }
