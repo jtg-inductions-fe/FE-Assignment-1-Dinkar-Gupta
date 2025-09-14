@@ -1,5 +1,6 @@
-// CSS-Resets
+@use '../abstracts' as *;
 
+// Custom CSS-Resets
 *,
 *::before,
 *::after {
@@ -58,4 +59,41 @@ fieldset {
     border-width: 0;
     padding: 0;
     margin: 0;
+}
+
+//centering and setting all icons white
+i {
+    color: $white;
+    @include flex-container(-1, row, center, center);
+}
+
+//Generating classes to add background colors removing the need to repeat styles for only changing the background color (like in icons), just add this class to the HTML element
+@each $color,
+    $value
+        in (
+            hot-pink: $hot-pink,
+            golden-yellow: $golden-yellow,
+            deep-orange: $deep-orange
+        )
+{
+    .#{$color} {
+        background-color: $value;
+    }
+}
+
+//Containerization
+body {
+    @include flex-container(-1, -1, center, center);
+}
+
+.container {
+    width: 92.6%;
+
+    @include responsive(tab) {
+        width: 87.5%;
+    }
+
+    @include responsive(desktop) {
+        width: 82.823%;
+    }
 }

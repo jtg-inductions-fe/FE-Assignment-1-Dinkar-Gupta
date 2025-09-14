@@ -4,6 +4,8 @@ $violet-blue: #5d50c6;
 $hot-pink: #f85c9f;
 $golden-yellow: #facd49;
 $charcoal-blue: #191825;
+$dark-charcoal: #222831;
+$light-grey: #eeeeee;
 $white: #ffffff;
 $black: #000000;
 
@@ -21,6 +23,7 @@ $font-weights: (
     semibold: 500,
     bold: 700,
 );
+$default-font-size: 1.4rem;
 
 $font-variants: (
     ($primary-font, '/#{$fonts}/#{$primary-font}', semibold),
@@ -32,6 +35,34 @@ $font-variants: (
 
 //Breakpoints
 $breakpoints: (
-    tab: 102.4rem,
-    desktop: 144rem,
+    tab: 1024px,
+    desktop: 1440px,
 );
+
+//Icons
+$icons-list: (
+    (calendar, '\e902'),
+    (date, '\e902'),
+    (schedule, '\e902'),
+    (ticket, '\e906'),
+    (briefcase, '\e903'),
+    (envelope, '\e907'),
+    (ticket1, '\e904'),
+    (location, '\e905'),
+    (close, '\e901'),
+    (menu, '\e900'),
+    (star-full, '\e9d9'),
+    (play3, '\ea1c'),
+    (arrow-left-2, '\ea40'),
+    (arrow-right-2, '\ea3c'),
+    (facebook, '\ea90'),
+    (instagram, '\ea92'),
+    (twitter, '\ea96')
+);
+
+//Spacings
+$btn-padding: 16 32;
+
+//Genenral
+$bd-radius: 30px;
+$bd-radius-circle: 50%;

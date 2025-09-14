@@ -1,5 +1,7 @@
 @use 'variables' as *;
+@use 'sass:map';
 
+//Mixin for @font-face
 @mixin font-face($name, $src, $weight) {
     @font-face {
         font-family: $name;
@@ -11,5 +13,42 @@
         font-weight: $weight;
         font-style: normal;
         font-display: swap;
+    }
+}
+
+//Mixin for adding icons in _icomoon.scss
+@mixin icons($name, $content) {
+    .icon-#{$name}:before {
+        content: $content;
+    }
+}
+
+//Mixin for flex container
+@mixin flex-container($gap, $direction, $align, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    @if ($gap != -1) {
+        gap: $gap + rem;
+    }
+    align-items: $align;
+    justify-content: $justify;
+}
+
+//Mixin for adding icons in page
+@mixin icon-styles($font-size, $bg-color, $bd-radius, $padding) {
+    font-size: $font-size;
+    @if ($bg-color != -1) {
+        background-color: $bg-color;
+    }
+    border-radius: $bd-radius;
+    padding: $padding;
+}
+
+//Mixin for media queries
+@mixin responsive($screen) {
+    @if map-has-key($map: $breakpoints, $key: $screen) {
+        @media (min-width: map.get($breakpoints, $screen)) {
+            @content;
+        }
     }
 }

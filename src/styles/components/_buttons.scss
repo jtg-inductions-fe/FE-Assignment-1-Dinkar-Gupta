@@ -1,0 +1,27 @@
+@use '../abstracts' as *;
+@use 'sass:list';
+
+.btn {
+    border-radius: $bd-radius;
+    padding: px-to-rem(list.nth($btn-padding, 1))
+        px-to-rem(list.nth($btn-padding, 2));
+    color: $dark-charcoal;
+
+    &--primary {
+        @extend .btn;
+        background-color: $violet-blue;
+        color: $white;
+    }
+    &--secondary {
+        @extend .btn;
+        border: 0.1rem solid $light-grey;
+    }
+
+    &--secondary-with-icon {
+        @extend .btn--secondary;
+        @include flex-container(1, row, center, space-between);
+        i {
+            font-size: 1.2rem;
+        }
+    }
+}

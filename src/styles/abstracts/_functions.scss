@@ -1,0 +1,4 @@
+//function to divide px by 10 (for 1rem = 10px) and convert px to rem
+@function px-to-rem($size) {
+    @return $size / 10 + rem;
+}

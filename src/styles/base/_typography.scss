@@ -12,27 +12,37 @@
 
 //base font style
 body {
-    font-family: $primary-font;
+    font-family: $primary-font, $fallback-font;
     font-weight: 700;
+    font-size: $default-font-size;
 }
 
 //setting up common typography styles
-.content {
+.section {
     &__heading {
         color: $hot-pink;
-        letter-spacing: 1rem;
-        font-size: 5rem;
+        letter-spacing: 0.46rem;
+        font-size: 2.3em;
         text-transform: uppercase;
+        padding-bottom: 0.5rem;
     }
 
     &__subheading {
         color: $charcoal-blue;
+        font-size: 4.4rem;
+        padding-bottom: 0.5rem;
+
+        &--highlight {
+            @extend .section__subheading;
+            color: $hot-pink;
+        }
     }
 
     &__description {
         font-family: $secondary-font;
         font-weight: 400;
+        font-size: 1.8rem;
         color: $charcoal-blue;
-        line-height: 1.12;
+        line-height: 1.6;
     }
 }
