@@ -1,9 +1,11 @@
 @use '../abstracts' as abstracts;
+@use '../abstracts' as abstracts;
 @use 'sass:list';
 @use 'sass:map';
 @use 'sass:color';
 
 //creating font variants
+@each $font in abstracts.$font-variants {
 @each $font in abstracts.$font-variants {
     $name: list.nth($font, 1);
     $weight: list.nth($font, 3);
@@ -28,7 +30,7 @@ body {
         Arial,
         sans-serif;
     font-weight: 700;
-    font-size: $default-font-size;
+    font-size: abstracts.$default-font-size;
 }
 
 //setting up common typography styles
