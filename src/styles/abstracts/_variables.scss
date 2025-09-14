@@ -8,6 +8,8 @@ $golden-yellow: #facd49;
 $charcoal-blue: #191825;
 $dark-charcoal: #222831;
 $light-grey: #eeeeee;
+$dark-charcoal: #222831;
+$light-grey: #eeeeee;
 $white: #ffffff;
 $black: #000000;
 
@@ -31,6 +33,7 @@ $font-weights: (
     semibold: 500,
     bold: 700,
 );
+$default-font-size: 1.4rem;
 
 $font-variants: (
     ($primary-font, '#{$fonts}/#{$primary-font}', semibold),
