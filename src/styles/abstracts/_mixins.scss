@@ -1,8 +1,16 @@
 @use 'variables' as variables;
+@use 'functions' as functions;
 @use 'sass:map';
 @use 'sass:list';
 
-//Mixin for @font-face
+/// @mixin font-face
+/// Generates a `@font-face` rule with optional font formats.
+///
+/// @param {String} $name - Font family name.
+/// @param {String} $src - Path to the font file (without extension).
+/// @param {Number|String} $weight - Font weight (e.g., 400, 'bold').
+/// @param {List} $formats - List of formats to include (e.g., ('woff', 'woff2')).
+/// @content Optional additional declarations inside the @font-face block.
 @mixin font-face($name, $src, $weight, $formats) {
     @font-face {
         font-family: $name;
@@ -34,25 +42,41 @@
     }
 }
 
-//Mixin for adding icons in _icomoon.scss
+/// @mixin icons
+/// Creates a pseudo-element for an icon with the given content value.
+///
+/// @param {String} $name - Icon name to be appended in `.icon-#{$name}`.
+/// @param {String} $content - Unicode character for the icon.
 @mixin icons($name, $content) {
     .icon-#{$name}:before {
         content: $content;
     }
 }
 
-//Mixin for flex container
+/// @mixin flex-container
+/// Generates a flex container with direction, alignment, justification, and optional gap.
+///
+/// @param {Number | -1} $gap - Gap between items; pass -1 to skip gap.
+/// @param {String} $direction - Flex direction (e.g., `row`, `column`).
+/// @param {String} $align - Align items (e.g., `center`, `flex-start`).
+/// @param {String} $justify - Justify content (e.g., `space-between`, `center`).
 @mixin flex-container($gap, $direction, $align, $justify) {
     display: flex;
     flex-direction: $direction;
     @if ($gap != -1) {
-        gap: $gap * 1rem;
+        gap: $gap;
     }
     align-items: $align;
     justify-content: $justify;
 }
 
-//Mixin for adding icons in page
+/// @mixin icon-styles
+/// Applies icon styles with optional background, font size, and padding.
+///
+/// @param {Number} $font-size - Font size for the icon.
+/// @param {Color | -1} $bg-color - Background color; pass -1 to skip.
+/// @param {Number} $bd-radius - Border radius.
+/// @param {Number} $padding - Padding around the icon.
 @mixin icon-styles($font-size, $bg-color, $bd-radius, $padding) {
     font-size: $font-size;
     @if ($bg-color != -1) {
@@ -62,11 +86,40 @@
     padding: $padding;
 }
 
-//Mixin for media queries
+/// @mixin responsive
+/// Wraps content inside a media query based on a named breakpoint.
+///
+/// @param {String} $screen - Breakpoint name defined in `$breakpoints` map.
+/// @content Styles to include inside the media query.
 @mixin responsive($screen) {
     @if map.has-key(variables.$breakpoints, $screen) {
         @media (min-width: map.get(variables.$breakpoints, $screen)) {
             @content;
         }
+    }
+}
+
+/// @mixin padding
+/// Applies responsive padding using a list of pixel values (converted to rem).
+///
+/// @param {List} $padding-list - List of 1, 2, or 4 padding values:
+///   - 1 value: all sides
+///   - 2 values: top-bottom, left-right
+///   - 4 values: top, right, bottom, left
+@mixin padding($padding-list) {
+    @if (list.length($padding-list) == 4) {
+        padding: functions.px-to-rem(list.nth($padding-list, 1))
+            // top
+            functions.px-to-rem(list.nth($padding-list, 2))
+            // right
+            functions.px-to-rem(list.nth($padding-list, 3))
+            // bottom
+            functions.px-to-rem(list.nth($padding-list, 4)); // left
+    } @else if (list.length($padding-list) == 2) {
+        padding: functions.px-to-rem(list.nth($padding-list, 1))
+            // top-bottom
+            functions.px-to-rem(list.nth($padding-list, 2)); // left-right
+    } @else {
+        padding: functions.px-to-rem(list.nth($padding-list, 1)); // all sides
     }
 }
