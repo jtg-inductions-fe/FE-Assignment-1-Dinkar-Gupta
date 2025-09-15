@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // Colors
 $deep-orange: #ff5722;
 $violet-blue: #5d50c6;
@@ -8,6 +10,12 @@ $dark-charcoal: #222831;
 $light-grey: #eeeeee;
 $white: #ffffff;
 $black: #000000;
+
+$brand-colors: (
+    hot-pink: $hot-pink,
+    golden-yellow: $golden-yellow,
+    deep-orange: $deep-orange,
+);
 
 //Paths
 $fonts: '/public/assets/fonts';
