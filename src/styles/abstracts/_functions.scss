@@ -1,6 +1,10 @@
 @use 'sass:math';
 
-//function to divide px by 10 (for 1rem = 10px) and convert px to rem
+//  Converts a pixel value to rem units.
+
+//  @param {Number} $px - The pixel value to convert.
+//  @param {Number} [$base=16px] - Base font size in pixels, defaults to 16px.
+//  @return {Number} Rem value.
 @function px-to-rem($px, $base: 16px) {
     @return math.div($px, $base) * 1rem;
 }
