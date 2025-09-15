@@ -39,6 +39,7 @@ body {
         text-transform: uppercase;
         padding-bottom: abstracts.px-to-rem(5px);
         font-weight: 700;
+        line-height: 1.2;
     }
 
     &__subheading {
@@ -46,6 +47,7 @@ body {
         font-size: abstracts.px-to-rem(44px);
         padding-bottom: abstracts.px-to-rem(5px);
         font-weight: 700;
+        line-height: 1.2;
     }
 
     &__description {

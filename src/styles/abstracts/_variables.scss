@@ -38,7 +38,7 @@ $font-variants: (
     ($primary-font, '#{$fonts}/#{$primary-font}', bold),
     ($secondary-font, '#{$fonts}/#{$secondary-font}', regular),
     ($fallback-font, '#{$fonts}/#{$fallback-font}', regular),
-    ($fallback-font, '#{$fonts}/#{$primary-font}', bold)
+    ($fallback-font, '#{$fonts}/#{$fallback-font}', bold)
 );
 
 //Breakpoints
