@@ -42,17 +42,6 @@
     }
 }
 
-/// @mixin icons
-/// Creates a pseudo-element for an icon with the given content value.
-///
-/// @param {String} $name - Icon name to be appended in `.icon-#{$name}`.
-/// @param {String} $content - Unicode character for the icon.
-@mixin icons($name, $content) {
-    .icon-#{$name}:before {
-        content: $content;
-    }
-}
-
 /// @mixin flexContainer
 /// Generates a flex container with direction, alignment, justification, and optional gap.
 ///
@@ -68,22 +57,6 @@
     }
     align-items: $align;
     justify-content: $justify;
-}
-
-/// @mixin iconStyles
-/// Applies icon styles with optional background, font size, and padding.
-///
-/// @param {Number} $font-size - Font size for the icon.
-/// @param {Color | -1} $bg-color - Background color; pass -1 to skip.
-/// @param {Number} $bd-radius - Border radius.
-/// @param {Number} $padding - Padding around the icon.
-@mixin iconStyles($font-size, $bg-color, $bd-radius, $padding) {
-    font-size: $font-size;
-    @if ($bg-color != -1) {
-        background-color: $bg-color;
-    }
-    border-radius: $bd-radius;
-    padding: $padding;
 }
 
 /// @mixin responsive
@@ -124,6 +97,14 @@
     }
 }
 
+/// @mixin setTypography
+/// Sets typography styles for a specific HTML tag.
+/// @param {String} $tag - The HTML tag selector (e.g., `h1`, `p`, `.title`).
+/// @param {Number} $size - Font size in pixels (will be converted to `rem` using a utility function).
+/// @param {Color} $color - Text color value (e.g., `#000`, `$primary-color`).
+/// @param {Number | String} $line-height - The line height for the text.
+///
+/// @content Allows additional styles to be passed inside the mixin block.
 @mixin setTypography($tag, $size, $color, $line-height) {
     #{$tag} {
         font-size: functions.pxToRem($size);

@@ -59,7 +59,6 @@ fieldset {
 //centering and setting all icons white
 .icon [class^='icon-'],
 [class*='icon-'] {
-    color: abstracts.$white;
     @include abstracts.flexContainer(-1, row, center, center);
 }
 

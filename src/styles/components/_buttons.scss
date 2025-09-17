@@ -15,12 +15,4 @@
     &--secondary {
         border: abstracts.pxToRem(1px) solid abstracts.$light-grey;
     }
-
-    &--secondary-with-icon {
-        .icon [class^='icon-'],
-        [class*='icon-'] {
-            font-size: abstracts.pxToRem(12px);
-        }
-        border: abstracts.pxToRem(1px) solid abstracts.$light-grey;
-    }
 }
