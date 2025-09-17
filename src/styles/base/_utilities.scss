@@ -11,10 +11,12 @@
     }
 }
 
+//hides an element
 .hidden {
     display: none;
 }
 
+//creates overlay over content and restricts scrolling
 .overlay {
     position: fixed;
     inset: 0;

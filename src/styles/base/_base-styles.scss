@@ -66,12 +66,6 @@ body {
     min-height: 100vh;
 }
 
-//centering and setting all icons white
-.icon [class^='icon-'],
-[class*='icon-'] {
-    @include abstracts.flexContainer(-1, row, center, center);
-}
-
 //Containerization
 .container {
     max-width: 398px;
