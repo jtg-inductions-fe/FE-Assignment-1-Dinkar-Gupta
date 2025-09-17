@@ -26,6 +26,53 @@
         />
     </head>
     <body>
+        <!-- Header Section -->
+
+        <header class="header">
+            <div class="header__logo">
+                <a href="#home" aria-label="Logo and goes to home if clicked">
+                    <img src="assets/logo.svg" />
+                </a>
+            </div>
+            <nav class="header__nav">
+                <ul
+                    class="header__nav-links"
+                    aria-hidden="true"
+                    inert
+                    id="main-menu"
+                >
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#discover">Discover</a></li>
+                    <li><a href="#deals">Special Deals</a></li>
+                    <li><a href="#contacts">Contact</a></li>
+                    <li class="slider-cta"><button>Log In</button></li>
+                    <li class="slider-cta slider-cta__signup">
+                        <button>Sign Up</button>
+                    </li>
+                </ul>
+            </nav>
+
+            <button
+                class="header__menu"
+                aria-label="Toggle menu"
+                aria-controls="main-menu"
+                aria-expanded="false"
+            >
+                <i
+                    class="icon-menu icon--primary header__menu-icon"
+                    aria-label="Open navigation menu"
+                ></i>
+                <i
+                    class="icon-close icon--primary header__menu-icon hidden"
+                    aria-label="Close navigation menu"
+                ></i>
+            </button>
+            <div class="header__cta" aria-label="Authorization buttons">
+                <button class="btn">Log In</button>
+                <button class="btn btn--primary">Sign Up</button>
+            </div>
+        </header>
+
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

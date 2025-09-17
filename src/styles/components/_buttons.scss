@@ -6,13 +6,21 @@
     padding: abstracts.pxToRem(list.nth(abstracts.$btn-padding, 1))
         abstracts.pxToRem(list.nth(abstracts.$btn-padding, 2));
     color: abstracts.$dark-charcoal;
-    @include abstracts.flexContainer(1, row, center, space-between);
+    @include abstracts.flex-container(-1, row, center, space-between);
 
     &--primary {
         background-color: abstracts.$violet-blue;
         color: abstracts.$white;
     }
     &--secondary {
-        border: abstracts.pxToRem(1px) solid abstracts.$light-grey;
+        border: abstracts.px-to-rem(1px) solid abstracts.$light-grey;
+    }
+
+    &--secondary-with-icon {
+        border: abstracts.px-to-rem(1px) solid abstracts.$light-grey;
+        .icon [class^='icon-'],
+        [class*='icon-'] {
+            font-size: abstracts.px-to-rem(12px);
+        }
     }
 }
