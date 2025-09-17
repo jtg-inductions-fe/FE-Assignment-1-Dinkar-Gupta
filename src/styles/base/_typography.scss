@@ -1,0 +1,51 @@
+@use '../abstracts' as abstracts;
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:color';
+
+//creating font variants
+@each $font in abstracts.$font-variants {
+    $name: list.nth($font, 1);
+    $weight: list.nth($font, 3);
+    $src: '#{list.nth($font, 2)}/#{$weight}';
+    @include abstracts.fontFace(
+        $name,
+        $src,
+        map.get(abstracts.$font-weights, $weight),
+        ('woff2', 'woff')
+    );
+}
+
+//base font style
+body {
+    font-family:
+        abstracts.$primary-font,
+        abstracts.$fallback-font,
+        system-ui,
+        -apple-system,
+        'Segoe UI',
+        Helvetica,
+        Arial,
+        sans-serif;
+    font-weight: 700;
+}
+
+//setting up common typography styles
+
+@include abstracts.setTypography(h1, 69px, abstracts.$black, 1.2);
+@include abstracts.setTypography(h2, 23px, abstracts.$hot-pink, 1.2) {
+    letter-spacing: abstracts.pxToRem(4.6px);
+    text-transform: uppercase;
+}
+@include abstracts.setTypography(h3, 55px, abstracts.$charcoal-blue, 1.2);
+@include abstracts.setTypography(h4, 44px, abstracts.$charcoal-blue, 1.2);
+@include abstracts.setTypography(h5, 28px, abstracts.$charcoal-blue, 1.2);
+@include abstracts.setTypography(
+    h6,
+    18px,
+    color.adjust(abstracts.$charcoal-blue, $alpha: -0.5),
+    1.6
+) {
+    font-family: abstracts.$secondary-font;
+    font-weight: 400;
+}
