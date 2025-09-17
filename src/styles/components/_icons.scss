@@ -2,7 +2,7 @@
 
 //icons with violet backgrounds
 .icon--primary {
-    @include abstracts.icon-styles(
+    @include abstracts.iconStyles(
         22px,
         abstracts.$violet-blue,
         abstracts.$bd-radius-circle,
@@ -12,7 +12,7 @@
 
 //icons for key-features
 .key-features__icon {
-    @include abstracts.icon-styles(22px, -1, 20px, 1.5rem);
+    @include abstracts.iconStyles(22px, -1, 20px, 1.5rem);
 }
 
 .social-icons {

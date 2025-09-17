@@ -3,7 +3,7 @@
 @use 'sass:map';
 @use 'sass:list';
 
-/// @mixin font-face
+/// @mixin fontFace
 /// Generates a `@font-face` rule with optional font formats.
 ///
 /// @param {String} $name - Font family name.
@@ -11,7 +11,7 @@
 /// @param {Number|String} $weight - Font weight (e.g., 400, 'bold').
 /// @param {List} $formats - List of formats to include (e.g., ('woff', 'woff2')).
 /// @content Optional additional declarations inside the @font-face block.
-@mixin font-face($name, $src, $weight, $formats) {
+@mixin fontFace($name, $src, $weight, $formats) {
     @font-face {
         font-family: $name;
         src: url('#{$src}.eot');
@@ -53,14 +53,14 @@
     }
 }
 
-/// @mixin flex-container
+/// @mixin flexContainer
 /// Generates a flex container with direction, alignment, justification, and optional gap.
 ///
 /// @param {Number | -1} $gap - Gap between items; pass -1 to skip gap.
 /// @param {String} $direction - Flex direction (e.g., `row`, `column`).
 /// @param {String} $align - Align items (e.g., `center`, `flex-start`).
 /// @param {String} $justify - Justify content (e.g., `space-between`, `center`).
-@mixin flex-container($gap, $direction, $align, $justify) {
+@mixin flexContainer($gap, $direction, $align, $justify) {
     display: flex;
     flex-direction: $direction;
     @if ($gap != -1) {
@@ -70,14 +70,14 @@
     justify-content: $justify;
 }
 
-/// @mixin icon-styles
+/// @mixin iconStyles
 /// Applies icon styles with optional background, font size, and padding.
 ///
 /// @param {Number} $font-size - Font size for the icon.
 /// @param {Color | -1} $bg-color - Background color; pass -1 to skip.
 /// @param {Number} $bd-radius - Border radius.
 /// @param {Number} $padding - Padding around the icon.
-@mixin icon-styles($font-size, $bg-color, $bd-radius, $padding) {
+@mixin iconStyles($font-size, $bg-color, $bd-radius, $padding) {
     font-size: $font-size;
     @if ($bg-color != -1) {
         background-color: $bg-color;
@@ -108,18 +108,27 @@
 ///   - 4 values: top, right, bottom, left
 @mixin padding($padding-list) {
     @if (list.length($padding-list) == 4) {
-        padding: functions.px-to-rem(list.nth($padding-list, 1))
+        padding: functions.pxToRem(list.nth($padding-list, 1))
             // top
-            functions.px-to-rem(list.nth($padding-list, 2))
+            functions.pxToRem(list.nth($padding-list, 2))
             // right
-            functions.px-to-rem(list.nth($padding-list, 3))
+            functions.pxToRem(list.nth($padding-list, 3))
             // bottom
-            functions.px-to-rem(list.nth($padding-list, 4)); // left
+            functions.pxToRem(list.nth($padding-list, 4)); // left
     } @else if (list.length($padding-list) == 2) {
-        padding: functions.px-to-rem(list.nth($padding-list, 1))
+        padding: functions.pxToRem(list.nth($padding-list, 1))
             // top-bottom
-            functions.px-to-rem(list.nth($padding-list, 2)); // left-right
+            functions.pxToRem(list.nth($padding-list, 2)); // left-right
     } @else {
-        padding: functions.px-to-rem(list.nth($padding-list, 1)); // all sides
+        padding: functions.pxToRem(list.nth($padding-list, 1)); // all sides
+    }
+}
+
+@mixin setTypography($tag, $size, $color, $line-height) {
+    #{$tag} {
+        font-size: functions.pxToRem($size);
+        color: $color;
+        line-height: $line-height;
+        @content;
     }
 }

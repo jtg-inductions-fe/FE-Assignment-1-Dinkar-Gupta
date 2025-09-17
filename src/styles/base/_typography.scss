@@ -1,13 +1,14 @@
 @use '../abstracts' as abstracts;
 @use 'sass:list';
 @use 'sass:map';
+@use 'sass:color';
 
 //creating font variants
 @each $font in abstracts.$font-variants {
     $name: list.nth($font, 1);
     $weight: list.nth($font, 3);
     $src: '#{list.nth($font, 2)}/#{$weight}';
-    @include abstracts.font-face(
+    @include abstracts.fontFace(
         $name,
         $src,
         map.get(abstracts.$font-weights, $weight),
@@ -23,38 +24,28 @@ body {
         system-ui,
         -apple-system,
         'Segoe UI',
-        Roboto,
         Helvetica,
         Arial,
         sans-serif;
-    font-size: abstracts.$default-font-size;
+    font-weight: 700;
 }
 
 //setting up common typography styles
-.section {
-    &__heading {
-        color: abstracts.$hot-pink;
-        letter-spacing: abstracts.px-to-rem(4.6px);
-        font-size: abstracts.px-to-rem(23px);
-        text-transform: uppercase;
-        padding-bottom: abstracts.px-to-rem(5px);
-        font-weight: 700;
-        line-height: 1.2;
-    }
 
-    &__subheading {
-        color: abstracts.$charcoal-blue;
-        font-size: abstracts.px-to-rem(44px);
-        padding-bottom: abstracts.px-to-rem(5px);
-        font-weight: 700;
-        line-height: 1.2;
-    }
-
-    &__description {
-        font-family: abstracts.$secondary-font;
-        font-weight: 400;
-        font-size: abstracts.px-to-rem(18px);
-        color: abstracts.$charcoal-blue;
-        line-height: 1.6;
-    }
+@include abstracts.setTypography(h1, 69px, abstracts.$black, 1.2);
+@include abstracts.setTypography(h2, 23px, abstracts.$hot-pink, 1.2) {
+    letter-spacing: abstracts.pxToRem(4.6px);
+    text-transform: uppercase;
+}
+@include abstracts.setTypography(h3, 55px, abstracts.$charcoal-blue, 1.2);
+@include abstracts.setTypography(h4, 44px, abstracts.$charcoal-blue, 1.2);
+@include abstracts.setTypography(h5, 28px, abstracts.$charcoal-blue, 1.2);
+@include abstracts.setTypography(
+    h6,
+    18px,
+    color.adjust(abstracts.$charcoal-blue, $alpha: -0.5),
+    1.6
+) {
+    font-family: abstracts.$secondary-font;
+    font-weight: 400;
 }

@@ -3,7 +3,7 @@
 
 $path: #{abstracts.$fonts}/ icomoon/icomoon;
 
-@include abstracts.font-face('icomoon', $path, normal, ('ttf', 'woff', 'svg'));
+@include abstracts.fontFace('icomoon', $path, normal, ('ttf', 'woff', 'svg'));
 
 [class^='icon-'],
 [class*=' icon-'] {
