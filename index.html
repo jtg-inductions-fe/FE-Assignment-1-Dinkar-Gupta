@@ -26,8 +26,6 @@
         />
     </head>
     <body>
-        <!-- Header Section -->
-
         <header class="header">
             <div class="header__logo">
                 <a href="#home" aria-label="Logo and goes to home if clicked">
@@ -35,12 +33,7 @@
                 </a>
             </div>
             <nav class="header__nav">
-                <ul
-                    class="header__nav-links"
-                    aria-hidden="true"
-                    inert
-                    id="main-menu"
-                >
+                <ul class="header__nav-links" inert id="main-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#discover">Discover</a></li>
                     <li><a href="#deals">Special Deals</a></li>
@@ -58,14 +51,16 @@
                 aria-controls="main-menu"
                 aria-expanded="false"
             >
-                <i
-                    class="icon-menu icon--primary header__menu-icon"
+                <span
+                    class="icon-menu2 header__menu-icon"
                     aria-label="Open navigation menu"
-                ></i>
-                <i
-                    class="icon-close icon--primary header__menu-icon hidden"
+                    aria-hidden="true"
+                ></span>
+                <span
+                    class="icon-close header__menu-icon hidden"
                     aria-label="Close navigation menu"
-                ></i>
+                    aria-hidden="true"
+                ></span>
             </button>
             <div class="header__cta" aria-label="Authorization buttons">
                 <button class="btn">Log In</button>

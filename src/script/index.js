@@ -25,7 +25,7 @@ const navMenu = document.querySelector('.header__menu');
  * Menu icon element.
  * @type {HTMLElement}
  */
-const menuIcon = document.querySelector('.icon-menu');
+const menuIcon = document.querySelector('.icon-menu2');
 
 /**
  * Close icon element.
@@ -84,15 +84,6 @@ const trapFocus = () => {
 };
 
 /**
- * Removes accessibility blockers on nav drawer
- * such as `aria-hidden` and `inert` attributes.
- */
-const removeAccessibilityBlockers = () => {
-    navDrawer.removeAttribute('aria-hidden');
-    navDrawer.removeAttribute('inert');
-};
-
-/**
  * Opens the navigation drawer, sets up overlay and traps focus.
  */
 const openDrawer = () => {
@@ -100,7 +91,8 @@ const openDrawer = () => {
         'afterbegin',
         '<div class="overlay"></div>',
     );
-    removeAccessibilityBlockers();
+    navDrawer.removeAttribute('inert');
+
     trapFocus();
     const overlay = document.body.querySelector('.overlay');
     overlay.addEventListener('click', () => {
@@ -124,7 +116,7 @@ const toggleDrawer = () => {
 function closeDrawer() {
     const overlay = document.body.querySelector('.overlay');
     if (overlay) overlay.remove();
-    navDrawer.setAttribute('aria-hidden', 'true');
+    // navDrawer.setAttribute('aria-hidden', 'true');
     navDrawer.setAttribute('inert', '');
     if (handler) {
         header.removeEventListener('keydown', handler);
@@ -134,13 +126,21 @@ function closeDrawer() {
 
 // On desktop, remove accessibility blockers by default.
 if (isDesktop()) {
-    removeAccessibilityBlockers();
+    navDrawer.removeAttribute('inert');
 }
 
 // Remove accessibility blockers on resize to desktop.
 window.addEventListener('resize', () => {
     if (isDesktop()) {
-        removeAccessibilityBlockers();
+        navDrawer.removeAttribute('inert');
+    }
+});
+
+//close drawer if a link is clicked
+navDrawer.addEventListener('click', (e) => {
+    if (e.target.closest('li')) {
+        toggle();
+        closeDrawer();
     }
 });
 
