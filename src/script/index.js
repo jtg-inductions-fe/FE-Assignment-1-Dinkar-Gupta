@@ -84,6 +84,26 @@ const trapFocus = () => {
 };
 
 /**
+ * Enables or disables scroll blocking on the page by toggling a CSS class.
+ *
+ * This function adds or removes the `scroll-block` class on both `<html>` and `<body>`,
+ * depending on the `state` provided. It's typically used to prevent background
+ * scrolling when modals, drawers, or mobile nav menus are open.
+ *
+ * @param {boolean} state - If `true`, scroll is blocked. If `false`, scroll is restored.
+ */
+
+const scrollBlock = (state) => {
+    if (state) {
+        document.documentElement.classList.add('scroll-block');
+        document.body.classList.add('scroll-block');
+    } else {
+        document.documentElement.classList.remove('scroll-block');
+        document.body.classList.remove('scroll-block');
+    }
+};
+
+/**
  * Opens the navigation drawer, sets up overlay and traps focus.
  */
 const openDrawer = () => {
@@ -91,6 +111,7 @@ const openDrawer = () => {
         'afterbegin',
         '<div class="overlay"></div>',
     );
+    scrollBlock(1);
     navDrawer.removeAttribute('inert');
 
     trapFocus();
@@ -116,7 +137,7 @@ const toggleDrawer = () => {
 function closeDrawer() {
     const overlay = document.body.querySelector('.overlay');
     if (overlay) overlay.remove();
-    // navDrawer.setAttribute('aria-hidden', 'true');
+    scrollBlock(0);
     navDrawer.setAttribute('inert', '');
     if (handler) {
         header.removeEventListener('keydown', handler);

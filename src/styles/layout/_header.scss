@@ -6,9 +6,11 @@
     @include abstracts.flexContainer(-1, row, center, space-between);
     @include abstracts.padding((38px, 21px, 38px, 15px));
     width: 100%;
-    position: sticky;
+    position: fixed;
     background-color: abstracts.$white;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1002;
 
     @include abstracts.responsive(tab) {
@@ -122,8 +124,4 @@
     @include abstracts.responsive(desktop) {
         display: none;
     }
-}
-
-.main-content {
-    position: relative;
 }

@@ -70,7 +70,6 @@ body {
 .container {
     max-width: 398px;
     width: 92.6%;
-    max-width: 398px;
     margin: 0 auto;
 
     @include abstracts.responsive(tab) {
