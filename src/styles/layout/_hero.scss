@@ -1,0 +1,200 @@
+@use '../abstracts/' as abstracts;
+@use 'sass:color';
+
+.hero {
+    @include abstracts.flexContainer(-1, column, center, center);
+}
+
+.hero-main {
+    @include abstracts.flexContainer(-1, column, center, center);
+
+    &__image-container {
+        width: 100%;
+        padding-top: abstracts.pxToRem(27px);
+        height: auto;
+        overflow: hidden;
+    }
+
+    &__content {
+        text-align: center;
+        padding-top: 8px;
+        @include abstracts.flexContainer(21px, column, center, center);
+
+        &--buttons {
+            @include abstracts.flexContainer(25px, column, center, center);
+            width: 100%;
+            padding-top: abstracts.pxToRem(10px);
+            font-size: abstracts.pxToRem(14px);
+            button {
+                width: 100%;
+                border-radius: 40px;
+                @include abstracts.padding((24px, 32px));
+            }
+        }
+
+        &--description {
+            @include abstracts.padding((0px 2px));
+        }
+    }
+
+    &__content-kicker {
+        @include abstracts.flexContainer(
+            abstracts.pxToRem(19px),
+            row,
+            center,
+            center
+        );
+        border-radius: abstracts.pxToRem(30px);
+        box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
+            abstracts.pxToRem(24px) rgba(0, 0, 0, 0.07);
+        @include abstracts.padding((16px, 32px));
+
+        &--text {
+            color: abstracts.$hot-pink;
+            font-size: abstracts.pxToRem(14px);
+        }
+        &--icon {
+            font-size: abstracts.pxToRem(21px);
+        }
+    }
+
+    @include abstracts.responsive(tab) {
+        &__image-container {
+            @include abstracts.padding((62px, 58px, 12px, 58px));
+        }
+
+        &__content {
+            gap: abstracts.pxToRem(38px);
+            @include abstracts.padding((5px, 146px, 8px, 142px));
+
+            &--buttons {
+                @include abstracts.flexContainer(23px, row, center, center);
+                width: auto;
+                padding-top: abstracts.pxToRem(2px);
+                button {
+                    width: auto;
+                    @include abstracts.padding((16px, 32px));
+                }
+            }
+            &--heading {
+                padding-top: abstracts.pxToRem(8px);
+            }
+            &--description {
+                @include abstracts.padding((4px, 82px, 0px, 82px));
+            }
+        }
+    }
+
+    @include abstracts.responsive(desktop) {
+        @include abstracts.flexContainer(-1, row, center, center);
+        align-items: stretch;
+        &__image-container {
+            order: 2;
+            padding: 0;
+        }
+
+        &__content {
+            order: 1;
+            padding: 0;
+            padding-left: abstracts.pxToRem(6px);
+            padding-top: abstracts.pxToRem(26px);
+            padding-bottom: abstracts.pxToRem(63px);
+            gap: 0;
+            align-items: flex-start;
+            text-align: left;
+            max-width: abstracts.pxToRem(426px);
+
+            &--heading {
+                padding-top: abstracts.pxToRem(49px);
+            }
+
+            &--description {
+                padding: 0;
+                padding-top: abstracts.pxToRem(41px);
+            }
+
+            &--buttons {
+                padding-top: abstracts.pxToRem(64px);
+            }
+        }
+    }
+}
+
+.hero-clients {
+    @include abstracts.flexContainer(32px, column, center, center);
+    flex-wrap: wrap;
+    padding-top: 62px;
+    img {
+        height: abstracts.pxToRem(20px);
+    }
+
+    &__row {
+        @include abstracts.flexContainer(24px, row, center, center);
+    }
+
+    @include abstracts.responsive(tab) {
+        padding-top: abstracts.pxToRem(150px);
+        img {
+            height: auto;
+        }
+    }
+    @include abstracts.responsive(desktop) {
+        padding-top: abstracts.pxToRem(85px);
+        flex-direction: row;
+        gap: abstracts.pxToRem(95px);
+
+        &__row {
+            gap: abstracts.pxToRem(95px);
+        }
+    }
+}
+
+.demo {
+    &__text {
+        font-size: abstracts.pxToRem(14px);
+    }
+
+    &__icon {
+        display: inline-block;
+        font-size: 25px;
+    }
+
+    @include abstracts.responsive(tab) {
+        @include abstracts.padding((11px, 32px));
+    }
+}
+
+.decor {
+    position: absolute;
+
+    &__orange-blur {
+        border-radius: 50%;
+        box-shadow: 0 0 300px 300px
+            color.adjust(abstracts.$deep-orange, $alpha: -0.8);
+    }
+    &__arrow {
+        display: none;
+    }
+
+    @include abstracts.responsive(tab) {
+        &__arrow {
+            display: block;
+            width: abstracts.pxToRem(67px);
+            height: auto;
+            top: 142.6%;
+            left: abstracts.pxToRem(38px);
+            overflow: hidden;
+        }
+    }
+
+    @include abstracts.responsive(desktop) {
+        &__arrow {
+            display: block;
+            width: abstracts.pxToRem(67px);
+            height: auto;
+            top: 88%;
+            left: abstracts.pxToRem(44px);
+            overflow: hidden;
+        }
+    }
+}
