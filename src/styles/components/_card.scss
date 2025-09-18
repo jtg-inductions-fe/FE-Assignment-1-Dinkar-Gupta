@@ -1,0 +1,50 @@
+@use '../abstracts/' as abstracts;
+@use 'sass:color';
+
+.card {
+    @include abstracts.flexContainer(34px, column, center, center);
+    padding: abstracts.pxToRem(32px);
+    border: abstracts.pxToRem(1px) solid
+        color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
+    border-radius: abstracts.pxToRem(32px);
+    transition: 0.3s all ease;
+    cursor: pointer;
+    &:hover {
+        box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
+            abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
+    }
+    &__image {
+        width: 19%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    &__content {
+        @include abstracts.flexContainer(33px, column, center, center);
+        p {
+            font-size: abstracts.pxToRem(18px);
+            text-align: center;
+        }
+    }
+
+    @include abstracts.responsive(tab) {
+        gap: abstracts.pxToRem(70px);
+        padding: abstracts.pxToRem(64px);
+        &__image {
+            width: 38%;
+        }
+
+        &__content {
+            text-align: center;
+        }
+    }
+
+    @include abstracts.responsive(desktop) {
+        gap: abstracts.pxToRem(65px);
+        padding-bottom: abstracts.pxToRem(102px);
+
+        &__image {
+            width: 27%;
+        }
+    }
+}

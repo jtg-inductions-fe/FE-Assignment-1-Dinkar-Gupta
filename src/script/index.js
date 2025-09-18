@@ -148,11 +148,13 @@ function closeDrawer() {
     scrollBlock(0);
 
     //Only hide navDrawer after exit animation
-    navDrawerClosingTimeout = setTimeout(() => {
-        navDrawer.classList.add('hide');
-    }, 500);
+    if (!isDesktop()) {
+        navDrawerClosingTimeout = setTimeout(() => {
+            navDrawer.classList.add('hide');
+        }, 500);
+        navDrawer.setAttribute('inert', '');
+    }
 
-    navDrawer.setAttribute('inert', '');
     if (handler) {
         header.removeEventListener('keydown', handler);
         handler = null;
@@ -165,7 +167,7 @@ if (isDesktop()) {
     navDrawer.removeAttribute('inert');
 }
 
-// Remove accessibility blockers on resize to desktop.
+// Remove accessibility blockers on resize to desktop and add in case of drawer is open on mobile or tab
 window.addEventListener('resize', () => {
     if (isDesktop()) {
         navDrawer.classList.remove('hide');

@@ -1,0 +1,46 @@
+@use '../abstracts/' as abstracts;
+
+.services {
+    @include abstracts.flexContainer(-1, column, center, center);
+    position: relative;
+
+    &__content {
+        @include abstracts.flexContainer(15px, column, center, center);
+
+        &--subheading {
+            text-align: center;
+        }
+    }
+
+    &__cards {
+        @include abstracts.flexContainer(13px, column, center, center);
+        padding-top: abstracts.pxToRem(30px);
+    }
+
+    @include abstracts.responsive(tab) {
+        gap: abstracts.pxToRem(32px);
+        &__cards {
+            flex-direction: row;
+            gap: 34px;
+            align-items: stretch;
+        }
+    }
+
+    @include abstracts.responsive(desktop) {
+        flex-direction: row;
+        gap: 0;
+        .card__third {
+            display: none;
+        }
+
+        &__content {
+            align-items: self-start;
+            padding-top: abstracts.pxToRem(29px);
+            padding-left: abstracts.pxToRem(6px);
+            gap: abstracts.pxToRem(20px);
+            &--subheading {
+                text-align: left;
+            }
+        }
+    }
+}

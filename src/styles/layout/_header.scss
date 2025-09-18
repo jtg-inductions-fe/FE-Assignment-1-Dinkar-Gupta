@@ -39,6 +39,12 @@
                 color.scale(abstracts.$black, $alpha: -90%);
         }
 
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         @include abstracts.responsive(tab) {
             width: 50dvw;
             left: 0;
