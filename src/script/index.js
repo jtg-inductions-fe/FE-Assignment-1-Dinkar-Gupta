@@ -145,7 +145,7 @@ if (isDesktop()) {
     navDrawer.removeAttribute('inert');
 }
 
-// Remove accessibility blockers on resize to desktop.
+// Remove accessibility blockers on resize to desktop and add in case of drawer is open on mobile or tab
 window.addEventListener('resize', () => {
     if (isDesktop()) {
         navDrawer.classList.remove('hide');

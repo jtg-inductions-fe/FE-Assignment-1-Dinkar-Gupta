@@ -67,6 +67,12 @@
             height: 100%;
         }
 
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         @include abstracts.responsive(tab) {
             width: 50vw;
             left: 0;
