@@ -171,7 +171,8 @@ window.addEventListener('resize', () => {
         navDrawer.classList.remove('hide');
         navDrawer.removeAttribute('inert');
     } else {
-        navDrawer.classList.add('hide');
+        if (!navDrawer.classList.contains('open-drawer'))
+            navDrawer.classList.add('hide');
     }
 });
 
