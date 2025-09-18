@@ -44,6 +44,10 @@ const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
  * @type {function|null}
  */
 let handler = null;
+
+/**
+ * Stores timeout for clearing visible hidden
+ */
 let navDrawerClosingTimeout = null;
 
 /**
@@ -157,13 +161,17 @@ function closeDrawer() {
 
 // On desktop, remove accessibility blockers by default.
 if (isDesktop()) {
+    navDrawer.classList.remove('hide');
     navDrawer.removeAttribute('inert');
 }
 
 // Remove accessibility blockers on resize to desktop.
 window.addEventListener('resize', () => {
     if (isDesktop()) {
+        navDrawer.classList.remove('hide');
         navDrawer.removeAttribute('inert');
+    } else {
+        navDrawer.classList.add('hide');
     }
 });
 
