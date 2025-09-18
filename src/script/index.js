@@ -44,6 +44,7 @@ const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
  * @type {function|null}
  */
 let handler = null;
+let navDrawerClosingTimeout = null;
 
 /**
  * Toggles the visibility of the drawer and icons.
@@ -111,9 +112,12 @@ const openDrawer = () => {
         'afterbegin',
         '<div class="overlay"></div>',
     );
+
     scrollBlock(1);
     navDrawer.removeAttribute('inert');
 
+    navDrawer.classList.remove('hide');
+    if (navDrawerClosingTimeout) clearTimeout(navDrawerClosingTimeout);
     trapFocus();
     const overlay = document.body.querySelector('.overlay');
     overlay.addEventListener('click', () => {
@@ -138,6 +142,12 @@ function closeDrawer() {
     const overlay = document.body.querySelector('.overlay');
     if (overlay) overlay.remove();
     scrollBlock(0);
+
+    //Only hide navDrawer after exit animation
+    navDrawerClosingTimeout = setTimeout(() => {
+        navDrawer.classList.add('hide');
+    }, 500);
+
     navDrawer.setAttribute('inert', '');
     if (handler) {
         header.removeEventListener('keydown', handler);
