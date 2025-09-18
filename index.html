@@ -26,7 +26,10 @@
         />
     </head>
     <body>
+        <!-- HEADER AND NAVIGATION SECTION -->
         <header class="header">
+            <div class="decor decor__orange-blur"></div>
+
             <div class="header__logo">
                 <a
                     href="#home"
@@ -98,6 +101,85 @@
                 <button class="btn btn--primary">Sign Up</button>
             </div>
         </header>
+
+        <!-- MAIN CONTENT STARTS HERE -->
+        <main class="container">
+            <!-- HERO SECTION -->
+            <section class="hero" id="home">
+                <div class="decor decor__arrow">
+                    <img src="assets/images/hero/hero-arrow-decor.svg" />
+                </div>
+                <div class="hero-main">
+                    <div class="hero-main__image-container">
+                        <img
+                            class="hero-main__image"
+                            src="assets/images/hero/hero-main.png"
+                        />
+                    </div>
+                    <div class="hero-main__content">
+                        <div class="hero-main__content-kicker">
+                            <div class="hero-main__content-kicker--text">
+                                Explore the world!
+                            </div>
+                            <span
+                                class="icon-briefcase hero-main__content-kicker--icon"
+                            ></span>
+                        </div>
+                        <h1 class="hero-main__content--heading">
+                            Travel
+                            <span class="text-hot-pink">top destination</span>
+                            of the world
+                        </h1>
+                        <p class="hero-main__content--description">
+                            We always make our customer happy by providing as
+                            many choices as possible
+                        </p>
+                        <div class="hero-main__content--buttons">
+                            <button class="btn btn--primary">
+                                Get Started
+                            </button>
+                            <button class="btn btn--secondary demo">
+                                <span class="icon-play demo__icon"></span>
+                                <div class="demo__text">Watch Demo</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-clients">
+                    <div class="hero-clients__row">
+                        <div class="hero-clients__logo-trip-advisor">
+                            <img
+                                src="assets/images/hero/clients/logo-trip-advisor.svg"
+                            />
+                        </div>
+                        <div class="hero-clients__logo-expedia">
+                            <img
+                                src="assets/images/hero/clients/logo-expedia.svg"
+                            />
+                        </div>
+                        <div class="hero-clients__logo-booking-com">
+                            <img
+                                src="assets/images/hero/clients/logo-booking-com.svg"
+                            />
+                        </div>
+                    </div>
+                    <div class="hero-clients__row">
+                        <div class="hero-clients__logo-airbnb">
+                            <img
+                                src="assets/images/hero/clients/logo-airbnb.svg"
+                            />
+                        </div>
+                        <div class="hero-clients__logo-rbitz">
+                            <img
+                                src="assets/images/hero/clients/logo-rbitz.svg"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="section-hero__clients"></div>
+            </section>
+        </main>
+
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

@@ -30,22 +30,36 @@ body {
     font-weight: 700;
 }
 
-//setting up common typography styles
+@include abstracts.setOverallTypography(
+    40px,
+    16px,
+    32px,
+    32px,
+    24px,
+    23px,
+    16px
+);
 
-@include abstracts.setTypography(h1, 69px, abstracts.$black, 1.2);
-@include abstracts.setTypography(h2, 23px, abstracts.$hot-pink, 1.2) {
-    letter-spacing: abstracts.pxToRem(4.6px);
-    text-transform: uppercase;
+@include abstracts.responsive(tab) {
+    @include abstracts.setOverallTypography(
+        56px,
+        23px,
+        40px,
+        40px,
+        28px,
+        23px,
+        18px
+    );
 }
-@include abstracts.setTypography(h3, 55px, abstracts.$charcoal-blue, 1.2);
-@include abstracts.setTypography(h4, 44px, abstracts.$charcoal-blue, 1.2);
-@include abstracts.setTypography(h5, 28px, abstracts.$charcoal-blue, 1.2);
-@include abstracts.setTypography(
-    h6,
-    18px,
-    color.adjust(abstracts.$charcoal-blue, $alpha: -0.5),
-    1.6
-) {
-    font-family: abstracts.$secondary-font;
-    font-weight: 400;
+
+@include abstracts.responsive(desktop) {
+    @include abstracts.setOverallTypography(
+        69px,
+        23px,
+        55px,
+        44px,
+        28px,
+        23px,
+        18px
+    );
 }

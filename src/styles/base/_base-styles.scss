@@ -11,14 +11,25 @@
     max-width: 398px;
     width: 92.6%;
     margin: 0 auto;
+    padding-top: 120.391px;
 
     @include abstracts.responsive(tab) {
+        padding-top: 114.094px;
         max-width: 896px;
         width: 87.5%;
     }
 
     @include abstracts.responsive(desktop) {
+        padding-top: 206.094px;
         max-width: 1192.65px;
         width: 82.823%;
     }
+}
+
+//filling image throughout the container
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }

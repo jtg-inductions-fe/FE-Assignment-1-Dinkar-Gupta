@@ -2,6 +2,7 @@
 @use 'functions' as functions;
 @use 'sass:map';
 @use 'sass:list';
+@use 'sass:color';
 
 /// @mixin fontFace
 /// Generates a `@font-face` rule with optional font formats.
@@ -114,5 +115,27 @@
         color: $color;
         line-height: $line-height;
         @content;
+    }
+}
+
+@mixin setOverallTypography($h1, $h2, $h3, $h4, $h5, $h6, $p) {
+    @include setTypography(h1, $h1, variables.$black, 1.2);
+    @include setTypography(h2, $h2, variables.$hot-pink, 1.2) {
+        letter-spacing: 0.2;
+        text-transform: uppercase;
+    }
+    @include setTypography(h3, $h3, variables.$charcoal-blue, 1.2);
+    @include setTypography(h4, $h4, variables.$charcoal-blue, 1.2);
+    @include setTypography(h5, $h5, variables.$charcoal-blue, 1.2);
+    @include setTypography(h6, $h6, variables.$charcoal-blue, 1.2);
+
+    @include setTypography(
+        p,
+        $p,
+        color.adjust(variables.$charcoal-blue, $alpha: -0.5),
+        1.6
+    ) {
+        font-family: variables.$secondary-font;
+        font-weight: 400;
     }
 }

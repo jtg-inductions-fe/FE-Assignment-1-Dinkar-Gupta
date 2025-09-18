@@ -6,21 +6,26 @@
     padding: abstracts.pxToRem(list.nth(abstracts.$btn-padding, 1))
         abstracts.pxToRem(list.nth(abstracts.$btn-padding, 2));
     color: abstracts.$dark-charcoal;
-    @include abstracts.flexContainer(-1, row, center, space-between);
+    @include abstracts.flexContainer(9px, row, center, center);
+    transition: all 0.3s ease;
 
     &--primary {
         background-color: abstracts.$violet-blue;
         color: abstracts.$white;
+        &:hover {
+            box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
+                abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
+        }
     }
     &--secondary {
         border: abstracts.pxToRem(1px) solid abstracts.$light-grey;
+        &:hover {
+            box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
+                abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
+        }
     }
 
     &--secondary-with-icon {
         border: abstracts.pxToRem(1px) solid abstracts.$light-grey;
-        .icon [class^='icon-'],
-        [class*='icon-'] {
-            font-size: abstracts.pxToRem(12px);
-        }
     }
 }

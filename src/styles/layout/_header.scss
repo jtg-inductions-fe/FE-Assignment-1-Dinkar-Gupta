@@ -20,15 +20,15 @@
         @include abstracts.padding((69px, 100px, 66px, 150px));
     }
     &__nav-links {
-        @include abstracts.flexContainer(-1, column, flex-start, flex-start);
-        background-color: abstracts.$white;
-        width: 70vw;
-        height: 100vh;
+        cursor: pointer;
+        @include abstracts.flexContainer(0, column, flex-start, flex-start);
+        background: linear-gradient(to right, #ffded5, white);
+        width: 70dvw;
+        height: 100dvh;
         position: absolute;
         left: 100vw;
         top: 100%;
         transition: transform 0.5s ease;
-        border-left: abstracts.pxToRem(1px) solid rgba(0, 0, 0, 0.5);
         z-index: 1001;
         color: abstracts.$transparent-black;
         @media (prefers-reduced-motion: reduce) {
@@ -50,9 +50,7 @@
         @include abstracts.responsive(tab) {
             width: 50vw;
             left: 0;
-            transform: translateX(-50vw);
-            border-right: abstracts.pxToRem(1px) solid
-                abstracts.$transparent-black;
+            transform: translateX(-50dvw);
         }
         @include abstracts.responsive(desktop) {
             @include abstracts.flexContainer(65px, row, center, center);
@@ -61,6 +59,7 @@
             height: auto;
             border: none;
             transform: translateX(0);
+            background: transparent;
 
             li {
                 padding: 0;
