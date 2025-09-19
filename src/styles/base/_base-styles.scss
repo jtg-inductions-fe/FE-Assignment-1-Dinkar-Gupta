@@ -56,26 +56,20 @@ fieldset {
     margin: 0;
 }
 
-//centering and setting all icons white
-.icon [class^='icon-'],
-[class*='icon-'] {
-    @include abstracts.flexContainer(-1, row, center, center);
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
-//Generating classes to add background and text colors, removing the need to repeat styles for only changing the background or text color (like in icons/highlights), just add this class to the HTML element
-@each $color, $value in abstracts.$brand-colors {
-    .bg-#{$color} {
-        background-color: $value;
-    }
-    .text-#{$color} {
-        color: $value;
-    }
+body {
+    min-height: 100vh;
 }
 
 //Containerization
 .container {
-    width: 92.6%;
     max-width: 398px;
+    width: 92.6%;
     margin: 0 auto;
 
     @include abstracts.responsive(tab) {
