@@ -4,6 +4,11 @@
 .services {
     @include abstracts.flexContainer(-1, column, center, center);
     position: relative;
+    margin-bottom: abstracts.pxToRem(65px);
+
+    @include abstracts.responsive(tab) {
+        margin-bottom: abstracts.pxToRem(125px);
+    }
 
     @include abstracts.responsive(tab) {
         gap: abstracts.pxToRem(32px);
