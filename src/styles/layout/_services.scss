@@ -21,7 +21,7 @@
         gap: abstracts.pxToRem(32px);
         &__cards {
             flex-direction: row;
-            gap: 34px;
+            gap: abstracts.pxToRem(18px);
             align-items: stretch;
         }
     }
