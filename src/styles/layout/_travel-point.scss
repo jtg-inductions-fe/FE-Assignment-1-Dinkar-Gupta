@@ -67,7 +67,7 @@
             }
 
             &--boxes {
-                @include abstracts.padding((3px, 0px, 95px, 100px));
+                @include abstracts.padding((2px, 0px, 95px, 76px));
             }
         }
         &__image-container {
