@@ -50,7 +50,14 @@ $breakpoints: (
 );
 
 //Spacings
-$btn-padding: 16px 32px;
+$space-vsm: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-vlg: 32px;
+$space-vvlg: 64px;
+
+$btn-padding: $space-md $space-vlg;
 
 //General
 $bd-radius: 30px;
