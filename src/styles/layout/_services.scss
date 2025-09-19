@@ -3,6 +3,11 @@
 .services {
     @include abstracts.flexContainer(-1, column, center, center);
     position: relative;
+    margin-bottom: abstracts.pxToRem(65px);
+
+    @include abstracts.responsive(tab) {
+        margin-bottom: abstracts.pxToRem(125px);
+    }
 
     &__content {
         @include abstracts.flexContainer(15px, column, center, center);
@@ -26,10 +31,13 @@
     }
 
     @include abstracts.responsive(desktop) {
+        margin-bottom: abstracts.pxToRem(166px);
         flex-direction: row;
         gap: 0;
-        .card__third {
-            display: none;
+        .card {
+            &__third {
+                display: none;
+            }
         }
 
         &__content {

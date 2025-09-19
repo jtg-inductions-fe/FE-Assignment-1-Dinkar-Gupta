@@ -3,7 +3,9 @@
 
 .decor {
     position: absolute;
-
+    &__ticket {
+        display: none;
+    }
     &__orange-blur {
         border-radius: 50%;
         box-shadow: 0 0 300px 300px
@@ -14,6 +16,9 @@
     }
 
     @include abstracts.responsive(tab) {
+        &__ticket {
+            display: none;
+        }
         &__arrow {
             display: block;
             width: abstracts.pxToRem(67px);
@@ -32,6 +37,16 @@
     }
 
     @include abstracts.responsive(desktop) {
+        &__ticket {
+            display: flex;
+            color: white;
+            background-color: abstracts.$golden-yellow;
+            font-size: abstracts.pxToRem(47px);
+            border-radius: 50%;
+            padding: abstracts.pxToRem(33px);
+            left: 95.8%;
+            top: 31%;
+        }
         &__yellow-blur {
             border-radius: 50%;
             box-shadow: 0 0 300px 300px
