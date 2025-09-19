@@ -30,6 +30,7 @@
     @include abstracts.responsive(tab) {
         gap: abstracts.pxToRem(70px);
         padding: abstracts.pxToRem(64px);
+        padding-bottom: abstracts.pxToRem(32px);
         &__image {
             width: 38%;
         }
