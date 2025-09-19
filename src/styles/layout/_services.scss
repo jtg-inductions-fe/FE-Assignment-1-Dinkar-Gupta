@@ -6,10 +6,9 @@
 
     &__content {
         @include abstracts.flexContainer(15px, column, center, center);
-
-        &--subheading {
-            text-align: center;
-        }
+    }
+    &__content-subheading {
+        text-align: center;
     }
 
     &__cards {
@@ -35,12 +34,12 @@
 
         &__content {
             align-items: self-start;
-            padding-top: abstracts.pxToRem(29px);
+            padding-top: abstracts.pxToRem(60px);
             padding-left: abstracts.pxToRem(6px);
             gap: abstracts.pxToRem(20px);
-            &--subheading {
-                text-align: left;
-            }
+        }
+        &__content-subheading {
+            text-align: left;
         }
     }
 }
