@@ -1,0 +1,100 @@
+@use '../abstracts/' as abstracts;
+@use 'sass:color';
+
+.travel-point {
+    @include abstracts.flexContainer(39px, column, center, center);
+    position: relative;
+    &__image-container {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    &__content {
+        @include abstracts.flexContainer(37px, column, center, center);
+        text-align: center;
+        &--main {
+            @include abstracts.flexContainer(16px, column, center, center);
+        }
+
+        &--description {
+            @include abstracts.padding((14px, 10px, 0px, 10px));
+        }
+
+        &--boxes {
+            @include abstracts.flexContainer(17px, column, stretch, center);
+            width: 100%;
+        }
+    }
+
+    @include abstracts.responsive(tab) {
+        gap: abstracts.pxToRem(69px);
+
+        &__image-container {
+            padding-left: abstracts.pxToRem(34px);
+        }
+
+        &__content {
+            gap: abstracts.pxToRem(65px);
+
+            &--description {
+                padding-left: abstracts.pxToRem(35px);
+                padding-right: abstracts.pxToRem(35px);
+            }
+
+            &--boxes {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 33px;
+                @include abstracts.padding((0px, 32px));
+            }
+        }
+    }
+
+    @include abstracts.responsive(desktop) {
+        flex-direction: row;
+        align-items: flex-start;
+        &__content {
+            width: 97%;
+            text-align: left;
+            &--main {
+                align-items: flex-start;
+                padding-left: abstracts.pxToRem(98px);
+            }
+
+            &--description {
+                padding-left: 0;
+            }
+
+            &--boxes {
+                @include abstracts.padding((3px, 0px, 95px, 100px));
+            }
+        }
+        &__image-container {
+            overflow: visible;
+            margin-top: abstracts.pxToRem(102px);
+        }
+
+        &__image {
+            transform: scale(1.6);
+        }
+    }
+}
+
+.box {
+    @include abstracts.flexContainer(15px, column, center, center);
+    border-radius: abstracts.pxToRem(32px);
+    padding: abstracts.pxToRem(32px);
+    border: abstracts.pxToRem(1px) solid
+        color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
+    &__title {
+        font-size: abstracts.pxToRem(35px);
+        color: abstracts.$deep-orange;
+    }
+
+    &__description {
+        font-size: 18px;
+        color: abstracts.$charcoal-blue;
+        text-align: center;
+    }
+}

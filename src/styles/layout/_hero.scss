@@ -168,38 +168,3 @@
         @include abstracts.padding((11px, 32px));
     }
 }
-
-.decor {
-    position: absolute;
-
-    &__orange-blur {
-        border-radius: 50%;
-        box-shadow: 0 0 300px 300px
-            color.adjust(abstracts.$deep-orange, $alpha: -0.8);
-    }
-    &__arrow {
-        display: none;
-    }
-
-    @include abstracts.responsive(tab) {
-        &__arrow {
-            display: block;
-            width: abstracts.pxToRem(67px);
-            height: auto;
-            top: 142.6%;
-            left: abstracts.pxToRem(38px);
-            overflow: hidden;
-        }
-    }
-
-    @include abstracts.responsive(desktop) {
-        &__arrow {
-            display: block;
-            width: abstracts.pxToRem(67px);
-            height: auto;
-            top: 98%;
-            left: abstracts.pxToRem(44px);
-            overflow: hidden;
-        }
-    }
-}
