@@ -3,6 +3,14 @@
 
 .hero {
     @include abstracts.flexContainer(-1, column, center, center);
+    margin-bottom: abstracts.pxToRem(63px);
+
+    @include abstracts.responsive(tab) {
+        margin-bottom: abstracts.pxToRem(130px);
+    }
+    @include abstracts.responsive(desktop) {
+        margin-bottom: abstracts.pxToRem(90px);
+    }
 }
 
 .hero-main {
@@ -189,7 +197,7 @@
             display: block;
             width: abstracts.pxToRem(67px);
             height: auto;
-            top: 88%;
+            top: 98%;
             left: abstracts.pxToRem(44px);
             overflow: hidden;
         }
