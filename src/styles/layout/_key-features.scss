@@ -1,0 +1,122 @@
+@use '../abstracts/' as abstracts;
+@use 'sass:color';
+
+.key-features {
+    @include abstracts.flexContainer(41px, column, center, center);
+    position: relative;
+
+    @include abstracts.responsive(tab) {
+        gap: abstracts.pxToRem(74px);
+    }
+
+    @include abstracts.responsive(desktop) {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: abstracts.pxToRem(16px);
+        gap: abstracts.pxToRem(13px);
+    }
+    &__image-container {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        @include abstracts.padding((30px, 30px, 0px, 30px));
+        @include abstracts.responsive(tab) {
+            @include abstracts.padding((104px, 158px, 0px, 158px));
+        }
+
+        @include abstracts.responsive(desktop) {
+            @include abstracts.padding((17px, 0px, 0px, 90px));
+            order: 2;
+        }
+    }
+
+    &__content {
+        @include abstracts.flexContainer(31px, column, center, center);
+        text-align: center;
+        @include abstracts.responsive(tab) {
+            gap: abstracts.pxToRem(63px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            width: 91%;
+            text-align: left;
+            order: 1;
+        }
+    }
+
+    &__content-main {
+        @include abstracts.flexContainer(16px, column, center, center);
+        @include abstracts.responsive(tab) {
+        }
+
+        @include abstracts.responsive(desktop) {
+            align-items: flex-start;
+            padding-left: abstracts.pxToRem(18px);
+        }
+    }
+
+    &__content-description {
+        @include abstracts.padding((14px, 34px, 0px, 34px));
+        @include abstracts.responsive(tab) {
+            padding-left: abstracts.pxToRem(35px);
+            padding-right: abstracts.pxToRem(35px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            padding-left: abstracts.pxToRem(0px);
+            padding-right: abstracts.pxToRem(6px);
+        }
+    }
+
+    &__content-list {
+        @include abstracts.flexContainer(3px, column, stretch, center);
+        padding-inline: abstracts.pxToRem(30px);
+        width: 100%;
+        @include abstracts.responsive(tab) {
+            gap: abstracts.pxToRem(7px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            padding-left: abstracts.pxToRem(17px);
+            padding-right: 0;
+        }
+    }
+}
+
+.list-item {
+    @include abstracts.flexContainer(12px, column, flex-start, center);
+    border-color: transparent;
+    cursor: pointer;
+    &:hover {
+        border-color: color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
+    }
+
+    @include abstracts.responsive(tab) {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding-bottom: 0;
+    }
+
+    &__content {
+        @include abstracts.flexContainer(8px, column, flex-start, center);
+        @include abstracts.responsive(tab) {
+            padding-bottom: abstracts.pxToRem(23px);
+            padding-left: abstracts.pxToRem(19px);
+        }
+    }
+
+    &__icon {
+        font-size: abstracts.pxToRem(102px);
+    }
+
+    &__description {
+        text-align: left;
+        font-size: abstracts.pxToRem(18px);
+    }
+
+    &:hover {
+        border: abstracts.pxToRem(1px) solid
+            color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
+    }
+}

@@ -110,10 +110,8 @@
     }
 }
 
-.box {
-    @include abstracts.flexContainer(15px, column, center, center);
-    border-radius: abstracts.pxToRem(32px);
-    padding: abstracts.pxToRem(32px);
+.content-box {
+    gap: abstracts.pxToRem(15px);
     border: abstracts.pxToRem(1px) solid
         color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
 

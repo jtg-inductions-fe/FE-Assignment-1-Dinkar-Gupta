@@ -1,0 +1,10 @@
+@use '../abstracts' as abstracts;
+@use 'sass:color';
+
+.box {
+    @include abstracts.flexContainer(-1, column, center, center);
+    border-radius: abstracts.pxToRem(32px);
+    padding: abstracts.pxToRem(32px);
+    border: abstracts.pxToRem(1px) solid
+        color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
+}
