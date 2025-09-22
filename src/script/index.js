@@ -1,6 +1,6 @@
 import '../styles/main.scss';
 import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination, Autoplay, A11y } from 'swiper/modules';
 // import Swiper and modules styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -175,12 +175,11 @@ navDrawer.addEventListener('click', (e) => {
         closeDrawer();
     }
 });
-
-//SWIPER CONFIGURATION
 navMenu.addEventListener('click', toggleDrawer);
 
+//SWIPER CONFIGURATION
 new Swiper('.wrapper', {
-    modules: [Navigation, Pagination, Autoplay],
+    modules: [Navigation, Pagination, Autoplay, A11y],
     loop: true,
 
     pagination: {
@@ -189,15 +188,14 @@ new Swiper('.wrapper', {
     },
 
     navigation: {
-        nextEl: '.btn--prev',
-        prevEl: '.btn--next',
+        nextEl: '.btn--next',
+        prevEl: '.btn--prev',
     },
     slidesPerView: 1,
     spaceBetween: 20,
-
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
+    autoplay: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? false
+        : { delay: 3000, disableOnInteraction: false },
+    a11y: { enabled: true },
     speed: 750,
 });

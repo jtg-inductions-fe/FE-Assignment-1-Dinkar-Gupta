@@ -25,7 +25,8 @@
                 color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
             color: abstracts.$black;
 
-            &:hover {
+            &:hover,
+            &:focus {
                 background-color: abstracts.$violet-blue;
                 color: abstracts.$white;
                 box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
@@ -42,6 +43,18 @@
                 padding-inline: abstracts.pxToRem(40px);
             }
         }
+    }
+
+    .swiper-pagination-bullet {
+        width: abstracts.pxToRem(22px) !important;
+        height: abstracts.pxToRem(22px) !important;
+        opacity: 0.2;
+        margin: 0 abstracts.pxToRem(13px) !important;
+        transition: background-color 0.3s;
+    }
+    .swiper-pagination-bullet-active {
+        background: abstracts.$hot-pink !important;
+        opacity: 1;
     }
 }
 
@@ -111,18 +124,4 @@
 .shift {
     position: absolute;
     top: 10%;
-}
-
-.swiper-pagination-bullet {
-    width: abstracts.pxToRem(22px) !important;
-    height: abstracts.pxToRem(22px) !important;
-    background: abstracts.$hot-pink;
-    opacity: 0.8;
-    margin: 0 abstracts.pxToRem(13px) !important;
-    transition: background-color 0.3s;
-}
-
-.swiper-pagination-bullet-active {
-    background: abstracts.$hot-pink !important;
-    opacity: 1;
 }

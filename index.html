@@ -416,9 +416,9 @@
             </section>
 
             <!-- TESTIMONIALS SECTION -->
-            <section class="testimonials">
+            <section class="testimonials" role="region">
                 <div class="decor decor__bg-wavy">
-                    <picture>
+                    <picture aria-hidden="true">
                         <source
                             srcset="
                                 assets/images/testimonials/bg_purple_wavy_desktop.png
@@ -453,6 +453,7 @@
                                         <img
                                             src="assets/images/testimonials/first-slider-profile.jpg"
                                             class="slide__image"
+                                            alt="Photo of Mark Smith, Travel Enthusiast"
                                         />
                                     </div>
                                     <div class="slide__details">
@@ -542,15 +543,28 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-pagination"></div>
+                        <div
+                            class="swiper-pagination"
+                            aria-label="Testimonials pagination"
+                        ></div>
                     </div>
                 </div>
                 <div class="testimonials__navigation">
-                    <button class="btn--next">
-                        <span class="icon-arrow-left1"></span>
+                    <button
+                        class="btn--prev"
+                        type="button"
+                        aria-label="Previous testimonial"
+                    >
+                        <span
+                            class="icon-arrow-left1"
+                            aria-hidden="true"
+                        ></span>
                     </button>
-                    <button class="btn--prev">
-                        <span class="icon-arrow-right1"></span>
+                    <button class="btn--next" aria-label="Next testimonial">
+                        <span
+                            class="icon-arrow-right1"
+                            aria-hidden="true"
+                        ></span>
                     </button>
                 </div>
             </section>
