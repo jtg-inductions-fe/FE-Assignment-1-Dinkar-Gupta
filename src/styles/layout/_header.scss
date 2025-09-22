@@ -20,39 +20,42 @@
         @include abstracts.padding((69px, 100px, 66px, 150px));
     }
     &__nav-links {
-        cursor: pointer;
-        @include abstracts.flexContainer(0, column, flex-start, flex-start);
+        @include abstracts.flexContainer(-1, column, flex-start, flex-start);
         background-color: abstracts.$white;
-        width: 70dvw;
-        height: 100dvh;
+        width: 70vw;
+        height: 100vh;
         position: absolute;
-        left: 100dvw;
+        left: 100vw;
         top: 100%;
         transition: transform 0.5s ease;
         border-left: abstracts.pxToRem(1px) solid rgba(0, 0, 0, 0.5);
-
         z-index: 1001;
-        color: color.scale(abstracts.$black, $alpha: -50%);
+        color: abstracts.$transparent-black;
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+
         li {
-            width: 100%;
             @include abstracts.padding((20px, 20px, 20px, 40px));
+            width: 100%;
             border-top: abstracts.pxToRem(1px) solid abstracts.$light-grey;
         }
 
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
         @include abstracts.responsive(tab) {
-            width: 50dvw;
+            width: 50vw;
             left: 0;
-            right: 100%;
-            transform: translateX(-50dvw);
-            border-right: abstracts.pxToRem(1px) solid rgba(0, 0, 0, 0.5);
+            transform: translateX(-50vw);
+            border-right: abstracts.pxToRem(1px) solid
+                abstracts.$transparent-black;
         }
         @include abstracts.responsive(desktop) {
-            @include abstracts.flexContainer(
-                abstracts.pxToRem(65px),
-                row,
-                center,
-                center
-            );
+            @include abstracts.flexContainer(65px, row, center, center);
             position: static;
             width: auto;
             height: auto;
@@ -84,8 +87,8 @@
     &__menu {
         border-radius: 10px;
         padding: abstracts.pxToRem(9px) abstracts.pxToRem(9px)
-            abstracts.pxToRem(3px) abstracts.pxToRem(9px);
-        font-size: 22px;
+            abstracts.pxToRem(9px) abstracts.pxToRem(9px);
+        font-size: abstracts.pxToRem(22px);
         background-color: abstracts.$violet-blue;
         @include abstracts.responsive(desktop) {
             display: none;
@@ -108,7 +111,7 @@
 }
 
 .open-drawer {
-    transform: translateX(-70dvw);
+    transform: translateX(-70vw);
     @include abstracts.responsive(tab) {
         transform: translateX(0);
     }

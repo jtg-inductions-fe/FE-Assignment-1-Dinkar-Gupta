@@ -1,53 +1,14 @@
 import '../styles/main.scss';
-('use strict');
 
 //HEADER NAVIGATION LOGIC
 
-/**
- * The main header element.
- * @type {HTMLElement}
- */
 const header = document.querySelector('.header');
-
-/**
- * Navigation drawer element.
- * @type {HTMLElement}
- */
 const navDrawer = document.querySelector('.header__nav-links');
-
-/**
- * Navigation menu button element.
- * @type {HTMLElement}
- */
 const navMenu = document.querySelector('.header__menu');
-
-/**
- * Menu icon element.
- * @type {HTMLElement}
- */
-const menuIcon = document.querySelector('.icon-menu2');
-
-/**
- * Close icon element.
- * @type {HTMLElement}
- */
 const closeIcon = document.querySelector('.icon-close');
-
-/**
- * Media query match for desktop screens.
- * @returns {boolean} True if viewport width is 1025px or wider.
- */
+const menuIcon = document.querySelector('.icon-menu2');
 const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
-
-/**
- * Keydown event handler for focus trap and escape key.
- * @type {function|null}
- */
 let handler = null;
-
-/**
- * Stores timeout for clearing visible hidden
- */
 let navDrawerClosingTimeout = null;
 
 /**
@@ -59,13 +20,27 @@ const toggle = () => {
     navDrawer.classList.toggle('open-drawer');
 };
 
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        header.classList.add('add-shadow');
+    } else {
+        header.classList.remove('add-shadow');
+    }
+});
+
 /**
  * Adds keyboard focus trap within the nav drawer.
  * Handles Tab, Shift+Tab, and Escape key for accessibility.
  */
 const trapFocus = () => {
     handler = (e) => {
-        const focusableEls = [...navDrawer.querySelectorAll('a'), navMenu];
+        const focusableEls = [
+            ...navDrawer.querySelectorAll(
+                'a[href],button,input,select,textarea,[tabindex]:not([tabindex="-1"])',
+            ),
+            navMenu,
+        ];
+
         const firstFocusableEl = focusableEls[0];
         const lastFocusableEl = focusableEls[focusableEls.length - 1];
         if (e.key === 'Tab') {
@@ -118,16 +93,19 @@ const openDrawer = () => {
     );
 
     scrollBlock(1);
-    navDrawer.removeAttribute('inert');
 
-    navDrawer.classList.remove('hide');
-    if (navDrawerClosingTimeout) clearTimeout(navDrawerClosingTimeout);
-    trapFocus();
-    const overlay = document.body.querySelector('.overlay');
-    overlay.addEventListener('click', () => {
-        closeDrawer();
-        toggle();
-    });
+    if (!isDesktop()) {
+        navDrawer.removeAttribute('inert');
+
+        navDrawer.classList.remove('hide');
+        if (navDrawerClosingTimeout) clearTimeout(navDrawerClosingTimeout);
+        trapFocus();
+        const overlay = document.body.querySelector('.overlay');
+        overlay.addEventListener('click', () => {
+            closeDrawer();
+            toggle();
+        });
+    }
 };
 
 /**
@@ -143,19 +121,21 @@ const toggleDrawer = () => {
  * Closes the navigation drawer, removes overlay and resets accessibility.
  */
 function closeDrawer() {
+    if (navMenu) navMenu.setAttribute('aria-expanded', 'false');
     const overlay = document.body.querySelector('.overlay');
     if (overlay) overlay.remove();
     scrollBlock(0);
 
     //Only hide navDrawer after exit animation
-    navDrawerClosingTimeout = setTimeout(() => {
-        navDrawer.classList.add('hide');
-    }, 500);
-
-    navDrawer.setAttribute('inert', '');
-    if (handler) {
-        header.removeEventListener('keydown', handler);
-        handler = null;
+    if (!isDesktop()) {
+        navDrawerClosingTimeout = setTimeout(() => {
+            navDrawer.classList.add('hide');
+        }, 500);
+        navDrawer.setAttribute('inert', '');
+        if (handler) {
+            header.removeEventListener('keydown', handler);
+            handler = null;
+        }
     }
 }
 
@@ -171,8 +151,10 @@ window.addEventListener('resize', () => {
         navDrawer.classList.remove('hide');
         navDrawer.removeAttribute('inert');
     } else {
-        if (!navDrawer.classList.contains('open-drawer'))
+        if (!navDrawer.classList.contains('open-drawer')) {
             navDrawer.classList.add('hide');
+            navDrawer.setAttribute('inert', '');
+        }
     }
 });
 
