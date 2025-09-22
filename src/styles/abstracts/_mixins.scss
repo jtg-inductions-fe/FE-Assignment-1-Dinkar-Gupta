@@ -16,23 +16,26 @@
         font-family: $name;
         src: url('#{$src}.eot');
 
-        src: url('#{$src}.eot?#iefix') format('embedded-opentype') #{if(
-                list.index($formats, 'woff2'),
-                ', url("#{$src}.woff2") format("woff2")',
-                ''
-            )} #{if(
-                list.index($formats, 'woff'),
-                ', url("#{$src}.woff") format("woff")',
-                ''
-            )} #{if(
-                list.index($formats, 'ttf'),
-                ', url("#{$src}.ttf") format("truetype")',
-                ''
-            )} #{if(
-                list.index($formats, 'svg'),
-                ', url("#{$src}.svg##{$name}") format("svg")',
-                ''
-            )};
+        src:
+            url('#{$src}.eot?#iefix') format('embedded-opentype'),
+            local($name),
+            local($name) #{if(
+                    list.index($formats, 'woff2'),
+                    ', url("#{$src}.woff2") format("woff2")',
+                    ''
+                )} #{if(
+                    list.index($formats, 'woff'),
+                    ', url("#{$src}.woff") format("woff")',
+                    ''
+                )} #{if(
+                    list.index($formats, 'ttf'),
+                    ', url("#{$src}.ttf") format("truetype")',
+                    ''
+                )} #{if(
+                    list.index($formats, 'svg'),
+                    ', url("#{$src}.svg##{$name}") format("svg")',
+                    ''
+                )};
 
         font-weight: $weight;
         font-style: normal;
