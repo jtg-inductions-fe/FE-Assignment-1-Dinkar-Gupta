@@ -38,6 +38,7 @@ $font-weights: (
 $font-variants: (
     ($primary-font, '#{$fonts}/#{$primary-font}', semibold),
     ($primary-font, '#{$fonts}/#{$primary-font}', bold),
+    ($primary-font, '#{$fonts}/#{$primary-font}', regular),
     ($secondary-font, '#{$fonts}/#{$secondary-font}', regular),
     ($fallback-font, '#{$fonts}/#{$fallback-font}', regular),
     ($fallback-font, '#{$fonts}/#{$fallback-font}', bold)

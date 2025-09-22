@@ -1,4 +1,11 @@
 import '../styles/main.scss';
+import Swiper from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+// import Swiper and modules styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+('use strict');
 
 //HEADER NAVIGATION LOGIC
 
@@ -169,5 +176,28 @@ navDrawer.addEventListener('click', (e) => {
     }
 });
 
-// Event listener to toggle drawer on menu click.
+//SWIPER CONFIGURATION
 navMenu.addEventListener('click', toggleDrawer);
+
+new Swiper('.wrapper', {
+    modules: [Navigation, Pagination, Autoplay],
+    loop: true,
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    navigation: {
+        nextEl: '.btn--prev',
+        prevEl: '.btn--next',
+    },
+    slidesPerView: 1,
+    spaceBetween: 20,
+
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
+    speed: 750,
+});

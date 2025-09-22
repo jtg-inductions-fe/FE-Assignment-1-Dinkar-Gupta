@@ -4,9 +4,11 @@
 .key-features {
     @include abstracts.flexContainer(104px, column, center, center);
     position: relative;
+    margin-bottom: abstracts.pxToRem(70px);
 
     @include abstracts.responsive(tab) {
         gap: abstracts.pxToRem(74px);
+        margin-bottom: abstracts.pxToRem(135px);
     }
 
     @include abstracts.responsive(desktop) {
@@ -14,6 +16,7 @@
         align-items: flex-start;
         padding-top: abstracts.pxToRem(6px);
         gap: abstracts.pxToRem(13px);
+        margin-bottom: abstracts.pxToRem(100px);
     }
 
     &__image-container {

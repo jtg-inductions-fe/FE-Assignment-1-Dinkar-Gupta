@@ -1,0 +1,128 @@
+@use '../abstracts/' as abstracts;
+@use 'sass:color';
+
+.testimonials {
+    @include abstracts.flexContainer(61px, column, center, center);
+    position: relative;
+    &__content {
+        @include abstracts.flexContainer(17px, column, center, center);
+    }
+
+    &__carousel {
+        width: 100%;
+    }
+
+    &__navigation {
+        @include abstracts.flexContainer(-1, row, center, space-between);
+        width: 100%;
+        transform: translateY(-35%);
+        button {
+            padding: abstracts.pxToRem(22px);
+            padding-inline: abstracts.pxToRem(23px);
+            border-radius: 50%;
+            background-color: abstracts.$white;
+            border: 1px solid
+                color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
+            color: abstracts.$black;
+
+            &:hover {
+                background-color: abstracts.$violet-blue;
+                color: abstracts.$white;
+                box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
+                    abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        @include abstracts.responsive(tab) {
+            position: absolute;
+            transform: translateY(-7px);
+            z-index: 1000;
+            button {
+                padding: abstracts.pxToRem(39px);
+                padding-inline: abstracts.pxToRem(40px);
+            }
+        }
+    }
+}
+
+.slide {
+    @include abstracts.flexContainer(68px, column, center, center);
+    margin-bottom: abstracts.pxToRem(96px);
+    @include abstracts.responsive(tab) {
+        gap: abstracts.pxToRem(55px);
+    }
+    &__description {
+        font-weight: 400;
+    }
+    &__image-container {
+        border-radius: 50%;
+        width: abstracts.pxToRem(128px);
+        height: abstracts.pxToRem(128px);
+        overflow: hidden;
+    }
+
+    &__image {
+        position: relative;
+        top: abstracts.pxToRem(-32px);
+    }
+
+    &__details {
+        @include abstracts.flexContainer(33px, column, center, center);
+    }
+
+    &__personal {
+        color: color.adjust(abstracts.$charcoal-blue, $alpha: -0.5);
+    }
+
+    &__name {
+        color: abstracts.$deep-orange;
+        font-size: abstracts.pxToRem(28px);
+    }
+
+    &__rating {
+        @include abstracts.flexContainer(22px, row, center, center);
+        font-size: abstracts.pxToRem(28px);
+        color: abstracts.$golden-yellow;
+        span {
+            display: inline-block;
+        }
+    }
+
+    &__description {
+        text-align: center;
+        font-size: abstracts.pxToRem(18px);
+        line-height: 1.6;
+
+        @include abstracts.responsive(tab) {
+            font-size: abstracts.pxToRem(23px);
+            padding-inline: abstracts.pxToRem(133px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            padding-inline: abstracts.pxToRem(172px);
+        }
+    }
+}
+
+.wrapper {
+    position: relative;
+}
+
+.shift {
+    position: absolute;
+    top: 10%;
+}
+
+.swiper-pagination-bullet {
+    width: abstracts.pxToRem(22px) !important;
+    height: abstracts.pxToRem(22px) !important;
+    background: abstracts.$hot-pink;
+    opacity: 0.8;
+    margin: 0 abstracts.pxToRem(13px) !important;
+    transition: background-color 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    background: abstracts.$hot-pink !important;
+    opacity: 1;
+}
