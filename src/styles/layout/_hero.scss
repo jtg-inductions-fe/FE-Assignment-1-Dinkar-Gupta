@@ -179,13 +179,6 @@
 .decor {
     position: absolute;
 
-    &__orange-blur {
-        border-radius: 50%;
-        box-shadow: 0 0 abstracts.pxToRem(300px) abstracts.pxToRem(300px)
-            color.adjust(abstracts.$deep-orange, $alpha: -0.8);
-        pointer-events: none;
-        z-index: -1;
-    }
     &__arrow {
         display: none;
         @include abstracts.responsive(tab) {
