@@ -1,10 +1,16 @@
-@use '../abstracts' as abstracts;
-@use '../abstracts' as abstracts;
-@use 'sass:list';
-
-$path: #{abstracts.$fonts}/ icomoon/icomoon;
-
-@include abstracts.fontFace('icomoon', $path, normal, ('ttf', 'woff', 'svg'));
+@font-face {
+    font-family: 'icomoon';
+    src: url('assets/fonts/icomoon/icomoon.eot?6u0uc');
+    src:
+        url('assets/fonts/icomoon/icomoon.eot?6u0uc#iefix')
+            format('embedded-opentype'),
+        url('assets/fonts/icomoon/icomoon.ttf?6u0uc') format('truetype'),
+        url('assets/fonts/icomoon/icomoon.woff?6u0uc') format('woff'),
+        url('assets/fonts/icomoon/icomoon.svg?6u0uc#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
 
 [class^='icon-'],
 [class*=' icon-'] {
@@ -102,28 +108,28 @@ $path: #{abstracts.$fonts}/ icomoon/icomoon;
     margin-left: -1em;
     color: rgb(241, 242, 242);
 }
-.icon-Vector:before {
+.icon-briefcase:before {
     content: '\e918';
     color: #f85e9f;
 }
 .icon-star:before {
     content: '\e91a';
 }
-.icon-arrow-right1:before {
+.icon-menu2:before {
     content: '\e902';
 }
-.icon-arrow-left1:before {
-    content: '\e903';
-}
-.icon-ticket1:before {
-    content: '\e904';
-}
 .icon-close:before {
-    content: '\e901';
-}
-.icon-menu:before {
     content: '\e900';
 }
 .icon-cheveron-outline-up:before {
+    content: '\e91b';
+}
+.icon-arrow-right1:before {
+    content: '\e903';
+}
+.icon-arrow-left1:before {
+    content: '\e904';
+}
+.icon-ticket1:before {
     content: '\e919';
 }
