@@ -20,26 +20,29 @@
     }
     &__arrow {
         display: none;
-
-    &__bg-wavy {
-        display: none;
-    }
-
-    @include abstracts.responsive(tab) {
-        &__ticket {
-            display: none;
-        }
-        &__arrow {
+        @include abstracts.responsive(tab) {
             display: block;
             width: abstracts.pxToRem(67px);
             height: auto;
             top: 75.5%;
             left: -3%;
         }
-
         @include abstracts.responsive(desktop) {
             top: 76%;
             left: -7%;
+        }
+    }
+
+    &__bg-wavy {
+        display: none;
+        @include abstracts.responsive(tab) {
+            display: block;
+            top: 50%;
+            transform: translateY(-69%);
+            width: 100vw;
+        }
+        @include abstracts.responsive(desktop) {
+            transform: translateY(-46%);
         }
     }
 
@@ -54,20 +57,6 @@
             right: -21%;
             top: 20%;
         }
-
-        &__bg-wavy {
-            display: block;
-            top: 50%;
-            transform: translateY(-69%);
-            width: 100dvw;
-
-            @include abstracts.responsive(desktop) {
-                top: 50%;
-                transform: translateY(-46%);
-            }
-        }
-    }
-
         @include abstracts.responsive(desktop) {
             right: -10%;
             top: 20%;
