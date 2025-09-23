@@ -28,7 +28,7 @@
     <body>
         <!-- HEADER AND NAVIGATION SECTION -->
         <header class="header">
-            <div class="decor decor__orange-blur"></div>
+            <!-- <div class="decor decor__orange-blur"></div> -->
 
             <div class="header__logo">
                 <a
@@ -103,24 +103,31 @@
         </header>
 
         <!-- MAIN CONTENT STARTS HERE -->
-        <main class="container">
+        <main class="container" id="home">
             <!-- HERO SECTION -->
-            <section class="hero" id="home">
+            <section class="hero">
                 <div class="decor decor__arrow">
                     <img
-                        src="assets/images/hero/hero-arrow-decor.svg"
+                        src="assets/images/decor/arrows.svg"
                         alt="A decoration element with arrows"
                         loading="lazy"
                     />
                 </div>
                 <div class="hero-main">
                     <div class="hero-main__image-container">
-                        <img
-                            class="hero-main__image"
-                            src="assets/images/hero/hero-main.png"
-                            alt="Collage of travel images"
-                            loading="lazy"
-                        />
+                        <picture>
+                            <source
+                                srcset="assets/images/hero/tourist-collage.png"
+                                media="(min-width: 431px)"
+                            />
+
+                            <img
+                                class="hero-main__image"
+                                src="assets/images/hero/tourist-collage-mobile.png"
+                                alt="Collage of travel images"
+                                loading="lazy"
+                            />
+                        </picture>
                     </div>
                     <div class="hero-main__content">
                         <div class="hero-main__content-kicker">
@@ -169,14 +176,14 @@
                         <div class="hero-clients__logo-expedia">
                             <img
                                 src="assets/images/hero/clients/logo-expedia.svg"
-                                alt="Logo of Trip Advisor"
+                                alt="Logo of Expedia"
                                 loading="lazy"
                             />
                         </div>
                         <div class="hero-clients__logo-booking-com">
                             <img
                                 src="assets/images/hero/clients/logo-booking-com.svg"
-                                alt="Logo of Trip Advisor"
+                                alt="Logo of Booking.com"
                                 loading="lazy"
                             />
                         </div>
@@ -185,14 +192,14 @@
                         <div class="hero-clients__logo-airbnb">
                             <img
                                 src="assets/images/hero/clients/logo-airbnb.svg"
-                                alt="Logo of Trip Advisor"
+                                alt="Logo of Airbnb"
                                 loading="lazy"
                             />
                         </div>
                         <div class="hero-clients__logo-rbitz">
                             <img
                                 src="assets/images/hero/clients/logo-rbitz.svg"
-                                alt="Logo of Trip Advisor"
+                                alt="Logo of Rbitz"
                                 loading="lazy"
                             />
                         </div>
@@ -200,7 +207,6 @@
                 </div>
             </section>
         </main>
-
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>

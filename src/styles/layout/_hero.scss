@@ -3,22 +3,80 @@
 
 .hero {
     @include abstracts.flexContainer(-1, column, center, center);
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: abstracts.pxToRem(480px);
+        height: abstracts.pxToRem(480px);
+        transform: translate(-50%, -50%);
+        background: radial-gradient(
+            circle,
+            rgba(255, 87, 34, 0.2) 0%,
+            transparent 74%
+        );
+        pointer-events: none;
+        z-index: 1002;
+    }
 }
 
 .hero-main {
-    @include abstracts.flexContainer(-1, column, center, center);
+    @include abstracts.flexContainer(5px, column, center, center);
+    @include abstracts.responsive(tab) {
+        gap: 0;
+    }
+    @include abstracts.responsive(desktop) {
+        @include abstracts.flexContainer(-1, row, center, center);
+        align-items: stretch;
+    }
+
+    &__content-heading {
+        @include abstracts.responsive(tab) {
+            padding-top: abstracts.pxToRem(8px);
+        }
+        @include abstracts.responsive(desktop) {
+            padding-top: abstracts.pxToRem(49px);
+        }
+    }
 
     &__image-container {
         width: 100%;
         padding-top: abstracts.pxToRem(27px);
         height: auto;
         overflow: hidden;
+
+        @include abstracts.responsive(tab) {
+            @include abstracts.padding((62px, 58px, 12px, 58px));
+        }
+        @include abstracts.responsive(desktop) {
+            order: 2;
+            padding: 0;
+        }
     }
 
     &__content {
         text-align: center;
         padding-top: 8px;
         @include abstracts.flexContainer(21px, column, center, center);
+
+        @include abstracts.responsive(tab) {
+            gap: abstracts.pxToRem(38px);
+            @include abstracts.padding((5px, 146px, 8px, 142px));
+        }
+        @include abstracts.responsive(desktop) {
+            order: 1;
+            padding: 0;
+            padding-left: abstracts.pxToRem(6px);
+            padding-top: abstracts.pxToRem(26px);
+            padding-bottom: abstracts.pxToRem(63px);
+            gap: 0;
+            align-items: flex-start;
+            text-align: left;
+            max-width: abstracts.pxToRem(426px);
+        }
     }
 
     &__content-buttons {
@@ -31,19 +89,34 @@
             border-radius: 40px;
             @include abstracts.padding((24px, 32px));
         }
+
+        @include abstracts.responsive(tab) {
+            @include abstracts.flexContainer(23px, row, center, center);
+            width: auto;
+            padding-top: abstracts.pxToRem(2px);
+            button {
+                width: auto;
+                @include abstracts.padding((16px, 32px));
+            }
+        }
+        @include abstracts.responsive(desktop) {
+            padding-top: abstracts.pxToRem(64px);
+        }
     }
 
     &__content-description {
-        @include abstracts.padding((0px 2px));
+        @include abstracts.padding((0px, 2px));
+        @include abstracts.responsive(tab) {
+            @include abstracts.padding((4px, 82px, 0px, 82px));
+        }
+        @include abstracts.responsive(desktop) {
+            padding: 0;
+            padding-top: abstracts.pxToRem(41px);
+        }
     }
 
     &__content-kicker {
-        @include abstracts.flexContainer(
-            abstracts.pxToRem(19px),
-            row,
-            center,
-            center
-        );
+        @include abstracts.flexContainer(19px, row, center, center);
         border-radius: abstracts.pxToRem(30px);
         box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
             abstracts.pxToRem(24px) rgba(0, 0, 0, 0.07);
@@ -57,107 +130,49 @@
     &__content-kicker-icon {
         font-size: abstracts.pxToRem(21px);
     }
-    @include abstracts.responsive(tab) {
-        &__image-container {
-            @include abstracts.padding((62px, 58px, 12px, 58px));
-        }
-
-        &__content {
-            gap: abstracts.pxToRem(38px);
-            @include abstracts.padding((5px, 146px, 8px, 142px));
-        }
-        &__content-buttons {
-            @include abstracts.flexContainer(23px, row, center, center);
-            width: auto;
-            padding-top: abstracts.pxToRem(2px);
-            button {
-                width: auto;
-                @include abstracts.padding((16px, 32px));
-            }
-        }
-        &__content-heading {
-            padding-top: abstracts.pxToRem(8px);
-        }
-        &__content-description {
-            @include abstracts.padding((4px, 82px, 0px, 82px));
-        }
-    }
-
-    @include abstracts.responsive(desktop) {
-        @include abstracts.flexContainer(-1, row, center, center);
-        align-items: stretch;
-        &__image-container {
-            order: 2;
-            padding: 0;
-        }
-
-        &__content {
-            order: 1;
-            padding: 0;
-            padding-left: abstracts.pxToRem(6px);
-            padding-top: abstracts.pxToRem(26px);
-            padding-bottom: abstracts.pxToRem(63px);
-            gap: 0;
-            align-items: flex-start;
-            text-align: left;
-            max-width: abstracts.pxToRem(426px);
-        }
-        &__content-heading {
-            padding-top: abstracts.pxToRem(49px);
-        }
-
-        &__content-description {
-            padding: 0;
-            padding-top: abstracts.pxToRem(41px);
-        }
-
-        &__content-buttons {
-            padding-top: abstracts.pxToRem(64px);
-        }
-    }
 }
 
 .hero-clients {
     @include abstracts.flexContainer(32px, column, center, center);
     flex-wrap: wrap;
-    padding-top: 62px;
-    img {
-        height: abstracts.pxToRem(20px);
-    }
-
-    &__row {
-        @include abstracts.flexContainer(24px, row, center, center);
-    }
+    padding-top: abstracts.pxToRem(62px);
 
     @include abstracts.responsive(tab) {
         padding-top: abstracts.pxToRem(150px);
-        img {
-            height: auto;
-        }
     }
     @include abstracts.responsive(desktop) {
         padding-top: abstracts.pxToRem(85px);
         flex-direction: row;
         gap: abstracts.pxToRem(95px);
+    }
+    img {
+        height: abstracts.pxToRem(20px);
+        @include abstracts.responsive(tab) {
+            max-height: abstracts.pxToRem(32px);
+            height: auto;
+        }
+    }
 
-        &__row {
+    &__row {
+        @include abstracts.flexContainer(24px, row, center, center);
+        @include abstracts.responsive(desktop) {
             gap: abstracts.pxToRem(95px);
         }
     }
 }
 
 .demo {
+    @include abstracts.responsive(tab) {
+        @include abstracts.padding((11px, 32px));
+    }
+
     &__text {
         font-size: abstracts.pxToRem(14px);
     }
 
     &__icon {
         display: inline-block;
-        font-size: 25px;
-    }
-
-    @include abstracts.responsive(tab) {
-        @include abstracts.padding((11px, 32px));
+        font-size: abstracts.pxToRem(25px);
     }
 }
 
@@ -166,31 +181,27 @@
 
     &__orange-blur {
         border-radius: 50%;
-        box-shadow: 0 0 300px 300px
+        box-shadow: 0 0 abstracts.pxToRem(300px) abstracts.pxToRem(300px)
             color.adjust(abstracts.$deep-orange, $alpha: -0.8);
+        pointer-events: none;
+        z-index: -1;
     }
     &__arrow {
         display: none;
-    }
-
-    @include abstracts.responsive(tab) {
-        &__arrow {
+        @include abstracts.responsive(tab) {
             display: block;
             width: abstracts.pxToRem(67px);
             height: auto;
-            top: 142.6%;
-            left: abstracts.pxToRem(38px);
+            top: 80.5%;
+            left: -3%;
             overflow: hidden;
         }
-    }
-
-    @include abstracts.responsive(desktop) {
-        &__arrow {
+        @include abstracts.responsive(desktop) {
             display: block;
             width: abstracts.pxToRem(67px);
             height: auto;
-            top: 88%;
-            left: abstracts.pxToRem(44px);
+            top: 79%;
+            left: -7%;
             overflow: hidden;
         }
     }
