@@ -1,4 +1,4 @@
-@use '../abstracts/' as abstracts;
+@use '../abstracts' as abstracts;
 @use 'sass:color';
 
 .decor {
@@ -6,14 +6,17 @@
     &__ticket {
         display: none;
         @include abstracts.responsive(desktop) {
-            display: flex;
-            color: white;
+            @include abstracts.flexContainer(-1, row, center, center);
+            color: abstracts.$white;
             background-color: abstracts.$golden-yellow;
             font-size: abstracts.pxToRem(47px);
             border-radius: 50%;
-            padding: abstracts.pxToRem(33px);
+            // padding: abstracts.pxToRem(33px);
+            width: abstracts.pxToRem(112px);
+            height: abstracts.pxToRem(112px);
             left: 95.8%;
             top: 31%;
+            z-index: 1;
         }
     }
     &__arrow {
@@ -26,6 +29,7 @@
             top: 75.5%;
             left: -3%;
         }
+
         @include abstracts.responsive(desktop) {
             top: 76%;
             left: -7%;
@@ -34,6 +38,7 @@
 
     &__yellow-blur {
         display: none;
+
         @include abstracts.responsive(tab) {
             display: block;
             border-radius: 50%;
@@ -50,16 +55,5 @@
             right: -10%;
             top: 20%;
         }
-    }
-
-    @include abstracts.responsive(desktop) {
-        display: flex;
-        color: white;
-        background-color: abstracts.$golden-yellow;
-        font-size: abstracts.pxToRem(47px);
-        border-radius: 50%;
-        padding: abstracts.pxToRem(33px);
-        left: 95.8%;
-        top: 30%;
     }
 }

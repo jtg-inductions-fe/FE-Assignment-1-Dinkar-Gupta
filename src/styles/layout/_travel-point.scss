@@ -4,78 +4,85 @@
 .travel-point {
     @include abstracts.flexContainer(39px, column, center, center);
     position: relative;
-    &__image-container {
-        width: 100%;
-        height: auto;
-        overflow: hidden;
-    }
-
-    &__content {
-        @include abstracts.flexContainer(37px, column, center, center);
-        text-align: center;
-        &--main {
-            @include abstracts.flexContainer(16px, column, center, center);
-        }
-
-        &--description {
-            @include abstracts.padding((14px, 10px, 0px, 10px));
-        }
-
-        &--boxes {
-            @include abstracts.flexContainer(17px, column, stretch, center);
-            width: 100%;
-        }
-    }
 
     @include abstracts.responsive(tab) {
         gap: abstracts.pxToRem(69px);
-
-        &__image-container {
-            padding-left: abstracts.pxToRem(34px);
-        }
-
-        &__content {
-            gap: abstracts.pxToRem(65px);
-
-            &--description {
-                padding-left: abstracts.pxToRem(35px);
-                padding-right: abstracts.pxToRem(35px);
-            }
-
-            &--boxes {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 33px;
-                @include abstracts.padding((0px, 32px));
-            }
-        }
     }
 
     @include abstracts.responsive(desktop) {
         flex-direction: row;
         align-items: flex-start;
-        &__content {
-            width: 97%;
-            text-align: left;
-            &--main {
-                align-items: flex-start;
-                padding-left: abstracts.pxToRem(98px);
-            }
+    }
 
-            &--description {
-                padding-left: 0;
-            }
+    &__image-container {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
 
-            &--boxes {
-                @include abstracts.padding((2px, 0px, 95px, 76px));
-            }
+        @include abstracts.responsive(tab) {
+            padding-left: abstracts.pxToRem(34px);
         }
-        &__image-container {
+
+        @include abstracts.responsive(desktop) {
             overflow: visible;
             margin-top: abstracts.pxToRem(102px);
         }
+    }
 
-        &__image {
+    &__content {
+        @include abstracts.flexContainer(37px, column, center, center);
+        text-align: center;
+
+        @include abstracts.responsive(tab) {
+            gap: abstracts.pxToRem(65px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            width: 97%;
+            text-align: left;
+        }
+    }
+
+    &__content-main {
+        @include abstracts.flexContainer(16px, column, center, center);
+
+        @include abstracts.responsive(desktop) {
+            align-items: flex-start;
+            padding-left: abstracts.pxToRem(98px);
+        }
+    }
+
+    &__content-description {
+        @include abstracts.padding((14px, 10px, 0px, 10px));
+
+        @include abstracts.responsive(tab) {
+            padding-left: abstracts.pxToRem(35px);
+            padding-right: abstracts.pxToRem(35px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            padding-left: 0;
+        }
+    }
+
+    &__content-boxes {
+        @include abstracts.flexContainer(17px, column, stretch, center);
+        width: 100%;
+
+        @include abstracts.responsive(tab) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: abstracts.pxToRem(33px);
+            @include abstracts.padding((0px, 32px));
+        }
+
+        @include abstracts.responsive(desktop) {
+            @include abstracts.padding((2px, 0px, 95px, 76px));
+        }
+    }
+
+    &__image {
+        @include abstracts.responsive(desktop) {
             transform: scale(1.6);
         }
     }
@@ -87,13 +94,14 @@
     padding: abstracts.pxToRem(32px);
     border: abstracts.pxToRem(1px) solid
         color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
+
     &__title {
         font-size: abstracts.pxToRem(35px);
         color: abstracts.$deep-orange;
     }
 
     &__description {
-        font-size: 18px;
+        font-size: abstracts.pxToRem(18px);
         color: abstracts.$charcoal-blue;
         text-align: center;
     }
