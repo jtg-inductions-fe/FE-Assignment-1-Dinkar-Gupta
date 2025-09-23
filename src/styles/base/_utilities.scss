@@ -1,0 +1,35 @@
+@use '../abstracts' as abstracts;
+@use 'sass:color';
+
+//Generating classes to add background and text colors, removing the need to repeat styles for only changing the background or text color (like in icons/highlights), just add this class to the HTML element
+@each $color, $value in abstracts.$brand-colors {
+    .bg-#{$color} {
+        background-color: $value;
+    }
+    .text-#{$color} {
+        color: $value;
+    }
+}
+
+//hides an element
+.hidden {
+    display: none;
+}
+
+//creates overlay over content and restricts scrolling
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: abstracts.$transparent-black;
+    z-index: 999;
+}
+
+//block vertical scrolling
+.scroll-block {
+    overflow-y: hidden;
+}
+
+.add-shadow {
+    box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
+        abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
+}

@@ -1,5 +1,5 @@
 @use 'sass:map';
-
+@use 'sass:color';
 // Colors
 $deep-orange: #ff5722;
 $violet-blue: #5d50c6;
@@ -10,6 +10,7 @@ $dark-charcoal: #222831;
 $light-grey: #eeeeee;
 $white: #ffffff;
 $black: #000000;
+$transparent-black: color.adjust($black, $alpha: -0.5);
 
 $brand-colors: (
     hot-pink: $hot-pink,
@@ -42,8 +43,8 @@ $font-variants: (
 
 //Breakpoints
 $breakpoints: (
-    tab: 1024px,
-    desktop: 1440px,
+    tab: 431px,
+    desktop: 1025px,
 );
 
 //Spacings

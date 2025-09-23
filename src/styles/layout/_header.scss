@@ -1,0 +1,134 @@
+@use '../abstracts/' as abstracts;
+@use 'sass:color';
+@use 'sass:map';
+
+.header {
+    @include abstracts.flexContainer(-1, row, center, space-between);
+    @include abstracts.padding((38px, 21px, 38px, 15px));
+    width: 100%;
+    position: fixed;
+    background-color: abstracts.$white;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+
+    @include abstracts.responsive(tab) {
+        @include abstracts.padding((33px, 65px, 33px, 68px));
+    }
+    @include abstracts.responsive(desktop) {
+        @include abstracts.padding((69px, 100px, 66px, 150px));
+    }
+    &__nav-links {
+        @include abstracts.flexContainer(-1, column, flex-start, flex-start);
+        background-color: abstracts.$white;
+        width: 70vw;
+        height: 100vh;
+        position: absolute;
+        left: 100vw;
+        top: 100%;
+        transition: transform 0.5s ease;
+        border-left: abstracts.pxToRem(1px) solid rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+        color: abstracts.$transparent-black;
+        @media (prefers-reduced-motion: reduce) {
+            transition: none;
+        }
+
+        li {
+            @include abstracts.padding((20px, 20px, 20px, 40px));
+            width: 100%;
+            border-top: abstracts.pxToRem(1px) solid abstracts.$light-grey;
+        }
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        @include abstracts.responsive(tab) {
+            width: 50vw;
+            left: 0;
+            transform: translateX(-50vw);
+            border-right: abstracts.pxToRem(1px) solid
+                abstracts.$transparent-black;
+        }
+        @include abstracts.responsive(desktop) {
+            @include abstracts.flexContainer(65px, row, center, center);
+            position: static;
+            width: auto;
+            height: auto;
+            border: none;
+            transform: translateX(0);
+
+            li {
+                padding: 0;
+                border: none;
+                width: auto;
+                font-size: abstracts.pxToRem(14px);
+                &:hover {
+                    color: abstracts.$charcoal-blue;
+                    transition: color 0.3s ease;
+                }
+            }
+        }
+    }
+    &__cta {
+        display: none;
+        font-size: abstracts.pxToRem(14px);
+        @include abstracts.responsive(tab) {
+            @include abstracts.flexContainer(-1, row, center, center);
+        }
+        @include abstracts.responsive(desktop) {
+            @include abstracts.flexContainer(-1, row, center, center);
+        }
+    }
+    &__menu {
+        border-radius: 10px;
+        padding: abstracts.pxToRem(9px) abstracts.pxToRem(9px)
+            abstracts.pxToRem(9px) abstracts.pxToRem(9px);
+        font-size: abstracts.pxToRem(22px);
+        background-color: abstracts.$violet-blue;
+        @include abstracts.responsive(desktop) {
+            display: none;
+        }
+        @include abstracts.responsive(tab) {
+            order: -1;
+        }
+    }
+    &__menu-icon {
+        color: abstracts.$white;
+    }
+    &__logo {
+        @include abstracts.responsive(tab) {
+            padding-left: 280px;
+        }
+        @include abstracts.responsive(desktop) {
+            padding: 0;
+        }
+    }
+}
+
+.open-drawer {
+    transform: translateX(-70vw);
+    @include abstracts.responsive(tab) {
+        transform: translateX(0);
+    }
+}
+
+.slider-cta {
+    &__signup {
+        color: abstracts.$violet-blue;
+    }
+    @include abstracts.responsive(tab) {
+        display: none;
+    }
+    @include abstracts.responsive(desktop) {
+        display: none;
+    }
+}
+
+.hide {
+    visibility: hidden;
+}
