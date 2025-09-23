@@ -272,12 +272,21 @@
                     <span class="icon-ticket1"></span>
                 </div>
                 <div class="travel-point__image-container">
-                    <img
-                        class="travel-point__image"
-                        src="assets/images/travel-point/travel-point-main.png"
-                        alt="Image of a girl sitting on luggage"
-                        loading="lazy"
-                    />
+                    <picture>
+                        <source
+                            srcset="
+                                assets/images/travel-point/girl-with-luggage.png
+                            "
+                            media="(min-width: 431px)"
+                        />
+
+                        <img
+                            class="travel-point__image"
+                            src="assets/images/travel-point/girl-with-luggage-mobile.png"
+                            alt="A female tourist with luggage"
+                            loading="lazy"
+                        />
+                    </picture>
                 </div>
                 <div class="travel-point__content">
                     <div class="travel-point__content-main">
