@@ -1,0 +1,18 @@
+@use '../abstracts' as abstracts;
+@use 'sass:list';
+
+.btn {
+    border-radius: abstracts.$bd-radius;
+    padding: abstracts.pxToRem(list.nth(abstracts.$btn-padding, 1))
+        abstracts.pxToRem(list.nth(abstracts.$btn-padding, 2));
+    color: abstracts.$dark-charcoal;
+    @include abstracts.flexContainer(1, row, center, space-between);
+
+    &--primary {
+        background-color: abstracts.$violet-blue;
+        color: abstracts.$white;
+    }
+    &--secondary {
+        border: abstracts.pxToRem(1px) solid abstracts.$light-grey;
+    }
+}

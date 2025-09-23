@@ -1,0 +1,118 @@
+@use 'variables' as variables;
+@use 'functions' as functions;
+@use 'sass:map';
+@use 'sass:list';
+
+/// @mixin fontFace
+/// Generates a `@font-face` rule with optional font formats.
+///
+/// @param {String} $name - Font family name.
+/// @param {String} $src - Path to the font file (without extension).
+/// @param {Number|String} $weight - Font weight (e.g., 400, 'bold').
+/// @param {List} $formats - List of formats to include (e.g., ('woff', 'woff2')).
+/// @content Optional additional declarations inside the @font-face block.
+@mixin fontFace($name, $src, $weight, $formats) {
+    @font-face {
+        font-family: $name;
+        src: url('#{$src}.eot');
+
+        src:
+            url('#{$src}.eot?#iefix') format('embedded-opentype'),
+            local($name),
+            local($name) #{if(
+                    list.index($formats, 'woff2'),
+                    ', url("#{$src}.woff2") format("woff2")',
+                    ''
+                )} #{if(
+                    list.index($formats, 'woff'),
+                    ', url("#{$src}.woff") format("woff")',
+                    ''
+                )} #{if(
+                    list.index($formats, 'ttf'),
+                    ', url("#{$src}.ttf") format("truetype")',
+                    ''
+                )} #{if(
+                    list.index($formats, 'svg'),
+                    ', url("#{$src}.svg##{$name}") format("svg")',
+                    ''
+                )};
+
+        font-weight: $weight;
+        font-style: normal;
+        font-display: swap;
+
+        @content;
+    }
+}
+
+/// @mixin flexContainer
+/// Generates a flex container with direction, alignment, justification, and optional gap.
+///
+/// @param {Number | -1} $gap - Gap between items; pass -1 to skip gap.
+/// @param {String} $direction - Flex direction (e.g., `row`, `column`).
+/// @param {String} $align - Align items (e.g., `center`, `flex-start`).
+/// @param {String} $justify - Justify content (e.g., `space-between`, `center`).
+@mixin flexContainer($gap, $direction, $align, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    @if ($gap != -1) {
+        gap: $gap;
+    }
+    align-items: $align;
+    justify-content: $justify;
+}
+
+/// @mixin responsive
+/// Wraps content inside a media query based on a named breakpoint.
+///
+/// @param {String} $screen - Breakpoint name defined in `$breakpoints` map.
+/// @content Styles to include inside the media query.
+@mixin responsive($screen) {
+    @if map.has-key(variables.$breakpoints, $screen) {
+        @media (min-width: map.get(variables.$breakpoints, $screen)) {
+            @content;
+        }
+    }
+}
+
+/// @mixin padding
+/// Applies responsive padding using a list of pixel values (converted to rem).
+///
+/// @param {List} $padding-list - List of 1, 2, or 4 padding values:
+///   - 1 value: all sides
+///   - 2 values: top-bottom, left-right
+///   - 4 values: top, right, bottom, left
+@mixin padding($padding-list) {
+    @if (list.length($padding-list) == 4) {
+        padding: functions.pxToRem(list.nth($padding-list, 1))
+            // top
+            functions.pxToRem(list.nth($padding-list, 2))
+            // right
+            functions.pxToRem(list.nth($padding-list, 3))
+            // bottom
+            functions.pxToRem(list.nth($padding-list, 4)); // left
+    } @else if (list.length($padding-list) == 2) {
+        padding: functions.pxToRem(list.nth($padding-list, 1))
+            // top-bottom
+            functions.pxToRem(list.nth($padding-list, 2)); // left-right
+    } @else {
+        padding: functions.pxToRem(list.nth($padding-list, 1)); // all sides
+    }
+}
+
+/// @mixin setTypography
+/// Sets typography styles for a specific HTML tag.
+/// @param {String} $tag - The HTML tag selector (e.g., `h1`, `p`, `.title`).
+/// @param {Number} $size - Font size in pixels (will be converted to `rem` using a utility function).
+/// @param {Color} $color - Text color value (e.g., `#000`, `$primary-color`).
+/// @param {Number | String} $line-height - The line height for the text.
+///
+/// @content Allows additional styles to be passed inside the mixin block.
+@mixin setTypography($tag, $size, $color, $line-height) {
+    #{$tag} {
+        font-size: functions.pxToRem($size);
+        color: $color;
+        line-height: $line-height;
+        @content;
+    }
+}

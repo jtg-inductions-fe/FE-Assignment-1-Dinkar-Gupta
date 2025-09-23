@@ -1,0 +1,34 @@
+@use '../abstracts' as abstracts;
+
+//centering and setting all icons white
+.icon [class^='icon-'],
+[class*='icon-'] {
+    @include abstracts.flexContainer(-1, row, center, center);
+}
+
+//Generating classes to add background and text colors, removing the need to repeat styles for only changing the background or text color (like in icons/highlights), just add this class to the HTML element
+@each $color, $value in abstracts.$brand-colors {
+    .bg-#{$color} {
+        background-color: $value;
+    }
+    .text-#{$color} {
+        color: $value;
+    }
+}
+
+//Containerization
+.container {
+    width: 92.6%;
+    max-width: 398px;
+    margin: 0 auto;
+
+    @include abstracts.responsive(tab) {
+        max-width: 896px;
+        width: 87.5%;
+    }
+
+    @include abstracts.responsive(desktop) {
+        max-width: 1192.65px;
+        width: 82.823%;
+    }
+}
