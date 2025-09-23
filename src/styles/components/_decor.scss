@@ -4,49 +4,37 @@
 .decor {
     position: absolute;
 
-    &__orange-blur {
-        border-radius: 50%;
-        box-shadow: 0 0 300px 300px
-            color.adjust(abstracts.$deep-orange, $alpha: -0.8);
-    }
     &__arrow {
         display: none;
-    }
 
-    @include abstracts.responsive(tab) {
-        &__arrow {
+        @include abstracts.responsive(tab) {
             display: block;
             width: abstracts.pxToRem(67px);
             height: auto;
-            top: 142.6%;
-            left: abstracts.pxToRem(38px);
-            overflow: hidden;
+            top: 75.5%;
+            left: -3%;
         }
-        &__yellow-blur {
+
+        @include abstracts.responsive(desktop) {
+            top: 76%;
+            left: -7%;
+        }
+    }
+
+    &__yellow-blur {
+        display: none;
+        @include abstracts.responsive(tab) {
+            display: block;
             border-radius: 50%;
-            box-shadow: 0 0 300px 300px
+            box-shadow: 0 0 abstracts.pxToRem(300px) abstracts.pxToRem(300px)
                 color.adjust(abstracts.$golden-yellow, $alpha: -0.8);
             right: -21%;
             top: 20%;
         }
-    }
 
-    @include abstracts.responsive(desktop) {
-        &__yellow-blur {
-            border-radius: 50%;
-            box-shadow: 0 0 300px 300px
-                color.adjust(abstracts.$golden-yellow, $alpha: -0.8);
+        @include abstracts.responsive(desktop) {
             right: -10%;
             top: 20%;
-        }
-
-        &__arrow {
-            display: block;
-            width: abstracts.pxToRem(67px);
-            height: auto;
-            top: 98%;
-            left: abstracts.pxToRem(44px);
-            overflow: hidden;
         }
     }
 }

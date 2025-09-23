@@ -7,19 +7,21 @@
         abstracts.pxToRem(list.nth(abstracts.$btn-padding, 2));
     color: abstracts.$dark-charcoal;
     @include abstracts.flexContainer(9px, row, center, center);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease;
 
     &--primary {
         background-color: abstracts.$violet-blue;
         color: abstracts.$white;
-        &:hover {
+        &:hover,
+        &:focus-visible {
             box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
                 abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
         }
     }
     &--secondary {
         border: abstracts.pxToRem(1px) solid abstracts.$light-grey;
-        &:hover {
+        &:hover,
+        &:focus-visible {
             box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
                 abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
         }

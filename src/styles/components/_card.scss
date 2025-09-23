@@ -8,7 +8,6 @@
         color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
     border-radius: abstracts.pxToRem(32px);
     transition: 0.3s all ease;
-    cursor: pointer;
     &:hover {
         box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
             abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);

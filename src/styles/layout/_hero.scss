@@ -4,6 +4,7 @@
 .hero {
     @include abstracts.flexContainer(-1, column, center, center);
     position: relative;
+    margin-bottom: abstracts.pxToRem(63px);
 
     &::before {
         content: '';
@@ -206,25 +207,5 @@
     &__icon {
         display: inline-block;
         font-size: abstracts.pxToRem(25px);
-    }
-}
-
-.decor {
-    &__arrow {
-        display: none;
-
-        @include abstracts.responsive(tab) {
-            display: block;
-            width: abstracts.pxToRem(67px);
-            height: auto;
-            top: 75.5%;
-            left: -3%;
-            overflow: hidden;
-        }
-
-        @include abstracts.responsive(desktop) {
-            top: 76%;
-            left: -7%;
-        }
     }
 }

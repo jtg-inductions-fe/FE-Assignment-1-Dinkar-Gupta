@@ -1,4 +1,4 @@
-@use '../abstracts/' as abstracts;
+@use '../abstracts' as abstracts;
 
 .services {
     @include abstracts.flexContainer(-1, column, center, center);
@@ -7,7 +7,7 @@
     &__content {
         @include abstracts.flexContainer(15px, column, center, center);
     }
-    &__content-subheading {
+    &__subheading {
         text-align: center;
     }
 
@@ -38,7 +38,7 @@
             padding-left: abstracts.pxToRem(6px);
             gap: abstracts.pxToRem(20px);
         }
-        &__content-subheading {
+        &__subheading {
             text-align: left;
         }
     }
