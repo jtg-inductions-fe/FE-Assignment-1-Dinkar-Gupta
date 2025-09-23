@@ -2,7 +2,7 @@
 @use 'sass:color';
 
 .key-features {
-    @include abstracts.flexContainer(41px, column, center, center);
+    @include abstracts.flexContainer(104px, column, center, center);
     position: relative;
 
     @include abstracts.responsive(tab) {
@@ -12,20 +12,20 @@
     @include abstracts.responsive(desktop) {
         flex-direction: row;
         align-items: flex-start;
-        padding-top: abstracts.pxToRem(16px);
+        padding-top: abstracts.pxToRem(6px);
         gap: abstracts.pxToRem(13px);
     }
     &__image-container {
         width: 100%;
         height: auto;
         overflow: hidden;
-        @include abstracts.padding((30px, 30px, 0px, 30px));
+        @include abstracts.padding((30px, 50px, 0px, 50px));
         @include abstracts.responsive(tab) {
             @include abstracts.padding((104px, 158px, 0px, 158px));
         }
 
         @include abstracts.responsive(desktop) {
-            @include abstracts.padding((17px, 0px, 0px, 90px));
+            @include abstracts.padding((0px, 0px, 0px, 90px));
             order: 2;
         }
     }

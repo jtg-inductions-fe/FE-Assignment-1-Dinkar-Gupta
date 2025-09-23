@@ -327,12 +327,21 @@
             <!-- KEY FEATURES SECTION -->
             <section class="key-features">
                 <div class="key-features__image-container">
-                    <img
-                        class="key-features__image"
-                        src="assets/images/key-features/key-features-main.png"
-                        alt="Collage of cylindrical images with church and surfing"
-                        loading="lazy"
-                    />
+                    <picture>
+                        <source
+                            srcset="
+                                assets/images/key-features/collage-church-surfing.png
+                            "
+                            media="(min-width: 431px)"
+                        />
+
+                        <img
+                            class="key-features__image"
+                            src="assets/images/key-features/collage-church-surfing-mobile.png"
+                            alt="Collage of a church and someone surfing"
+                            loading="lazy"
+                        />
+                    </picture>
                 </div>
                 <div class="key-features__content">
                     <div class="key-features__content-main">
@@ -350,7 +359,7 @@
                     </div>
                     <ul class="key-features__content-list">
                         <li class="box list-item">
-                            <div class="list-item__icon">
+                            <div class="list-item__icon" aria-hidden="true">
                                 <span class="icon-location"
                                     ><span class="path1"></span
                                     ><span class="path2"></span
@@ -366,7 +375,7 @@
                             </div>
                         </li>
                         <li class="box list-item">
-                            <div class="list-item__icon">
+                            <div class="list-item__icon" aria-hidden="true">
                                 <span class="icon-calendar"
                                     ><span class="path1"></span
                                     ><span class="path2"></span
@@ -382,7 +391,7 @@
                             </div>
                         </li>
                         <li class="box list-item">
-                            <div class="list-item__icon">
+                            <div class="list-item__icon" aria-hidden="true">
                                 <span class="icon-ticket"
                                     ><span class="path1"></span
                                     ><span class="path2"></span

@@ -4,14 +4,17 @@
 .travel-point {
     @include abstracts.flexContainer(39px, column, center, center);
     position: relative;
+    margin-bottom: abstracts.pxToRem(59px);
 
     @include abstracts.responsive(tab) {
         gap: abstracts.pxToRem(76px);
+        margin-bottom: abstracts.pxToRem(23px);
     }
 
     @include abstracts.responsive(desktop) {
         flex-direction: row;
         align-items: flex-start;
+        margin-bottom: 0;
     }
 
     &__image-container {
