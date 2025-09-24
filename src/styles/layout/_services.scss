@@ -1,45 +1,78 @@
 @use '../abstracts' as abstracts;
+@use 'sass:color';
 
 .services {
     @include abstracts.flexContainer(-1, column, center, center);
     position: relative;
 
+    @include abstracts.responsive(tab) {
+        gap: abstracts.pxToRem(32px);
+    }
+
+    @include abstracts.responsive(desktop) {
+        flex-direction: row;
+        gap: 0;
+    }
+
     &__content {
         @include abstracts.flexContainer(15px, column, center, center);
+
+        @include abstracts.responsive(desktop) {
+            align-items: self-start;
+            padding-top: abstracts.pxToRem(60px);
+            padding-left: abstracts.pxToRem(6px);
+            gap: abstracts.pxToRem(20px);
+        }
     }
+
     &__subheading {
+        @include abstracts.multilineEllipsis(2);
         text-align: center;
+
+        @include abstracts.responsive(tab) {
+            flex-direction: row;
+            gap: abstracts.pxToRem(18px);
+            align-items: stretch;
+        }
+
+        @include abstracts.responsive(desktop) {
+            text-align: left;
+        }
     }
 
     &__cards {
         @include abstracts.flexContainer(13px, column, center, center);
         padding-top: abstracts.pxToRem(30px);
-    }
 
-    @include abstracts.responsive(tab) {
-        gap: abstracts.pxToRem(32px);
-        &__cards {
+        @include abstracts.responsive(tab) {
             flex-direction: row;
             gap: abstracts.pxToRem(18px);
             align-items: stretch;
         }
     }
 
-    @include abstracts.responsive(desktop) {
-        flex-direction: row;
-        gap: 0;
-        .card__third {
+    &__card-third {
+        @include abstracts.responsive(desktop) {
             display: none;
         }
+    }
 
-        &__content {
-            align-items: self-start;
-            padding-top: abstracts.pxToRem(60px);
-            padding-left: abstracts.pxToRem(6px);
-            gap: abstracts.pxToRem(20px);
+    &__yellow-blur {
+        display: none;
+        position: absolute;
+
+        @include abstracts.responsive(tab) {
+            display: block;
+            border-radius: 50%;
+            box-shadow: 0 0 abstracts.pxToRem(300px) abstracts.pxToRem(300px)
+                color.adjust(abstracts.$golden-yellow, $alpha: -0.8);
+            right: -21%;
+            top: 20%;
         }
-        &__subheading {
-            text-align: left;
+
+        @include abstracts.responsive(desktop) {
+            right: -10%;
+            top: 20%;
         }
     }
 }

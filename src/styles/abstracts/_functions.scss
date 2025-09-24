@@ -7,7 +7,7 @@
 ///  @return {Number} Rem value.
 @function pxToRem($px, $base: 16px) {
     // Coerce unitless $px to px
-    @if unitless($px) {
+    @if math.is-unitless($px) {
         $px: $px * 1px;
     }
     // Ensure $base is in px

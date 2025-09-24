@@ -6,6 +6,14 @@
     position: relative;
     margin-bottom: abstracts.pxToRem(63px);
 
+    @include abstracts.responsive(tab) {
+        margin-bottom: abstracts.pxToRem(133px);
+    }
+
+    @include abstracts.responsive(desktop) {
+        margin-bottom: abstracts.pxToRem(87px);
+    }
+
     &::before {
         content: '';
         position: absolute;
@@ -158,6 +166,7 @@
         flex-direction: row;
         gap: abstracts.pxToRem(95px);
     }
+
     img {
         height: abstracts.pxToRem(20px);
 
@@ -190,6 +199,7 @@
         color: abstracts.$hot-pink;
         font-size: abstracts.pxToRem(14px);
     }
+
     &__icon {
         font-size: abstracts.pxToRem(21px);
     }

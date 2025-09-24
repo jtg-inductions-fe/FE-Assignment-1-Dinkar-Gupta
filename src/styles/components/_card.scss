@@ -6,45 +6,58 @@
     padding: abstracts.pxToRem(32px);
     border: abstracts.pxToRem(1px) solid
         color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
-    border-radius: abstracts.pxToRem(32px);
+    border-radius: 32px;
     transition: 0.3s all ease;
     &:hover {
         box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
             abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
     }
-    &__image {
-        width: 19%;
-        height: auto;
-        overflow: hidden;
-    }
-
-    &__content {
-        @include abstracts.flexContainer(33px, column, center, center);
-        p {
-            font-size: abstracts.pxToRem(18px);
-            text-align: center;
-        }
-    }
 
     @include abstracts.responsive(tab) {
+        @include abstracts.padding((64px, 64px, 32px, 64px));
         gap: abstracts.pxToRem(70px);
-        padding: abstracts.pxToRem(64px);
-        padding-bottom: abstracts.pxToRem(32px);
-        &__image {
-            width: 38%;
-        }
-
-        &__content {
-            text-align: center;
-        }
     }
 
     @include abstracts.responsive(desktop) {
         gap: abstracts.pxToRem(65px);
         padding-bottom: abstracts.pxToRem(102px);
+    }
 
-        &__image {
+    &__image {
+        width: 19%;
+        height: auto;
+        overflow: hidden;
+
+        @include abstracts.responsive(tab) {
+            width: 38%;
+        }
+
+        @include abstracts.responsive(desktop) {
             width: 27%;
+        }
+    }
+
+    &__content {
+        @include abstracts.flexContainer(33px, column, center, center);
+
+        @include abstracts.responsive(tab) {
+            text-align: center;
+        }
+    }
+
+    &__heading {
+        @include abstracts.responsive(tab) {
+            @include abstracts.multilineEllipsis(2);
+        }
+    }
+
+    &__description {
+        @include abstracts.multilineEllipsis(2);
+        font-size: abstracts.pxToRem(18px);
+        text-align: center;
+
+        @include abstracts.responsive(tab) {
+            @include abstracts.multilineEllipsis(4);
         }
     }
 }
