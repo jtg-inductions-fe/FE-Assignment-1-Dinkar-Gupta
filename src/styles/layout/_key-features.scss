@@ -33,7 +33,7 @@
     }
 
     &__content {
-        @include abstracts.flexContainer(31px, column, center, center);
+        @include abstracts.flexContainer(58px, column, center, center);
         text-align: center;
 
         @include abstracts.responsive(tab) {
@@ -47,6 +47,10 @@
         }
     }
 
+    &__subheading {
+        @include abstracts.multilineEllipsis(2);
+    }
+
     &__content-main {
         @include abstracts.flexContainer(16px, column, center, center);
 
@@ -58,10 +62,10 @@
 
     &__description {
         @include abstracts.padding((14px, 34px, 0px, 34px));
+        @include abstracts.multilineEllipsis(4);
 
         @include abstracts.responsive(tab) {
-            padding-left: abstracts.pxToRem(35px);
-            padding-right: abstracts.pxToRem(35px);
+            padding-inline: abstracts.pxToRem(35px);
         }
 
         @include abstracts.responsive(desktop) {
@@ -89,9 +93,9 @@
 .list-item {
     @include abstracts.flexContainer(12px, column, flex-start, center);
     border-color: transparent;
-    cursor: pointer;
     &:hover {
-        border-color: color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
+        border: abstracts.pxToRem(1px) solid
+            color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
     }
 
     @include abstracts.responsive(tab) {
@@ -115,12 +119,8 @@
     }
 
     &__description {
+        @include abstracts.multilineEllipsis(2);
         text-align: left;
         font-size: abstracts.pxToRem(18px);
-    }
-
-    &:hover {
-        border: abstracts.pxToRem(1px) solid
-            color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
     }
 }
