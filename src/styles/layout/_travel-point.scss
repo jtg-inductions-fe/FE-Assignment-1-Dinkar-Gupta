@@ -1,0 +1,130 @@
+@use '../abstracts/' as abstracts;
+@use 'sass:color';
+
+.travel-point {
+    @include abstracts.flexContainer(39px, column, center, center);
+    position: relative;
+
+    @include abstracts.responsive(tab) {
+        gap: abstracts.pxToRem(76px);
+    }
+
+    @include abstracts.responsive(desktop) {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    &__image-container {
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+
+        @include abstracts.responsive(tab) {
+            padding-left: abstracts.pxToRem(34px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            overflow: visible;
+            margin-top: abstracts.pxToRem(102px);
+        }
+    }
+
+    &__content {
+        @include abstracts.flexContainer(37px, column, center, center);
+        text-align: center;
+
+        @include abstracts.responsive(tab) {
+            gap: abstracts.pxToRem(65px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            width: 97%;
+            text-align: left;
+        }
+    }
+
+    &__content-main {
+        @include abstracts.flexContainer(16px, column, center, center);
+
+        @include abstracts.responsive(desktop) {
+            align-items: flex-start;
+            padding-left: abstracts.pxToRem(98px);
+        }
+    }
+
+    &__subheading {
+        @include abstracts.multilineEllipsis(2);
+    }
+
+    &__description {
+        @include abstracts.multilineEllipsis(3);
+        @include abstracts.padding((14px, 10px, 0px, 10px));
+
+        @include abstracts.responsive(tab) {
+            padding-inline: abstracts.pxToRem(35px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            padding-left: 0;
+        }
+    }
+
+    &__boxes {
+        @include abstracts.flexContainer(17px, column, stretch, center);
+        width: 100%;
+
+        @include abstracts.responsive(tab) {
+            @include abstracts.padding((0px, 32px));
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: abstracts.pxToRem(33px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            @include abstracts.padding((2px, 0px, 95px, 75px));
+        }
+    }
+
+    &__image {
+        @include abstracts.responsive(desktop) {
+            transform: scale(1.6);
+        }
+    }
+
+    &__ticket {
+        display: none;
+        position: absolute;
+
+        @include abstracts.responsive(desktop) {
+            @include abstracts.flexContainer(-1, row, center, center);
+            color: abstracts.$white;
+            background-color: abstracts.$golden-yellow;
+            font-size: abstracts.pxToRem(47px);
+            border-radius: 50%;
+            width: abstracts.pxToRem(112px);
+            height: abstracts.pxToRem(112px);
+            left: 95.8%;
+            top: 31%;
+            z-index: 1;
+        }
+    }
+}
+
+.box {
+    @include abstracts.flexContainer(15px, column, center, center);
+    border-radius: abstracts.pxToRem(32px);
+    padding: abstracts.pxToRem(32px);
+    border: abstracts.pxToRem(1px) solid
+        color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
+
+    &__title {
+        font-size: abstracts.pxToRem(35px);
+        color: abstracts.$deep-orange;
+    }
+
+    &__description {
+        font-size: abstracts.pxToRem(18px);
+        color: abstracts.$charcoal-blue;
+        text-align: center;
+    }
+}

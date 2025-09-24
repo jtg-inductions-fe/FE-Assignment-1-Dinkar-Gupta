@@ -218,4 +218,8 @@
         display: inline-block;
         font-size: abstracts.pxToRem(25px);
     }
+
+    @include abstracts.responsive(tab) {
+        @include abstracts.padding((11px, 32px));
+    }
 }

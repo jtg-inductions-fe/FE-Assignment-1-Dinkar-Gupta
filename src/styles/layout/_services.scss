@@ -3,13 +3,16 @@
 
 .services {
     @include abstracts.flexContainer(-1, column, center, center);
+    margin-bottom: abstracts.pxToRem(65px);
     position: relative;
 
     @include abstracts.responsive(tab) {
+        margin-bottom: abstracts.pxToRem(125px);
         gap: abstracts.pxToRem(32px);
     }
 
     @include abstracts.responsive(desktop) {
+        margin-bottom: abstracts.pxToRem(171px);
         flex-direction: row;
         gap: 0;
     }
