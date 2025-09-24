@@ -216,7 +216,7 @@
 
     &__icon {
         display: inline-block;
-        font-size: 25px;
+        font-size: abstracts.pxToRem(25px);
     }
 
     @include abstracts.responsive(tab) {
