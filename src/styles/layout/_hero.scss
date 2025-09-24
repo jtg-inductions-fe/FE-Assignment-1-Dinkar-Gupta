@@ -21,6 +21,23 @@
         pointer-events: none;
         z-index: 1002;
     }
+
+    &__arrow {
+        display: none;
+        position: absolute;
+        @include abstracts.responsive(tab) {
+            display: block;
+            width: abstracts.pxToRem(67px);
+            height: auto;
+            top: 75.5%;
+            left: -3%;
+        }
+
+        @include abstracts.responsive(desktop) {
+            top: 76%;
+            left: -7%;
+        }
+    }
 }
 
 .hero-main {
