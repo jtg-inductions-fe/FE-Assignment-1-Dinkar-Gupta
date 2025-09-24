@@ -7,14 +7,14 @@
     margin-bottom: abstracts.pxToRem(59px);
 
     @include abstracts.responsive(tab) {
-        gap: abstracts.pxToRem(76px);
+        gap: abstracts.pxToRem(73px);
         margin-bottom: abstracts.pxToRem(23px);
     }
 
     @include abstracts.responsive(desktop) {
         flex-direction: row;
         align-items: flex-start;
-        margin-bottom: 0;
+        margin-bottom: abstracts.pxToRem(30px);
     }
 
     &__image-container {
