@@ -33,7 +33,7 @@
     }
 
     &__content {
-        @include abstracts.flexContainer(58px, column, center, center);
+        @include abstracts.flexContainer(31px, column, center, center);
         text-align: center;
 
         @include abstracts.responsive(tab) {
