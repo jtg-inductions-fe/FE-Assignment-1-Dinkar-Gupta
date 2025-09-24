@@ -2,6 +2,7 @@
 @use 'functions' as functions;
 @use 'sass:map';
 @use 'sass:list';
+@use 'sass:color';
 
 /// @mixin fontFace
 /// Generates a `@font-face` rule with optional font formats.
@@ -17,7 +18,7 @@
         src: url('#{$src}.eot');
 
         src:
-            url('#{$src}.eot?#iefix') format('embedded-opentype'),
+            url('#{$src}.eot') format('embedded-opentype'),
             local($name),
             local($name) #{if(
                     list.index($formats, 'woff2'),
@@ -115,4 +116,60 @@
         line-height: $line-height;
         @content;
     }
+}
+
+/// @mixin setOverallTypography
+/// Sets typography for h1, h2, h3, h4, h5, h6, and p from a list of values. This mixin is written only for accessibility, it is specific to the provided design
+///
+/// @param {List} $typography-list - List of font sizes (or values) in this order:
+///   (h1, h2, h3, h4, h5, h6, p)
+@mixin setOverallTypography($typography-list) {
+    // Access list items by index (nth starts at 1)
+    $h1: list.nth($typography-list, 1);
+    $h2: list.nth($typography-list, 2);
+    $h3: list.nth($typography-list, 3);
+    $h4: list.nth($typography-list, 4);
+    $h5: list.nth($typography-list, 5);
+    $h6: list.nth($typography-list, 6);
+    $p: list.nth($typography-list, 7);
+
+    @include setTypography(h1, $h1, variables.$black, 1.2);
+    @include setTypography(h2, $h2, variables.$hot-pink, 1.2) {
+        letter-spacing: 0.2;
+        text-transform: uppercase;
+    }
+    @include setTypography(h3, $h3, variables.$charcoal-blue, 1.2);
+    @include setTypography(h4, $h4, variables.$charcoal-blue, 1.2);
+    @include setTypography(h5, $h5, variables.$charcoal-blue, 1.2);
+    @include setTypography(h6, $h6, variables.$charcoal-blue, 1.2);
+
+    @include setTypography(
+        p,
+        $p,
+        color.adjust(variables.$charcoal-blue, $alpha: -0.5),
+        1.6
+    ) {
+        font-family: variables.$secondary-font;
+        font-weight: 400;
+    }
+}
+
+/// @mixin text-ellipsis
+/// Applies single-line text truncation with ellipsis
+@mixin textEllipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/// @mixin multiline-ellipsis
+/// Applies multi-line text truncation with ellipsis for WebKit-based browsers.
+///
+/// Parameters:
+/// - $lines (Number): Number of visible lines before truncation (default: 2)
+@mixin multilineEllipsis($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }

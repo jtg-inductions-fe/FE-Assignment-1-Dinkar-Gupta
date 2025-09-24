@@ -16,19 +16,37 @@
     @include abstracts.responsive(tab) {
         @include abstracts.padding((33px, 65px, 33px, 68px));
     }
+
     @include abstracts.responsive(desktop) {
         @include abstracts.padding((69px, 100px, 66px, 150px));
     }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: abstracts.pxToRem(992px);
+        height: abstracts.pxToRem(1024px);
+        transform: translate(-50%, -50%);
+        background: radial-gradient(
+            circle,
+            rgba(255, 87, 34, 0.2) -1%,
+            transparent 70%
+        );
+        pointer-events: none;
+        z-index: 1002;
+    }
+
     &__nav-links {
         @include abstracts.flexContainer(-1, column, flex-start, flex-start);
-        background-color: abstracts.$white;
+        background: linear-gradient(to right, #ffded5, white);
         width: 70vw;
         height: 100vh;
         position: absolute;
         left: 100vw;
         top: 100%;
         transition: transform 0.5s ease;
-        border-left: abstracts.pxToRem(1px) solid rgba(0, 0, 0, 0.5);
         z-index: 1001;
         color: abstracts.$transparent-black;
         @media (prefers-reduced-motion: reduce) {
@@ -37,8 +55,10 @@
 
         li {
             @include abstracts.padding((20px, 20px, 20px, 40px));
+            cursor: pointer;
             width: 100%;
-            border-top: abstracts.pxToRem(1px) solid abstracts.$light-grey;
+            border-top: abstracts.pxToRem(1px) solid
+                color.adjust(abstracts.$black, $alpha: -0.8);
         }
 
         a {
@@ -51,9 +71,9 @@
             width: 50vw;
             left: 0;
             transform: translateX(-50vw);
-            border-right: abstracts.pxToRem(1px) solid
-                abstracts.$transparent-black;
+            will-change: transform;
         }
+
         @include abstracts.responsive(desktop) {
             @include abstracts.flexContainer(65px, row, center, center);
             position: static;
@@ -61,6 +81,7 @@
             height: auto;
             border: none;
             transform: translateX(0);
+            background: transparent;
 
             li {
                 padding: 0;
@@ -77,24 +98,24 @@
     &__cta {
         display: none;
         font-size: abstracts.pxToRem(14px);
+
         @include abstracts.responsive(tab) {
-            @include abstracts.flexContainer(-1, row, center, center);
-        }
-        @include abstracts.responsive(desktop) {
             @include abstracts.flexContainer(-1, row, center, center);
         }
     }
     &__menu {
+        @include abstracts.padding((9px, 9px, 3px, 9px));
         border-radius: 10px;
-        padding: abstracts.pxToRem(9px) abstracts.pxToRem(9px)
-            abstracts.pxToRem(9px) abstracts.pxToRem(9px);
         font-size: abstracts.pxToRem(22px);
         background-color: abstracts.$violet-blue;
-        @include abstracts.responsive(desktop) {
-            display: none;
-        }
+        z-index: 1004;
+
         @include abstracts.responsive(tab) {
             order: -1;
+        }
+
+        @include abstracts.responsive(desktop) {
+            display: none;
         }
     }
     &__menu-icon {
@@ -102,8 +123,9 @@
     }
     &__logo {
         @include abstracts.responsive(tab) {
-            padding-left: 280px;
+            padding-left: abstracts.pxToRem(280px);
         }
+
         @include abstracts.responsive(desktop) {
             padding: 0;
         }
@@ -112,6 +134,7 @@
 
 .open-drawer {
     transform: translateX(-70vw);
+
     @include abstracts.responsive(tab) {
         transform: translateX(0);
     }
@@ -121,10 +144,8 @@
     &__signup {
         color: abstracts.$violet-blue;
     }
+
     @include abstracts.responsive(tab) {
-        display: none;
-    }
-    @include abstracts.responsive(desktop) {
         display: none;
     }
 }

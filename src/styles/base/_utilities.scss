@@ -33,3 +33,10 @@
     box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
         abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
 }
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    z-index: 999;
+}
