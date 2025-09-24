@@ -65,8 +65,8 @@
 
     &__content {
         @include abstracts.flexContainer(21px, column, center, center);
+        padding-top: abstracts.pxToRem(8px);
         text-align: center;
-        padding-top: 8px;
 
         @include abstracts.responsive(tab) {
             @include abstracts.padding((5px, 146px, 8px, 142px));

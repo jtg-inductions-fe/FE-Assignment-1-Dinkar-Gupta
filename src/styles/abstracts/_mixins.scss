@@ -125,13 +125,13 @@
 ///   (h1, h2, h3, h4, h5, h6, p)
 @mixin setOverallTypography($typography-list) {
     // Access list items by index (nth starts at 1)
-    $h1: nth($typography-list, 1);
-    $h2: nth($typography-list, 2);
-    $h3: nth($typography-list, 3);
-    $h4: nth($typography-list, 4);
-    $h5: nth($typography-list, 5);
-    $h6: nth($typography-list, 6);
-    $p: nth($typography-list, 7);
+    $h1: list.nth($typography-list, 1);
+    $h2: list.nth($typography-list, 2);
+    $h3: list.nth($typography-list, 3);
+    $h4: list.nth($typography-list, 4);
+    $h5: list.nth($typography-list, 5);
+    $h6: list.nth($typography-list, 6);
+    $p: list.nth($typography-list, 7);
 
     @include setTypography(h1, $h1, variables.$black, 1.2);
     @include setTypography(h2, $h2, variables.$hot-pink, 1.2) {
