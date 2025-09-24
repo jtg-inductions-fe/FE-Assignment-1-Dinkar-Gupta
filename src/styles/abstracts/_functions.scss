@@ -6,5 +6,13 @@
 ///  @param {Number} [$base=16px] - Base font size in pixels, defaults to 16px.
 ///  @return {Number} Rem value.
 @function pxToRem($px, $base: 16px) {
+    // Coerce unitless $px to px
+    @if math.is-unitless($px) {
+        $px: $px * 1px;
+    }
+    // Ensure $base is in px
+    @if math.unit($base) != 'px' {
+        @error 'pxToRem: $base must be in px (got #{inspect($base)})';
+    }
     @return math.div($px, $base) * 1rem;
 }

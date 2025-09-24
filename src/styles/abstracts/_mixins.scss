@@ -135,7 +135,7 @@
 
     @include setTypography(h1, $h1, variables.$black, 1.2);
     @include setTypography(h2, $h2, variables.$hot-pink, 1.2) {
-        letter-spacing: 0.2;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
     }
     @include setTypography(h3, $h3, variables.$charcoal-blue, 1.2);

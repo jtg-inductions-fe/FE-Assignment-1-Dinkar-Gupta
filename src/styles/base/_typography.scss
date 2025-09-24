@@ -1,7 +1,6 @@
 @use '../abstracts' as abstracts;
 @use 'sass:list';
 @use 'sass:map';
-@use 'sass:color';
 
 //creating font variants
 @each $font in abstracts.$font-variants {

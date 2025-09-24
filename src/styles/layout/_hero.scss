@@ -4,6 +4,15 @@
 .hero {
     @include abstracts.flexContainer(-1, column, center, center);
     position: relative;
+    margin-bottom: abstracts.pxToRem(63px);
+
+    @include abstracts.responsive(tab) {
+        margin-bottom: abstracts.pxToRem(133px);
+    }
+
+    @include abstracts.responsive(desktop) {
+        margin-bottom: abstracts.pxToRem(87px);
+    }
 
     &::before {
         content: '';
@@ -157,6 +166,7 @@
         flex-direction: row;
         gap: abstracts.pxToRem(95px);
     }
+
     img {
         height: abstracts.pxToRem(20px);
 
@@ -189,6 +199,7 @@
         color: abstracts.$hot-pink;
         font-size: abstracts.pxToRem(14px);
     }
+
     &__icon {
         font-size: abstracts.pxToRem(21px);
     }
@@ -206,25 +217,5 @@
     &__icon {
         display: inline-block;
         font-size: abstracts.pxToRem(25px);
-    }
-}
-
-.decor {
-    &__arrow {
-        display: none;
-
-        @include abstracts.responsive(tab) {
-            display: block;
-            width: abstracts.pxToRem(67px);
-            height: auto;
-            top: 75.5%;
-            left: -3%;
-            overflow: hidden;
-        }
-
-        @include abstracts.responsive(desktop) {
-            top: 76%;
-            left: -7%;
-        }
     }
 }
