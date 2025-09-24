@@ -31,35 +31,17 @@ body {
 }
 
 @include abstracts.setOverallTypography(
-    40px,
-    16px,
-    32px,
-    32px,
-    24px,
-    23px,
-    16px
+    (40px, 16px, 32px, 32px, 24px, 23px, 16px)
 );
 
 @include abstracts.responsive(tab) {
     @include abstracts.setOverallTypography(
-        56px,
-        23px,
-        40px,
-        40px,
-        28px,
-        23px,
-        18px
+        (56px, 23px, 40px, 40px, 28px, 23px, 18px)
     );
 }
 
 @include abstracts.responsive(desktop) {
     @include abstracts.setOverallTypography(
-        69px,
-        23px,
-        55px,
-        44px,
-        28px,
-        23px,
-        18px
+        (69px, 23px, 55px, 44px, 28px, 23px, 18px)
     );
 }

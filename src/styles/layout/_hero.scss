@@ -25,18 +25,23 @@
 
 .hero-main {
     @include abstracts.flexContainer(5px, column, center, center);
+
     @include abstracts.responsive(tab) {
         gap: 0;
     }
+
     @include abstracts.responsive(desktop) {
         @include abstracts.flexContainer(-1, row, center, center);
         align-items: stretch;
     }
 
-    &__content-heading {
+    &__heading {
+        @include abstracts.multilineEllipsis(3);
+
         @include abstracts.responsive(tab) {
             padding-top: abstracts.pxToRem(8px);
         }
+
         @include abstracts.responsive(desktop) {
             padding-top: abstracts.pxToRem(49px);
         }
@@ -51,6 +56,7 @@
         @include abstracts.responsive(tab) {
             @include abstracts.padding((62px, 58px, 12px, 58px));
         }
+
         @include abstracts.responsive(desktop) {
             order: 2;
             padding: 0;
@@ -58,20 +64,18 @@
     }
 
     &__content {
+        @include abstracts.flexContainer(21px, column, center, center);
         text-align: center;
         padding-top: 8px;
-        @include abstracts.flexContainer(21px, column, center, center);
 
         @include abstracts.responsive(tab) {
-            gap: abstracts.pxToRem(38px);
             @include abstracts.padding((5px, 146px, 8px, 142px));
+            gap: abstracts.pxToRem(38px);
         }
+
         @include abstracts.responsive(desktop) {
+            @include abstracts.padding((26px, 0px, 63px, 6px));
             order: 1;
-            padding: 0;
-            padding-left: abstracts.pxToRem(6px);
-            padding-top: abstracts.pxToRem(26px);
-            padding-bottom: abstracts.pxToRem(63px);
             gap: 0;
             align-items: flex-start;
             text-align: left;
@@ -79,56 +83,46 @@
         }
     }
 
-    &__content-buttons {
+    &__buttons {
         @include abstracts.flexContainer(25px, column, center, center);
         width: 100%;
         padding-top: abstracts.pxToRem(10px);
         font-size: abstracts.pxToRem(14px);
+
         button {
+            @include abstracts.padding((24px, 32px));
             width: 100%;
             border-radius: 40px;
-            @include abstracts.padding((24px, 32px));
         }
 
         @include abstracts.responsive(tab) {
             @include abstracts.flexContainer(23px, row, center, center);
             width: auto;
             padding-top: abstracts.pxToRem(2px);
+
             button {
-                width: auto;
                 @include abstracts.padding((16px, 32px));
+                width: auto;
             }
         }
+
         @include abstracts.responsive(desktop) {
             padding-top: abstracts.pxToRem(64px);
         }
     }
 
-    &__content-description {
+    &__description {
+        @include abstracts.multilineEllipsis(3);
         @include abstracts.padding((0px, 2px));
+
         @include abstracts.responsive(tab) {
             @include abstracts.padding((4px, 82px, 0px, 82px));
         }
+
         @include abstracts.responsive(desktop) {
             padding: 0;
             padding-top: abstracts.pxToRem(41px);
         }
-    }
-
-    &__content-kicker {
-        @include abstracts.flexContainer(19px, row, center, center);
-        border-radius: abstracts.pxToRem(30px);
-        box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
-            abstracts.pxToRem(24px) rgba(0, 0, 0, 0.07);
-        @include abstracts.padding((16px, 32px));
-    }
-
-    &__content-kicker-text {
-        color: abstracts.$hot-pink;
-        font-size: abstracts.pxToRem(14px);
-    }
-    &__content-kicker-icon {
-        font-size: abstracts.pxToRem(21px);
     }
 }
 
@@ -140,6 +134,7 @@
     @include abstracts.responsive(tab) {
         padding-top: abstracts.pxToRem(150px);
     }
+
     @include abstracts.responsive(desktop) {
         padding-top: abstracts.pxToRem(85px);
         flex-direction: row;
@@ -147,6 +142,7 @@
     }
     img {
         height: abstracts.pxToRem(20px);
+
         @include abstracts.responsive(tab) {
             max-height: abstracts.pxToRem(32px);
             height: auto;
@@ -155,13 +151,33 @@
 
     &__row {
         @include abstracts.flexContainer(24px, row, center, center);
+
         @include abstracts.responsive(desktop) {
             gap: abstracts.pxToRem(95px);
         }
     }
 }
 
-.demo {
+.kicker {
+    @include abstracts.textEllipsis();
+    @include abstracts.flexContainer(19px, row, center, center);
+    @include abstracts.padding((16px, 32px));
+    border-radius: abstracts.pxToRem(30px);
+    box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
+        abstracts.pxToRem(24px) rgba(0, 0, 0, 0.07);
+    max-width: abstracts.pxToRem(224px);
+
+    &__text {
+        @include abstracts.textEllipsis();
+        color: abstracts.$hot-pink;
+        font-size: abstracts.pxToRem(14px);
+    }
+    &__icon {
+        font-size: abstracts.pxToRem(21px);
+    }
+}
+
+.btn-watch-demo {
     @include abstracts.responsive(tab) {
         @include abstracts.padding((11px, 32px));
     }
@@ -177,25 +193,21 @@
 }
 
 .decor {
-    position: absolute;
-
     &__arrow {
         display: none;
+
         @include abstracts.responsive(tab) {
             display: block;
             width: abstracts.pxToRem(67px);
             height: auto;
-            top: 80.5%;
+            top: 75.5%;
             left: -3%;
             overflow: hidden;
         }
+
         @include abstracts.responsive(desktop) {
-            display: block;
-            width: abstracts.pxToRem(67px);
-            height: auto;
-            top: 79%;
+            top: 76%;
             left: -7%;
-            overflow: hidden;
         }
     }
 }

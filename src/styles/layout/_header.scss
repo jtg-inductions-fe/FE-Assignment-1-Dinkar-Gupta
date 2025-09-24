@@ -39,11 +39,10 @@
     }
 
     &__nav-links {
-        cursor: pointer;
         @include abstracts.flexContainer(-1, column, flex-start, flex-start);
         background: linear-gradient(to right, #ffded5, white);
-        width: 70dvw;
-        height: 100dvh;
+        width: 70vw;
+        height: 100vh;
         position: absolute;
         left: 100vw;
         top: 100%;
@@ -55,6 +54,8 @@
         }
 
         li {
+            cursor: pointer;
+
             @include abstracts.padding((20px, 20px, 20px, 40px));
             width: 100%;
             border-top: abstracts.pxToRem(1px) solid
@@ -70,8 +71,10 @@
         @include abstracts.responsive(tab) {
             width: 50vw;
             left: 0;
-            transform: translateX(-50dvw);
+            transform: translateX(-50vw);
+            will-change: transform;
         }
+
         @include abstracts.responsive(desktop) {
             @include abstracts.flexContainer(65px, row, center, center);
             position: static;
@@ -96,25 +99,24 @@
     &__cta {
         display: none;
         font-size: abstracts.pxToRem(14px);
+
         @include abstracts.responsive(tab) {
-            @include abstracts.flexContainer(-1, row, center, center);
-        }
-        @include abstracts.responsive(desktop) {
             @include abstracts.flexContainer(-1, row, center, center);
         }
     }
     &__menu {
+        @include abstracts.padding((9px, 9px, 3px, 9px));
         border-radius: 10px;
-        padding: abstracts.pxToRem(9px) abstracts.pxToRem(9px)
-            abstracts.pxToRem(3px) abstracts.pxToRem(9px);
         font-size: abstracts.pxToRem(22px);
         background-color: abstracts.$violet-blue;
         z-index: 1004;
-        @include abstracts.responsive(desktop) {
-            display: none;
-        }
+
         @include abstracts.responsive(tab) {
             order: -1;
+        }
+
+        @include abstracts.responsive(desktop) {
+            display: none;
         }
     }
     &__menu-icon {
@@ -124,6 +126,7 @@
         @include abstracts.responsive(tab) {
             padding-left: abstracts.pxToRem(280px);
         }
+
         @include abstracts.responsive(desktop) {
             padding: 0;
         }
@@ -132,6 +135,7 @@
 
 .open-drawer {
     transform: translateX(-70vw);
+
     @include abstracts.responsive(tab) {
         transform: translateX(0);
     }
@@ -141,10 +145,8 @@
     &__signup {
         color: abstracts.$violet-blue;
     }
+
     @include abstracts.responsive(tab) {
-        display: none;
-    }
-    @include abstracts.responsive(desktop) {
         display: none;
     }
 }

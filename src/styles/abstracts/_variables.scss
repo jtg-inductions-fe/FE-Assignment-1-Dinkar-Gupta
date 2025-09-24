@@ -21,8 +21,8 @@ $brand-colors: (
 );
 
 //Paths
-$fonts: 'assets/fonts';
-$images: 'assets/images';
+$fonts: '/assets/fonts';
+$images: '/assets/images';
 
 // Fonts
 $primary-font: 'circular-std';
@@ -50,14 +50,14 @@ $breakpoints: (
 );
 
 //Spacings
-$space-vsm: 4px;
+$space-xs: 4px;
 $space-sm: 8px;
 $space-md: 16px;
 $space-lg: 24px;
-$space-vlg: 32px;
-$space-vvlg: 64px;
+$space-xl: 32px;
+$space-xxl: 64px;
 
-$btn-padding: $space-md $space-vlg;
+$btn-padding: $space-md $space-xl;
 
 //General
 $bd-radius: 30px;

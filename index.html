@@ -18,7 +18,7 @@
         <meta property="og:url" content="hosted_url" />
         <meta
             property="og:image"
-            content="assets/images/travel-log-homepage.png"
+            content="/assets/images/travel-log-homepage.png"
         />
         <meta
             property="og:image:alt"
@@ -33,7 +33,7 @@
                     href="#home"
                     aria-label="Logo of Travel Log that goes to home when clicked"
                 >
-                    <img src="assets/logo.svg" alt="Logo of Travel Log" />
+                    <img src="/assets/logo.svg" alt="Logo of Travel Log" />
                 </a>
             </div>
             <nav class="header__nav">
@@ -104,9 +104,9 @@
         <main class="container" id="home">
             <!-- HERO SECTION -->
             <section class="hero">
-                <div class="decor decor__arrow">
+                <div class="position-absolute decor__arrow">
                     <img
-                        src="assets/images/decor/arrows.svg"
+                        src="/assets/images/decor/arrows.svg"
                         alt="A decoration element with arrows"
                         loading="lazy"
                     />
@@ -115,37 +115,33 @@
                     <div class="hero-main__image-container">
                         <picture>
                             <source
-                                srcset="assets/images/hero/tourist-collage.png"
+                                srcset="/assets/images/hero/tourist-collage.png"
                                 media="(min-width: 431px)"
                             />
 
                             <img
                                 class="hero-main__image"
-                                src="assets/images/hero/tourist-collage-mobile.png"
+                                src="/assets/images/hero/tourist-collage-mobile.png"
                                 alt="Collage of travel images"
                                 loading="lazy"
                             />
                         </picture>
                     </div>
                     <div class="hero-main__content">
-                        <div class="hero-main__content-kicker">
-                            <div class="hero-main__content-kicker-text">
-                                Explore the world!
-                            </div>
-                            <span
-                                class="icon-briefcase hero-main__content-kicker-icon"
-                            ></span>
+                        <div class="kicker">
+                            <div class="kicker__text">Explore the world!</div>
+                            <span class="icon-briefcase kicker__icon"></span>
                         </div>
-                        <h1 class="hero-main__content-heading">
+                        <h1 class="hero-main__heading">
                             Travel
                             <span class="text-hot-pink">top destination</span>
                             of the world
                         </h1>
-                        <p class="hero-main__content-description">
-                            We always make our customer happy by providing as
+                        <p class="hero-main__description">
+                            We always make our customers happy by providing as
                             many choices as possible
                         </p>
-                        <div class="hero-main__content-buttons">
+                        <div class="hero-main__buttons">
                             <button
                                 class="btn btn--primary"
                                 aria-label="Get started with travel planning"
@@ -153,11 +149,15 @@
                                 Get Started
                             </button>
                             <button
-                                class="btn btn--secondary demo"
+                                class="btn btn--secondary btn-watch-demo"
                                 aria-label="Watch a demo of planning a tour"
                             >
-                                <span class="icon-play demo__icon"></span>
-                                <div class="demo__text">Watch Demo</div>
+                                <span
+                                    class="icon-play btn-watch-demo__icon"
+                                ></span>
+                                <div class="btn-watch-demo__text">
+                                    Watch Demo
+                                </div>
                             </button>
                         </div>
                     </div>
@@ -166,21 +166,21 @@
                     <div class="hero-clients__row">
                         <div class="hero-clients__logo-trip-advisor">
                             <img
-                                src="assets/images/hero/clients/logo-trip-advisor.svg"
+                                src="/assets/images/hero/clients/logo-trip-advisor.svg"
                                 alt="Logo of Trip Advisor"
                                 loading="lazy"
                             />
                         </div>
                         <div class="hero-clients__logo-expedia">
                             <img
-                                src="assets/images/hero/clients/logo-expedia.svg"
+                                src="/assets/images/hero/clients/logo-expedia.svg"
                                 alt="Logo of Expedia"
                                 loading="lazy"
                             />
                         </div>
                         <div class="hero-clients__logo-booking-com">
                             <img
-                                src="assets/images/hero/clients/logo-booking-com.svg"
+                                src="/assets/images/hero/clients/logo-booking-com.svg"
                                 alt="Logo of Booking.com"
                                 loading="lazy"
                             />
@@ -189,14 +189,14 @@
                     <div class="hero-clients__row">
                         <div class="hero-clients__logo-airbnb">
                             <img
-                                src="assets/images/hero/clients/logo-airbnb.svg"
+                                src="/assets/images/hero/clients/logo-airbnb.svg"
                                 alt="Logo of Airbnb"
                                 loading="lazy"
                             />
                         </div>
                         <div class="hero-clients__logo-rbitz">
                             <img
-                                src="assets/images/hero/clients/logo-rbitz.svg"
+                                src="/assets/images/hero/clients/logo-rbitz.svg"
                                 alt="Logo of Rbitz"
                                 loading="lazy"
                             />
