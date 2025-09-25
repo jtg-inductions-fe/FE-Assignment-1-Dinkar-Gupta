@@ -17,17 +17,16 @@
     }
 
     &__image-container {
-        @include abstracts.padding((30px, 50px, 0px, 50px));
+        @include abstracts.padding((30px, 50px, 0, 50px));
         width: 100%;
-        height: auto;
         overflow: hidden;
 
         @include abstracts.responsive(tab) {
-            @include abstracts.padding((104px, 158px, 0px, 158px));
+            @include abstracts.padding((104px, 158px, 0, 158px));
         }
 
         @include abstracts.responsive(desktop) {
-            @include abstracts.padding((0px, 0px, 0px, 90px));
+            @include abstracts.padding((0, 0, 0, 90px));
             order: 2;
         }
     }
@@ -61,7 +60,7 @@
     }
 
     &__description {
-        @include abstracts.padding((14px, 34px, 0px, 34px));
+        @include abstracts.padding((14px, 34px, 0, 34px));
         @include abstracts.multilineEllipsis(4);
 
         @include abstracts.responsive(tab) {
@@ -69,7 +68,7 @@
         }
 
         @include abstracts.responsive(desktop) {
-            padding-left: abstracts.pxToRem(0px);
+            padding-left: abstracts.pxToRem(0);
             padding-right: abstracts.pxToRem(6px);
         }
     }

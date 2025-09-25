@@ -76,7 +76,6 @@
     &__image-container {
         width: 100%;
         padding-top: abstracts.pxToRem(27px);
-        height: auto;
         overflow: hidden;
 
         @include abstracts.responsive(tab) {
@@ -100,7 +99,7 @@
         }
 
         @include abstracts.responsive(desktop) {
-            @include abstracts.padding((26px, 0px, 63px, 6px));
+            @include abstracts.padding((26px, 0, 63px, 6px));
             order: 1;
             gap: 0;
             align-items: flex-start;
@@ -139,10 +138,10 @@
 
     &__description {
         @include abstracts.multilineEllipsis(3);
-        @include abstracts.padding((0px, 2px));
+        @include abstracts.padding((0, 2px));
 
         @include abstracts.responsive(tab) {
-            @include abstracts.padding((4px, 82px, 0px, 82px));
+            @include abstracts.padding((4px, 82px, 0, 82px));
         }
 
         @include abstracts.responsive(desktop) {

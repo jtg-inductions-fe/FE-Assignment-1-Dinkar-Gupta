@@ -18,7 +18,7 @@
         <meta property="og:url" content="hosted_url" />
         <meta
             property="og:image"
-            content="/assets/images/travel-log-homepage.png"
+            content="/assets/images/travel-log-homepage.webp"
         />
         <meta
             property="og:image:alt"
@@ -37,7 +37,12 @@
                 </a>
             </div>
             <nav class="header__nav">
-                <ul class="header__nav-links hide" inert id="main-menu">
+                <ul
+                    class="header__nav-links hide"
+                    inert
+                    id="main-menu"
+                    aria-expanded="false"
+                >
                     <li>
                         <a
                             href="#home"
@@ -79,8 +84,8 @@
 
             <button
                 class="header__menu"
-                aria-label="Toggle menu"
                 aria-controls="main-menu"
+                aria-label="Open Menu"
                 aria-expanded="false"
             >
                 <span
@@ -114,13 +119,14 @@
                     <div class="hero-main__image-container">
                         <picture>
                             <source
-                                srcset="/assets/images/hero/tourist-collage.png"
+                                srcset="
+                                    /assets/images/hero/tourist-collage.webp
+                                "
                                 media="(min-width: 431px)"
                             />
-
                             <img
                                 class="hero-main__image"
-                                src="/assets/images/hero/tourist-collage-mobile.png"
+                                src="/assets/images/hero/tourist-collage-mobile.webp"
                                 alt="Collage of travel images"
                                 loading="lazy"
                             />
@@ -274,14 +280,13 @@
                     <picture>
                         <source
                             srcset="
-                                assets/images/travel-point/girl-with-luggage.png
+                                assets/images/travel-point/girl-with-luggage.webp
                             "
                             media="(min-width: 431px)"
                         />
-
                         <img
                             class="travel-point__image"
-                            src="assets/images/travel-point/girl-with-luggage-mobile.png"
+                            src="assets/images/travel-point/girl-with-luggage-mobile.webp"
                             alt="A female tourist with luggage"
                             loading="lazy"
                         />
@@ -332,14 +337,14 @@
                     <picture>
                         <source
                             srcset="
-                                assets/images/key-features/collage-church-surfing.png
+                                assets/images/key-features/collage-church-surfing.webp
                             "
                             media="(min-width: 431px)"
                         />
 
                         <img
                             class="key-features__image"
-                            src="assets/images/key-features/collage-church-surfing-mobile.png"
+                            src="assets/images/key-features/collage-church-surfing-mobile.webp"
                             alt="Collage of a church and someone surfing"
                             loading="lazy"
                         />

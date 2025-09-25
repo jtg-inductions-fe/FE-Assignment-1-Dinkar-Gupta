@@ -95,8 +95,9 @@ const openDrawer = () => {
     scrollBlock(1);
 
     if (!isDesktop()) {
+        navMenu.setAttribute('aria-label', 'Close Menu');
+        navMenu.setAttribute('aria-expanded', true);
         navDrawer.removeAttribute('inert');
-
         navDrawer.classList.remove('hide');
         if (navDrawerClosingTimeout) clearTimeout(navDrawerClosingTimeout);
         trapFocus();
@@ -121,13 +122,15 @@ const toggleDrawer = () => {
  * Closes the navigation drawer, removes overlay and resets accessibility.
  */
 function closeDrawer() {
-    if (navMenu) navMenu.setAttribute('aria-expanded', 'false');
+    navMenu.setAttribute('aria-expanded', 'false');
     const overlay = document.body.querySelector('.overlay');
-    if (overlay) overlay.remove();
+    overlay.remove();
     scrollBlock(0);
 
     //Only hide navDrawer after exit animation
     if (!isDesktop()) {
+        navMenu.setAttribute('aria-label', 'Open Menu');
+        navMenu.setAttribute('aria-expanded', false);
         navDrawerClosingTimeout = setTimeout(() => {
             navDrawer.classList.add('hide');
         }, 500);
