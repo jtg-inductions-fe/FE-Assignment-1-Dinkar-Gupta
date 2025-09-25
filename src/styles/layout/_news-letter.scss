@@ -78,13 +78,9 @@
     }
 
     &__input-field {
-        @include abstracts.padding((24px, 80px, 24px, 68px));
+        @include abstracts.padding((27px, 80px, 24px, 68px));
         width: 100%;
         border-radius: 15px;
-        font-family: 'circular-std';
-        font-weight: 700;
-        font-size: abstracts.pxToRem(14px);
-        color: inherit;
         transition: box-shadow 0.3s ease;
         border: none;
         &:hover,
@@ -96,17 +92,6 @@
         @include abstracts.responsive(tab) {
             @include abstracts.padding((35px, 32px, 32px, 79px));
             border-radius: 32px;
-            font-size: abstracts.pxToRem(23px);
-        }
-
-        &::placeholder {
-            font-family: 'circular-std';
-            font-weight: 700;
-            font-size: abstracts.pxToRem(14px);
-
-            @include abstracts.responsive(tab) {
-                font-size: abstracts.pxToRem(23px);
-            }
         }
     }
 
@@ -133,6 +118,8 @@
 .squiggle {
     display: none;
     position: absolute;
+    pointer-events: none;
+    z-index: -1;
 
     @include abstracts.responsive(tab) {
         display: block;

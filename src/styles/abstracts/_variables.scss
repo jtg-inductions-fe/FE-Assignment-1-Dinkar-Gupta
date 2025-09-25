@@ -13,6 +13,7 @@ $dark-charcoal: #222831;
 $light-grey: #eeeeee;
 $white: #ffffff;
 $black: #000000;
+$dark-grey: color.adjust($black, $alpha: -0.4);
 $transparent-black: color.adjust($black, $alpha: -0.5);
 
 $brand-colors: (

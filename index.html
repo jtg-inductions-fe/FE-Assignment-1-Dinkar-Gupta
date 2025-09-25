@@ -310,7 +310,7 @@
             </section>
 
             <!-- TRAVEL POINT SECTION-->
-            <section class="travel-point">
+            <section class="travel-point" id="travel-point">
                 <div class="travel-point__ticket">
                     <span class="icon-ticket1"></span>
                 </div>
@@ -370,7 +370,7 @@
             </section>
 
             <!-- KEY FEATURES SECTION -->
-            <section class="key-features">
+            <section class="key-features" id="key-features">
                 <div class="key-features__image-container">
                     <picture>
                         <source
@@ -454,7 +454,7 @@
             </section>
 
             <!-- TESTIMONIALS SECTION -->
-            <section class="testimonials">
+            <section class="testimonials" id="testimonials">
                 <div class="testimonials__bg-wavy">
                     <picture aria-hidden="true">
                         <source
@@ -633,9 +633,12 @@
             </section>
 
             <!-- NEWS LETTER SECTION -->
-            <section class="news-letter">
+            <section class="news-letter" id="news-letter">
                 <div class="news-letter__dots" aria-hidden="true">
-                    <img src="/assets/images/decor/dots.svg" />
+                    <img
+                        src="/assets/images/decor/dots.svg"
+                        alt="Orange dots"
+                    />
                 </div>
                 <div class="news-letter__content">
                     <h2 class="news-letter__heading">
@@ -654,12 +657,14 @@
                             class="form__input-field"
                             type="email"
                             placeholder="Your Email"
-                            autocomplete="true"
+                            autocomplete="email"
+                            aria-label="Enter email address"
                         />
                     </div>
                     <button
                         class="btn btn--primary form__button-submit"
                         type="submit"
+                        alt="Subscribe to our newsletter"
                     >
                         Subscribe
                     </button>
@@ -668,9 +673,11 @@
         </main>
 
         <div class="squiggle" aria-hidden="true">
-            <img src="/assets/images/decor/squiggle.svg" />
+            <img
+                src="/assets/images/decor/squiggle.svg"
+                alt="Orange squiggle"
+            />
         </div>
-
         <script type="module" src="./src/script/index.js"></script>
     </body>
 </html>
