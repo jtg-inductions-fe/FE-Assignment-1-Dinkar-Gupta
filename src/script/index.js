@@ -1,22 +1,29 @@
 import '../styles/main.scss';
 import Swiper from 'swiper';
-import { Navigation, Pagination, Autoplay, A11y } from 'swiper/modules';
-// import Swiper and modules styles
+import {
+    Navigation,
+    Pagination,
+    Autoplay,
+    A11y,
+    Keyboard,
+} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 ('use strict');
-
-//HEADER NAVIGATION LOGIC
 
 const header = document.querySelector('.header');
 const navDrawer = document.querySelector('.header__nav-links');
 const navMenu = document.querySelector('.header__menu');
 const closeIcon = document.querySelector('.icon-close');
 const menuIcon = document.querySelector('.icon-menu2');
+const testimonialPrev = document.querySelector('.btn--prev');
+const testimonialNext = document.querySelector('.btn--next');
 const isDesktop = () => window.matchMedia('(min-width: 1025px)').matches;
 let handler = null;
 let navDrawerClosingTimeout = null;
+
+//HEADER NAVIGATION LOGIC
 
 /**
  * Toggles the visibility of the drawer and icons.
@@ -168,7 +175,7 @@ window.addEventListener('resize', () => {
     }
 });
 
-//close drawer if a link is clicked
+//Close drawer if a link is clicked
 navDrawer.addEventListener('click', (e) => {
     if (e.target.closest('li')) {
         toggle();
@@ -178,24 +185,32 @@ navDrawer.addEventListener('click', (e) => {
 navMenu.addEventListener('click', toggleDrawer);
 
 //SWIPER CONFIGURATION
-new Swiper('.wrapper', {
-    modules: [Navigation, Pagination, Autoplay, A11y],
+new Swiper('.swiper', {
+    modules: [Navigation, Pagination, Autoplay, A11y, Keyboard],
     loop: true,
-
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 750,
+    a11y: { enabled: true },
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
     },
-
     navigation: {
         nextEl: '.btn--next',
         prevEl: '.btn--prev',
     },
-    slidesPerView: 1,
-    spaceBetween: 20,
     autoplay: window.matchMedia('(prefers-reduced-motion: reduce)').matches
         ? false
         : { delay: 3000, disableOnInteraction: false },
-    a11y: { enabled: true },
-    speed: 750,
+    keyboard: {
+        enabled: true,
+        onlyInViewport: false,
+    },
+});
+
+//Detect left and right keypress on the testimonial section only when focused
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') testimonialNext.focus();
+    else if (e.key === 'ArrowLeft') testimonialPrev.focus();
 });
