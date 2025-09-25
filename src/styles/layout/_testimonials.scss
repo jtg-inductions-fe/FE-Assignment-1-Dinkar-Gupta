@@ -57,7 +57,7 @@
         }
 
         @include abstracts.responsive(desktop) {
-            transform: translateY(-46%);
+            transform: translateY(-55%);
         }
     }
 
@@ -118,6 +118,7 @@
     }
 
     &__description {
+        @include abstracts.multilineEllipsis(3);
         text-align: center;
         font-size: abstracts.pxToRem(18px);
         line-height: 1.6;
@@ -128,6 +129,7 @@
         }
 
         @include abstracts.responsive(desktop) {
+            @include abstracts.multilineEllipsis(2);
             padding-inline: abstracts.pxToRem(172px);
         }
     }
