@@ -4,19 +4,21 @@
 .travel-point {
     @include abstracts.flexContainer(39px, column, center, center);
     position: relative;
+    margin-bottom: abstracts.pxToRem(59px);
 
     @include abstracts.responsive(tab) {
-        gap: abstracts.pxToRem(76px);
+        gap: abstracts.pxToRem(73px);
+        margin-bottom: abstracts.pxToRem(23px);
     }
 
     @include abstracts.responsive(desktop) {
         flex-direction: row;
         align-items: flex-start;
+        margin-bottom: abstracts.pxToRem(30px);
     }
 
     &__image-container {
         width: 100%;
-        height: auto;
         overflow: hidden;
 
         @include abstracts.responsive(tab) {
@@ -58,7 +60,7 @@
 
     &__description {
         @include abstracts.multilineEllipsis(3);
-        @include abstracts.padding((14px, 10px, 0px, 10px));
+        @include abstracts.padding((14px, 10px, 0, 10px));
 
         @include abstracts.responsive(tab) {
             padding-inline: abstracts.pxToRem(35px);
@@ -74,14 +76,14 @@
         width: 100%;
 
         @include abstracts.responsive(tab) {
-            @include abstracts.padding((0px, 32px));
+            @include abstracts.padding((0, 32px));
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: abstracts.pxToRem(33px);
         }
 
         @include abstracts.responsive(desktop) {
-            @include abstracts.padding((2px, 0px, 95px, 75px));
+            @include abstracts.padding((2px, 0, 95px, 75px));
         }
     }
 
@@ -110,10 +112,8 @@
     }
 }
 
-.box {
-    @include abstracts.flexContainer(15px, column, center, center);
-    border-radius: abstracts.pxToRem(32px);
-    padding: abstracts.pxToRem(32px);
+.content-box {
+    gap: abstracts.pxToRem(15px);
     border: abstracts.pxToRem(1px) solid
         color.adjust(abstracts.$charcoal-blue, $alpha: -0.9);
 
