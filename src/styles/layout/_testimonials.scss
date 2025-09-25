@@ -45,6 +45,22 @@
         }
     }
 
+    &__bg-wavy {
+        display: none;
+        position: absolute;
+
+        @include abstracts.responsive(tab) {
+            display: block;
+            top: 50%;
+            transform: translateY(-69%);
+            width: 100vw;
+        }
+
+        @include abstracts.responsive(desktop) {
+            transform: translateY(-46%);
+        }
+    }
+
     .swiper-pagination-bullet {
         width: abstracts.pxToRem(22px) !important;
         height: abstracts.pxToRem(22px) !important;
