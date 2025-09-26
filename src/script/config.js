@@ -14,5 +14,5 @@ export const SLIDES_ONLY_IN_VIEWPORT = true;
 export const SLIDES_NEXT_NAVIGATION_ELEMENT = 'btn--next';
 export const SLIDES_PREVIOUS_NAVIGATION_ELEMENT = 'btn--prev';
 export const SLIDES_NAVIGATION_EVENT = 'keydown';
-export const SLIDES_NEXT_KEY = 'ArrowRight';
-export const SLIDES_PREVIOUS_KEY = 'ArrowLeft';
+export const SLIDES_NEXT_CONTROLLER = 'ArrowRight';
+export const SLIDES_PREVIOUS_CONTROLLER = 'ArrowLeft';

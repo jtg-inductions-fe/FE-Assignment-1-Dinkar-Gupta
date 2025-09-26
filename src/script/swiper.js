@@ -45,6 +45,7 @@ new Swiper('.swiper', {
 
 //Detect left and right keypress on the testimonial section only when focused
 document.addEventListener(config.SLIDES_NAVIGATION_EVENT, (e) => {
-    if (e.key === config.SLIDES_NEXT_KEY) testimonialNext.focus();
-    else if (e.key === config.SLIDES_PREVIOUS_KEY) testimonialPrev.focus();
+    if (e.key === config.SLIDES_NEXT_CONTROLLER) testimonialNext.focus();
+    else if (e.key === config.SLIDES_PREVIOUS_CONTROLLER)
+        testimonialPrev.focus();
 });
