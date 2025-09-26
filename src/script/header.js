@@ -1,4 +1,14 @@
-import { DRAWER_TRANSITION_TIME } from './config';
+import {
+    DRAWER_TRANSITION_TIME,
+    KEY_TAB,
+    KEY_ESCAPE,
+    EVENT_KEYDOWN,
+    EVENT_CLICK,
+    EVENT_SCROLL,
+    ATTR_ARIA_EXPANDED,
+    ATTR_ARIA_LABEL,
+    ATTR_INERT,
+} from './constants';
 
 const header = document.querySelector('.header');
 const navDrawer = document.querySelector('.header__nav-links');
@@ -18,7 +28,7 @@ const toggle = () => {
     navDrawer.classList.toggle('open-drawer');
 };
 
-window.addEventListener('scroll', () => {
+window.addEventListener(EVENT_SCROLL, () => {
     if (window.scrollY > 0) {
         header.classList.add('add-shadow');
     } else {
@@ -41,7 +51,7 @@ const trapFocus = () => {
 
         const firstFocusableEl = focusableEls[0];
         const lastFocusableEl = focusableEls[focusableEls.length - 1];
-        if (e.key === 'Tab') {
+        if (e.key === KEY_TAB) {
             if (e.shiftKey && document.activeElement === firstFocusableEl) {
                 e.preventDefault();
                 lastFocusableEl.focus();
@@ -53,12 +63,12 @@ const trapFocus = () => {
                 firstFocusableEl.focus();
             }
         }
-        if (e.key === 'Escape') {
+        if (e.key === KEY_ESCAPE) {
             closeDrawer();
             toggle();
         }
     };
-    header.addEventListener('keydown', handler);
+    header.addEventListener(EVENT_KEYDOWN, handler);
 };
 
 /**
@@ -93,14 +103,14 @@ const openDrawer = () => {
     scrollBlock(1);
 
     if (!isDesktop()) {
-        navMenu.setAttribute('aria-label', 'Close Menu');
-        navMenu.setAttribute('aria-expanded', true);
-        navDrawer.removeAttribute('inert');
+        navMenu.setAttribute(ATTR_ARIA_LABEL, 'Close Menu');
+        navMenu.setAttribute(ATTR_ARIA_EXPANDED, true);
+        navDrawer.removeAttribute(ATTR_INERT);
         navDrawer.classList.remove('hide');
         if (navDrawerClosingTimeout) clearTimeout(navDrawerClosingTimeout);
         trapFocus();
         const overlay = document.body.querySelector('.overlay');
-        overlay.addEventListener('click', () => {
+        overlay.addEventListener(EVENT_CLICK, () => {
             closeDrawer();
             toggle();
         });
@@ -120,21 +130,21 @@ const toggleDrawer = () => {
  * Closes the navigation drawer, removes overlay and resets accessibility.
  */
 function closeDrawer() {
-    navMenu.setAttribute('aria-expanded', 'false');
+    navMenu.setAttribute(ATTR_ARIA_EXPANDED, 'false');
     const overlay = document.body.querySelector('.overlay');
     overlay.remove();
     scrollBlock(0);
 
     //Only hide navDrawer after exit animation
     if (!isDesktop()) {
-        navMenu.setAttribute('aria-label', 'Open Menu');
-        navMenu.setAttribute('aria-expanded', false);
+        navMenu.setAttribute(ATTR_ARIA_LABEL, 'Open Menu');
+        navMenu.setAttribute(ATTR_ARIA_EXPANDED, false);
         navDrawerClosingTimeout = setTimeout(() => {
             navDrawer.classList.add('hide');
         }, DRAWER_TRANSITION_TIME);
-        navDrawer.setAttribute('inert', '');
+        navDrawer.setAttribute(ATTR_INERT, '');
         if (handler) {
-            header.removeEventListener('keydown', handler);
+            header.removeEventListener(EVENT_KEYDOWN, handler);
             handler = null;
         }
     }
@@ -143,28 +153,28 @@ function closeDrawer() {
 // On desktop, remove accessibility blockers by default.
 if (isDesktop()) {
     navDrawer.classList.remove('hide');
-    navDrawer.removeAttribute('inert');
+    navDrawer.removeAttribute(ATTR_INERT);
 }
 
 // Remove accessibility blockers on resize to desktop and add in case drawer is open on mobile or tab
 window.addEventListener('resize', () => {
     if (isDesktop()) {
         navDrawer.classList.remove('hide');
-        navDrawer.removeAttribute('inert');
+        navDrawer.removeAttribute(ATTR_INERT);
     } else {
         if (!navDrawer.classList.contains('open-drawer')) {
             navDrawer.classList.add('hide');
-            navDrawer.setAttribute('inert', '');
+            navDrawer.setAttribute(ATTR_INERT, '');
         }
     }
 });
 
 //Close drawer if a link is clicked
-navDrawer.addEventListener('click', (e) => {
+navDrawer.addEventListener(EVENT_CLICK, (e) => {
     if (e.target.closest('li')) {
         toggle();
         closeDrawer();
     }
 });
 
-navMenu.addEventListener('click', toggleDrawer);
+navMenu.addEventListener(EVENT_CLICK, toggleDrawer);
