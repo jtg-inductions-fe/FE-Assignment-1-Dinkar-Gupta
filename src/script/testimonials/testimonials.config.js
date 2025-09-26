@@ -1,3 +1,5 @@
+import { keys, events } from '../constants';
+
 export const swiperConfig = {
     SLIDES_LOOP: true,
     SLIDES_PER_VIEW: 1,
@@ -11,7 +13,7 @@ export const swiperConfig = {
     SLIDES_ONLY_IN_VIEWPORT: true,
     SLIDES_NEXT_NAVIGATION_ELEMENT: 'btn--next',
     SLIDES_PREVIOUS_NAVIGATION_ELEMENT: 'btn--prev',
-    SLIDES_NAVIGATION_EVENT: 'keydown',
-    SLIDES_NEXT_CONTROLLER: 'ArrowRight',
-    SLIDES_PREVIOUS_CONTROLLER: 'ArrowLeft',
+    SLIDES_NAVIGATION_EVENT: events.KEYDOWN,
+    SLIDES_NEXT_CONTROLLER: keys.ARROW_RIGHT,
+    SLIDES_PREVIOUS_CONTROLLER: keys.ARROW_LEFT,
 };
