@@ -1,3 +1,4 @@
+@use 'functions' as functions;
 @use 'sass:map';
 @use 'sass:color';
 // Colors
@@ -56,3 +57,5 @@ $btn-padding: 16px 32px;
 //General
 $bd-radius: 30px;
 $bd-radius-circle: 50%;
+$box-shadow: functions.pxToRem(4px) functions.pxToRem(14px)
+    functions.pxToRem(24px) color.adjust($black, $alpha: -0.8);

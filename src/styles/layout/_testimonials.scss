@@ -4,6 +4,7 @@
 .testimonials {
     @include abstracts.flexContainer(61px, column, center, center);
     position: relative;
+
     &__content {
         @include abstracts.flexContainer(17px, column, center, center);
     }
@@ -16,6 +17,7 @@
         @include abstracts.flexContainer(-1, row, center, space-between);
         width: 100%;
         transform: translateY(-35%);
+
         button {
             padding: abstracts.pxToRem(22px);
             padding-inline: abstracts.pxToRem(23px);
@@ -26,11 +28,10 @@
             color: abstracts.$black;
 
             &:hover,
-            &:focus {
+            &:focus-visible {
                 background-color: abstracts.$violet-blue;
                 color: abstracts.$white;
-                box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
-                    abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
+                box-shadow: abstracts.$box-shadow;
             }
         }
 
@@ -38,6 +39,7 @@
             position: absolute;
             transform: translateY(-7px);
             z-index: 1000;
+
             button {
                 padding: abstracts.pxToRem(39px);
                 padding-inline: abstracts.pxToRem(40px);
@@ -61,28 +63,23 @@
         }
     }
 
-    .swiper-pagination-bullet {
-        width: abstracts.pxToRem(22px) !important;
-        height: abstracts.pxToRem(22px) !important;
-        opacity: 0.2;
-        margin: 0 abstracts.pxToRem(13px) !important;
-        transition: background-color 0.3s;
-    }
-    .swiper-pagination-bullet-active {
-        background: abstracts.$hot-pink !important;
-        opacity: 1;
+    &__wrapper {
+        position: relative;
     }
 }
 
-.slide {
+.testimonials-slide {
     @include abstracts.flexContainer(68px, column, center, center);
     margin-bottom: abstracts.pxToRem(96px);
+
     @include abstracts.responsive(tab) {
         gap: abstracts.pxToRem(55px);
     }
+
     &__description {
         font-weight: 400;
     }
+
     &__image-container {
         border-radius: 50%;
         width: abstracts.pxToRem(128px);
@@ -135,11 +132,15 @@
     }
 }
 
-.wrapper {
-    position: relative;
+.swiper-pagination-bullet {
+    width: abstracts.pxToRem(22px) !important;
+    height: abstracts.pxToRem(22px) !important;
+    opacity: 0.2;
+    margin: 0 abstracts.pxToRem(13px) !important;
+    transition: background-color 0.3s;
 }
 
-.shift {
-    position: absolute;
-    top: 10%;
+.swiper-pagination-bullet-active {
+    background: abstracts.$hot-pink !important;
+    opacity: 1;
 }

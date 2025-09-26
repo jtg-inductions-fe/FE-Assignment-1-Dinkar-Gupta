@@ -9,8 +9,7 @@
     border-radius: 32px;
     transition: 0.3s all ease;
     &:hover {
-        box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
-            abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
+        box-shadow: abstracts.$box-shadow;
     }
 
     @include abstracts.responsive(tab) {
