@@ -8,9 +8,9 @@
     position: relative;
 
     @include abstracts.responsive(tab) {
-        @include abstracts.padding((128px, 64px));
         background-color: color.adjust(abstracts.$golden-yellow, $alpha: -0.92);
         width: 100%;
+        @include abstracts.padding((128px, 64px));
         border-radius: 32px;
     }
 
@@ -23,12 +23,7 @@
     }
 
     &__subheading {
-        @include abstracts.multilineEllipsis(3);
         text-align: center;
-
-        @include abstracts.responsive(tab) {
-            @include abstracts.multilineEllipsis(2);
-        }
     }
 
     &__form {
@@ -44,7 +39,6 @@
     &__dots {
         display: none;
         position: absolute;
-        pointer-events: none;
 
         @include abstracts.responsive(tab) {
             display: block;
@@ -91,7 +85,8 @@
         border: none;
         &:hover,
         &:focus-visible {
-            box-shadow: abstracts.$box-shadow;
+            box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
+                abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
         }
 
         @include abstracts.responsive(tab) {
@@ -106,10 +101,12 @@
         width: 100%;
 
         @include abstracts.responsive(tab) {
-            padding-block: abstracts.pxToRem(32px);
+            padding-top: abstracts.pxToRem(32px);
+            padding-bottom: abstracts.pxToRem(32px);
             width: 31%;
             border-radius: 32px;
             font-size: abstracts.pxToRem(23px);
+            font-family: 'circular-std';
             font-weight: 700;
         }
 
