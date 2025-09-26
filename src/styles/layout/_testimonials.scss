@@ -19,8 +19,7 @@
         transform: translateY(-35%);
 
         button {
-            padding: abstracts.pxToRem(22px);
-            padding-inline: abstracts.pxToRem(23px);
+            @include abstracts.padding((22px, 23px));
             border-radius: 50%;
             background-color: abstracts.$white;
             border: 1px solid
@@ -41,8 +40,7 @@
             z-index: 1000;
 
             button {
-                padding: abstracts.pxToRem(39px);
-                padding-inline: abstracts.pxToRem(40px);
+                @include abstracts.padding((39px, 40px));
             }
         }
     }
