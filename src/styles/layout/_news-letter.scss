@@ -18,10 +18,7 @@
         @include abstracts.flexContainer(32px, column, center, center);
     }
 
-    &__heading {
-        text-align: center;
-    }
-
+    &__heading,
     &__subheading {
         text-align: center;
     }

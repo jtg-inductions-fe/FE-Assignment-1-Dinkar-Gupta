@@ -16,6 +16,7 @@ body {
     width: 92.6%;
     margin: 0 auto;
     padding-top: abstracts.pxToRem(120.391px);
+
     @include abstracts.responsive(tab) {
         padding-top: abstracts.pxToRem(114.094px);
         max-width: 896px;
