@@ -9,7 +9,7 @@ export default defineConfig(() => {
                 minify: true,
             }),
             ViteImageOptimizer({
-                test: /\.(jpg|png|webp)$/i,
+                test: /\.(jpg|png)$/i,
                 includePublic: true,
                 logStats: true,
                 png: {
