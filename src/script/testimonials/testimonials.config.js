@@ -1,4 +1,4 @@
-export default {
+export const swiperConfig = {
     SLIDES_LOOP: true,
     SLIDES_PER_VIEW: 1,
     SLIDES_GAP: 20,

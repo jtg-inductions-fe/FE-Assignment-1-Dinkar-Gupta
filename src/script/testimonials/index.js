@@ -1,5 +1,5 @@
-import swiperConfig from './testimonials.config';
-import { KEY_ARROW_LEFT, KEY_ARROW_RIGHT, EVENT_KEYDOWN } from './constants';
+import { swiperConfig } from './testimonials.config';
+import { keys, events } from '../constants';
 
 import Swiper from 'swiper';
 import 'swiper/css';
@@ -47,7 +47,7 @@ new Swiper('.swiper', {
 });
 
 //Detect left and right keypress on the testimonial section only when focused
-document.addEventListener(EVENT_KEYDOWN, (e) => {
-    if (e.key === KEY_ARROW_RIGHT) testimonialNext.focus();
-    else if (e.key === KEY_ARROW_LEFT) testimonialPrev.focus();
+document.addEventListener(events.KEYDOWN, (e) => {
+    if (e.key === keys.ARROW_RIGHT) testimonialNext.focus();
+    else if (e.key === keys.ARROW_LEFT) testimonialPrev.focus();
 });

@@ -1,14 +1,5 @@
-import {
-    DRAWER_TRANSITION_TIME,
-    KEY_TAB,
-    KEY_ESCAPE,
-    EVENT_KEYDOWN,
-    EVENT_CLICK,
-    EVENT_SCROLL,
-    ATTR_ARIA_EXPANDED,
-    ATTR_ARIA_LABEL,
-    ATTR_INERT,
-} from './constants';
+import { keys, attributes, events } from '../constants';
+import headerConfig from './header.config';
 
 const header = document.querySelector('.header');
 const navDrawer = document.querySelector('.header__nav-links');
@@ -28,7 +19,7 @@ const toggle = () => {
     navDrawer.classList.toggle('open-drawer');
 };
 
-window.addEventListener(EVENT_SCROLL, () => {
+window.addEventListener(events.SCROLL, () => {
     if (window.scrollY > 0) {
         header.classList.add('add-shadow');
     } else {
@@ -51,7 +42,7 @@ const trapFocus = () => {
 
         const firstFocusableEl = focusableEls[0];
         const lastFocusableEl = focusableEls[focusableEls.length - 1];
-        if (e.key === KEY_TAB) {
+        if (e.key === keys.TAB) {
             if (e.shiftKey && document.activeElement === firstFocusableEl) {
                 e.preventDefault();
                 lastFocusableEl.focus();
@@ -63,12 +54,12 @@ const trapFocus = () => {
                 firstFocusableEl.focus();
             }
         }
-        if (e.key === KEY_ESCAPE) {
+        if (e.key === keys.ESCAPE) {
             closeDrawer();
             toggle();
         }
     };
-    header.addEventListener(EVENT_KEYDOWN, handler);
+    header.addEventListener(events.KEYDOWN, handler);
 };
 
 /**
@@ -103,14 +94,14 @@ const openDrawer = () => {
     scrollBlock(1);
 
     if (!isDesktop()) {
-        navMenu.setAttribute(ATTR_ARIA_LABEL, 'Close Menu');
-        navMenu.setAttribute(ATTR_ARIA_EXPANDED, true);
-        navDrawer.removeAttribute(ATTR_INERT);
+        navMenu.setAttribute(attributes.ARIA_LABEL, 'Close Menu');
+        navMenu.setAttribute(attributes.ARIA_EXPANDED, true);
+        navDrawer.removeAttribute(attributes.INERT);
         navDrawer.classList.remove('hide');
         if (navDrawerClosingTimeout) clearTimeout(navDrawerClosingTimeout);
         trapFocus();
         const overlay = document.body.querySelector('.overlay');
-        overlay.addEventListener(EVENT_CLICK, () => {
+        overlay.addEventListener(events.CLICK, () => {
             closeDrawer();
             toggle();
         });
@@ -130,21 +121,21 @@ const toggleDrawer = () => {
  * Closes the navigation drawer, removes overlay and resets accessibility.
  */
 function closeDrawer() {
-    navMenu.setAttribute(ATTR_ARIA_EXPANDED, 'false');
+    navMenu.setAttribute(attributes.ARIA_EXPANDED, 'false');
     const overlay = document.body.querySelector('.overlay');
     overlay.remove();
     scrollBlock(0);
 
     //Only hide navDrawer after exit animation
     if (!isDesktop()) {
-        navMenu.setAttribute(ATTR_ARIA_LABEL, 'Open Menu');
-        navMenu.setAttribute(ATTR_ARIA_EXPANDED, false);
+        navMenu.setAttribute(attributes.ARIA_LABEL, 'Open Menu');
+        navMenu.setAttribute(attributes.ARIA_EXPANDED, false);
         navDrawerClosingTimeout = setTimeout(() => {
             navDrawer.classList.add('hide');
-        }, DRAWER_TRANSITION_TIME);
-        navDrawer.setAttribute(ATTR_INERT, '');
+        }, headerConfig.DRAWER_TRANSITION_TIME);
+        navDrawer.setAttribute(attributes.INERT, '');
         if (handler) {
-            header.removeEventListener(EVENT_KEYDOWN, handler);
+            header.removeEventListener(events.KEYDOWN, handler);
             handler = null;
         }
     }
@@ -153,28 +144,28 @@ function closeDrawer() {
 // On desktop, remove accessibility blockers by default.
 if (isDesktop()) {
     navDrawer.classList.remove('hide');
-    navDrawer.removeAttribute(ATTR_INERT);
+    navDrawer.removeAttribute(attributes.INERT);
 }
 
 // Remove accessibility blockers on resize to desktop and add in case drawer is open on mobile or tab
 window.addEventListener('resize', () => {
     if (isDesktop()) {
         navDrawer.classList.remove('hide');
-        navDrawer.removeAttribute(ATTR_INERT);
+        navDrawer.removeAttribute(attributes.INERT);
     } else {
         if (!navDrawer.classList.contains('open-drawer')) {
             navDrawer.classList.add('hide');
-            navDrawer.setAttribute(ATTR_INERT, '');
+            navDrawer.setAttribute(attributes.INERT, '');
         }
     }
 });
 
 //Close drawer if a link is clicked
-navDrawer.addEventListener(EVENT_CLICK, (e) => {
+navDrawer.addEventListener(events.CLICK, (e) => {
     if (e.target.closest('li')) {
         toggle();
         closeDrawer();
     }
 });
 
-navMenu.addEventListener(EVENT_CLICK, toggleDrawer);
+navMenu.addEventListener(events.CLICK, toggleDrawer);
