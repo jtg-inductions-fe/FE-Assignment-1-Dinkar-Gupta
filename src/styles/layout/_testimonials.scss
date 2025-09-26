@@ -120,12 +120,14 @@
 
         @include abstracts.responsive(tab) {
             font-size: abstracts.pxToRem(23px);
-            padding-inline: abstracts.pxToRem(133px);
+            padding-left: abstracts.pxToRem(133px);
+            padding-right: abstracts.pxToRem(133px);
         }
 
         @include abstracts.responsive(desktop) {
             @include abstracts.multilineEllipsis(2);
-            padding-inline: abstracts.pxToRem(172px);
+            padding-left: abstracts.pxToRem(172px);
+            padding-right: abstracts.pxToRem(172px);
         }
     }
 }

@@ -63,7 +63,8 @@
         @include abstracts.padding((14px, 10px, 0, 10px));
 
         @include abstracts.responsive(tab) {
-            padding-inline: abstracts.pxToRem(35px);
+            padding-left: abstracts.pxToRem(35px);
+            padding-right: abstracts.pxToRem(35px);
         }
 
         @include abstracts.responsive(desktop) {

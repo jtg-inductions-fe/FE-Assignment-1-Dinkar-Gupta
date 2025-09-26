@@ -67,7 +67,8 @@
         @include abstracts.multilineEllipsis(4);
 
         @include abstracts.responsive(tab) {
-            padding-inline: abstracts.pxToRem(35px);
+            padding-left: abstracts.pxToRem(35px);
+            padding-right: abstracts.pxToRem(35px);
         }
 
         @include abstracts.responsive(desktop) {
@@ -78,7 +79,8 @@
 
     &__list {
         @include abstracts.flexContainer(3px, column, stretch, center);
-        padding-inline: abstracts.pxToRem(30px);
+        padding-left: abstracts.pxToRem(30px);
+        padding-right: abstracts.pxToRem(30px);
         width: 100%;
 
         @include abstracts.responsive(tab) {
