@@ -23,7 +23,12 @@
     }
 
     &__subheading {
+        @include abstracts.multilineEllipsis(3);
         text-align: center;
+
+        @include abstracts.responsive(tab) {
+            @include abstracts.multilineEllipsis(2);
+        }
     }
 
     &__form {
@@ -39,6 +44,7 @@
     &__dots {
         display: none;
         position: absolute;
+        pointer-events: none;
 
         @include abstracts.responsive(tab) {
             display: block;
