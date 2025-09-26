@@ -1,6 +1,5 @@
 import { swiperConfig } from './testimonials.config';
 import { keys, events } from '../constants';
-
 import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
