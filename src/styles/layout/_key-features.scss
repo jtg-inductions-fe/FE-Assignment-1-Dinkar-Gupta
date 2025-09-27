@@ -4,9 +4,11 @@
 .key-features {
     @include abstracts.flexContainer(104px, column, center, center);
     position: relative;
+    margin-bottom: abstracts.pxToRem(70px);
 
     @include abstracts.responsive(tab) {
         gap: abstracts.pxToRem(74px);
+        margin-bottom: abstracts.pxToRem(135px);
     }
 
     @include abstracts.responsive(desktop) {
@@ -14,6 +16,7 @@
         align-items: flex-start;
         padding-top: abstracts.pxToRem(6px);
         gap: abstracts.pxToRem(13px);
+        margin-bottom: abstracts.pxToRem(119px);
     }
 
     &__image-container {
@@ -64,7 +67,8 @@
         @include abstracts.multilineEllipsis(4);
 
         @include abstracts.responsive(tab) {
-            padding-inline: abstracts.pxToRem(35px);
+            padding-left: abstracts.pxToRem(35px);
+            padding-right: abstracts.pxToRem(35px);
         }
 
         @include abstracts.responsive(desktop) {
@@ -75,7 +79,8 @@
 
     &__list {
         @include abstracts.flexContainer(3px, column, stretch, center);
-        padding-inline: abstracts.pxToRem(30px);
+        padding-left: abstracts.pxToRem(30px);
+        padding-right: abstracts.pxToRem(30px);
         width: 100%;
 
         @include abstracts.responsive(tab) {

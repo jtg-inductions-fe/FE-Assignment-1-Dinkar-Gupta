@@ -1,3 +1,4 @@
+@use 'functions' as functions;
 @use 'sass:map';
 @use 'sass:color';
 // Colors
@@ -38,6 +39,7 @@ $font-weights: (
 $font-variants: (
     ($primary-font, '#{$fonts}/#{$primary-font}', semibold),
     ($primary-font, '#{$fonts}/#{$primary-font}', bold),
+    ($primary-font, '#{$fonts}/#{$primary-font}', regular),
     ($secondary-font, '#{$fonts}/#{$secondary-font}', regular),
     ($fallback-font, '#{$fonts}/#{$fallback-font}', regular),
     ($fallback-font, '#{$fonts}/#{$fallback-font}', bold)
@@ -55,3 +57,5 @@ $btn-padding: 16px 32px;
 //General
 $bd-radius: 30px;
 $bd-radius-circle: 50%;
+$box-shadow: functions.pxToRem(4px) functions.pxToRem(14px)
+    functions.pxToRem(24px) color.adjust($black, $alpha: -0.8);
