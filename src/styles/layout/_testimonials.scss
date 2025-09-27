@@ -4,6 +4,15 @@
 .testimonials {
     @include abstracts.flexContainer(61px, column, center, center);
     position: relative;
+    margin-bottom: abstracts.pxToRem(46px);
+
+    @include abstracts.responsive(tab) {
+        margin-bottom: abstracts.pxToRem(99px);
+    }
+
+    @include abstracts.responsive(desktop) {
+        margin-bottom: abstracts.pxToRem(157px);
+    }
 
     &__content {
         @include abstracts.flexContainer(17px, column, center, center);

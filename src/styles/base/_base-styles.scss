@@ -1,5 +1,15 @@
 @use '../abstracts' as abstracts;
 
+html,
+body {
+    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+body {
+    position: relative;
+}
+
 //Containerization
 .container {
     max-width: 398px;

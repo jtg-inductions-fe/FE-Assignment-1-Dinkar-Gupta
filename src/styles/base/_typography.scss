@@ -1,6 +1,7 @@
 @use '../abstracts' as abstracts;
 @use 'sass:list';
 @use 'sass:map';
+@use 'sass:color';
 
 //creating font variants
 @each $font in abstracts.$font-variants {
@@ -43,4 +44,27 @@ body {
     @include abstracts.setOverallTypography(
         (69px, 23px, 55px, 44px, 28px, 23px, 18px)
     );
+}
+
+@include abstracts.setTypography(input, 14px, abstracts.$dark-grey, normal) {
+    font-family: abstracts.$primary-font;
+    font-weight: 700;
+
+    @include abstracts.responsive(tab) {
+        font-size: abstracts.pxToRem(23px);
+    }
+
+    @include abstracts.setTypography(
+        '&::placeholder',
+        14px,
+        abstracts.$dark-grey,
+        normal
+    ) {
+        font-family: abstracts.$primary-font;
+        font-weight: 700;
+
+        @include abstracts.responsive(tab) {
+            font-size: abstracts.pxToRem(23px);
+        }
+    }
 }

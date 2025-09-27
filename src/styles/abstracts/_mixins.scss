@@ -3,6 +3,7 @@
 @use 'sass:map';
 @use 'sass:list';
 @use 'sass:color';
+@use 'sass:string';
 
 /// @mixin fontFace
 /// Generates a `@font-face` rule with optional font formats.
@@ -109,8 +110,8 @@
 /// @param {Number | String} $line-height - The line height for the text.
 ///
 /// @content Allows additional styles to be passed inside the mixin block.
-@mixin setTypography($tag, $size, $color, $line-height) {
-    #{$tag} {
+@mixin setTypography($selector, $size, $color, $line-height) {
+    #{string.unquote($selector)} {
         font-size: functions.pxToRem($size);
         color: $color;
         line-height: $line-height;

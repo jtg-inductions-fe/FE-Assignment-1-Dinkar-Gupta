@@ -1,0 +1,131 @@
+@use '../abstracts' as abstracts;
+@use 'sass:color';
+
+.news-letter {
+    @include abstracts.flexContainer(65px, column, center, center);
+    width: 83%;
+    margin: 0 auto;
+    position: relative;
+
+    @include abstracts.responsive(tab) {
+        background-color: color.adjust(abstracts.$golden-yellow, $alpha: -0.92);
+        width: 100%;
+        @include abstracts.padding((128px, 64px));
+        border-radius: 32px;
+    }
+
+    &__content {
+        @include abstracts.flexContainer(32px, column, center, center);
+    }
+
+    &__heading,
+    &__subheading {
+        text-align: center;
+    }
+
+    &__form {
+        @include abstracts.flexContainer(34px, column, stretch, center);
+        width: 100%;
+
+        @include abstracts.responsive(tab) {
+            justify-content: space-between;
+            flex-direction: row;
+        }
+    }
+
+    &__dots {
+        display: none;
+        position: absolute;
+
+        @include abstracts.responsive(tab) {
+            display: block;
+            top: abstracts.pxToRem(-51px);
+            left: abstracts.pxToRem(-38px);
+        }
+
+        @include abstracts.responsive(desktop) {
+            left: abstracts.pxToRem(-29px);
+            opacity: 0.3;
+        }
+    }
+}
+
+.form {
+    @include abstracts.responsive(tab) {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    &__input {
+        color: color.adjust(abstracts.$black, $alpha: -0.4);
+        position: relative;
+        width: 100%;
+    }
+
+    &__input-icon {
+        font-size: abstracts.pxToRem(25px);
+        position: absolute;
+        top: abstracts.pxToRem(22px);
+        left: abstracts.pxToRem(30px);
+
+        @include abstracts.responsive(tab) {
+            font-size: abstracts.pxToRem(36px);
+            top: abstracts.pxToRem(29px);
+        }
+    }
+
+    &__input-field {
+        @include abstracts.padding((27px, 80px, 24px, 68px));
+        width: 100%;
+        border-radius: 15px;
+        transition: box-shadow 0.3s ease;
+        border: none;
+        &:hover,
+        &:focus-visible {
+            box-shadow: abstracts.pxToRem(4px) abstracts.pxToRem(14px)
+                abstracts.pxToRem(24px) rgba(0, 0, 0, 0.2);
+        }
+
+        @include abstracts.responsive(tab) {
+            @include abstracts.padding((35px, 32px, 32px, 79px));
+            border-radius: 32px;
+        }
+    }
+
+    &__button-submit {
+        @include abstracts.padding((24px, 64px));
+        border-radius: 15px;
+        width: 100%;
+
+        @include abstracts.responsive(tab) {
+            padding-top: abstracts.pxToRem(32px);
+            padding-bottom: abstracts.pxToRem(32px);
+            width: 31%;
+            border-radius: 32px;
+            font-size: abstracts.pxToRem(23px);
+            font-family: 'circular-std';
+            font-weight: 700;
+        }
+
+        @include abstracts.responsive(desktop) {
+            width: auto;
+        }
+    }
+}
+
+.squiggle {
+    display: none;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+
+    @include abstracts.responsive(tab) {
+        display: block;
+        top: 87.4%;
+        right: 0;
+    }
+
+    @include abstracts.responsive(desktop) {
+        top: 98%;
+    }
+}
