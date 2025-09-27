@@ -1,1 +1,1 @@
-import './testimonials';
+export * from './testimonials';
